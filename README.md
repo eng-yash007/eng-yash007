@@ -1,16 +1,13 @@
-## Hi there 👋
+<div align="center">
 
-<!--
-**eng-yash007/eng-yash007** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Yash Gupta
 
-Here are some ideas to get you started:
+### AI Engineer | GenAI | Computer Vision
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+## $ whoami
+
+<img src="./assets/info-card.svg" width="520"/>
+
+</div>
