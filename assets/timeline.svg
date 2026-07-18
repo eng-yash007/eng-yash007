@@ -28,7 +28,7 @@
     
         <g class="fade-in" style="animation-delay: 0.5s; opacity: 0;">
             <text x="30" y="70" font-size="14" class="text-accent">2023</text>
-            <text x="80" y="70" font-size="14" class="text-primary">→ Started DSA & Development</text>
+            <text x="80" y="70" font-size="14" class="text-primary">→ Started DSA &amp; Development</text>
         </g>
         
              <g class="fade-in" style="animation-delay: 0.7s; opacity: 0;">
@@ -46,7 +46,7 @@
              
         <g class="fade-in" style="animation-delay: 1.3s; opacity: 0;">
             <text x="30" y="150" font-size="14" class="text-accent">2024</text>
-            <text x="80" y="150" font-size="14" class="text-primary">→ Built Murliwala Sarees & Traffic Management</text>
+            <text x="80" y="150" font-size="14" class="text-primary">→ Built Murliwala Sarees &amp; Traffic Management</text>
         </g>
         
              <g class="fade-in" style="animation-delay: 1.5s; opacity: 0;">
@@ -64,7 +64,7 @@
              
         <g class="fade-in" style="animation-delay: 2.1s; opacity: 0;">
             <text x="30" y="230" font-size="14" class="text-accent">2025</text>
-            <text x="80" y="230" font-size="14" class="text-primary">→ Building Silent Gallery & DocuDost</text>
+            <text x="80" y="230" font-size="14" class="text-primary">→ Building Silent Gallery &amp; DocuDost</text>
         </g>
         
 </svg>

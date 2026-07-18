@@ -23,7 +23,7 @@ def generate_timeline():
     delay = 0.5
     for i, event in enumerate(events):
         year = event["year"]
-        text = event["text"]
+        text = event["text"].replace("&", "&amp;")
         
         timeline_items += f"""
         <g class="fade-in" style="animation-delay: {delay}s; opacity: 0;">
