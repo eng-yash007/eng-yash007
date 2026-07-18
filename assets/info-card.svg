@@ -1,69 +1,114 @@
-
-<svg xmlns="http://www.w3.org/2000/svg" width="520" height="250">
-
-<rect width="520" height="250" fill="#0d1117"/>
-
-<text x="20" y="35"
-font-size="22"
-font-family="monospace"
-fill="#39d353">
-
-$ whoami
-
-</text>
-
-<text x="20" y="75"
-font-size="16"
-font-family="monospace"
-fill="#c9d1d9">
-
-Name       : Yash Gupta
-
-</text>
-
-<text x="20" y="100"
-font-size="16"
-font-family="monospace"
-fill="#c9d1d9">
-
-Role       : AI Engineer
-
-</text>
-
-<text x="20" y="125"
-font-size="16"
-font-family="monospace"
-fill="#c9d1d9">
-
-College    : ABES Engineering College
-
-</text>
-
-<text x="20" y="150"
-font-size="16"
-font-family="monospace"
-fill="#c9d1d9">
-
-Focus      : GenAI | Computer Vision | Backend
-
-</text>
-
-<text x="20" y="175"
-font-size="16"
-font-family="monospace"
-fill="#c9d1d9">
-
-Learning   : System Design
-
-</text>
-
-<text x="20" y="200"
-font-size="16"
-font-family="monospace"
-fill="#39d353">
-
-Status     : Building AI Products 🚀
-
-</text>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="350" viewBox="0 0 800 350">
+    <style>
+        .text-primary { font-family: JetBrains Mono, monospace; fill: #c9d1d9; }
+        .text-secondary { font-family: JetBrains Mono, monospace; fill: #8b949e; }
+        .text-accent { font-family: JetBrains Mono, monospace; fill: #39d353; }
+        .bg { fill: #0d1117; }
+        .border { stroke: #30363d; fill: none; }
+        
+        @keyframes fadeInSlide {
+            0% { opacity: 0; transform: translateX(-10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .fade-in {
+            animation: fadeInSlide 0.5s forwards ease-out;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .ubuntu-logo {
+            animation: slideInUp 0.8s forwards ease-out;
+            opacity: 0;
+        }
+    </style>
+    
+    <rect width="800" height="350" class="bg" rx="6" />
+    <rect width="800" height="350" class="border" rx="6" stroke-width="2"/>
+    
+    
+    <rect width="100%" height="30" fill="#30363d" rx="4" />
+    <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
+    <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
+    <circle cx="55" cy="15" r="6" fill="#27c93f"/>
+    <text x="50%" y="20" class="text-primary" font-size="14" text-anchor="middle">yash@github: ~</text>
+    
+    
+    <g transform="translate(20, 50)" class="ubuntu-logo">
+        <text class="text-accent" font-size="12">
+            <tspan x="0" dy="1.2em">            .-/+oossssoo+/-.            </tspan>
+            <tspan x="0" dy="1.2em">        `:+ssssssssssssssssss+:`        </tspan>
+            <tspan x="0" dy="1.2em">      -+ssssssssssssssssssyyssss+-      </tspan>
+            <tspan x="0" dy="1.2em">    .ossssssssssssssssssdMMMNysssso.    </tspan>
+            <tspan x="0" dy="1.2em">   /ssssssssssshdmmNNmmyNMMMMhssssss/   </tspan>
+            <tspan x="0" dy="1.2em">  +ssssssssshmydMMMMMMMNddddyssssssss+  </tspan>
+            <tspan x="0" dy="1.2em"> /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/ </tspan>
+            <tspan x="0" dy="1.2em">.ssssssssdMMMNhsssssssssshNMMMdssssssss.</tspan>
+            <tspan x="0" dy="1.2em">+sssssssyNMMMyssssssssssssyNMMMysssssss+</tspan>
+            <tspan x="0" dy="1.2em">ossyhddddNMMMyssssssssssssyNMMMyddddyso</tspan>
+            <tspan x="0" dy="1.2em">mNMMMMMMMMMMMyssssssssssssyNMMMMMMMMMMNm</tspan>
+            <tspan x="0" dy="1.2em">ossyhddddNMMMyssssssssssssyNMMMyddddyso</tspan>
+            <tspan x="0" dy="1.2em">+sssssssyNMMMyssssssssssssyNMMMysssssss+</tspan>
+            <tspan x="0" dy="1.2em">.ssssssssdMMMNhsssssssssshNMMMdssssssss.</tspan>
+            <tspan x="0" dy="1.2em"> /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/ </tspan>
+            <tspan x="0" dy="1.2em">  +sssssssssdmydMMMMMMMMddddyssssssss+  </tspan>
+            <tspan x="0" dy="1.2em">   /ssssssssssshdmmNNmmyNMMMMhssssss/   </tspan>
+            <tspan x="0" dy="1.2em">    .ossssssssssssssssssdMMMNysssso.    </tspan>
+            <tspan x="0" dy="1.2em">      -+sssssssssssssssssyyyssss+-      </tspan>
+            <tspan x="0" dy="1.2em">        `:+ssssssssssssssssss+:`        </tspan>
+            <tspan x="0" dy="1.2em">            .-/+oossssoo+/-.            </tspan>
+        </text>
+    </g>
+    
+    
+        <g class="fade-in" style="animation-delay: 0.5s; opacity: 0;">
+            <text x="320" y="60" font-size="14" class="text-primary"><tspan class='text-accent'>OS</tspan><tspan class='text-primary'>: Ubuntu</tspan></text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.7s; opacity: 0;">
+            <text x="320" y="85" font-size="14" class="text-primary"><tspan class='text-accent'>Host</tspan><tspan class='text-primary'>: GitHub</tspan></text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.8999999999999999s; opacity: 0;">
+            <text x="320" y="110" font-size="14" class="text-primary"><tspan class='text-accent'>Name</tspan><tspan class='text-primary'>: Yash Gupta</tspan></text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.0999999999999999s; opacity: 0;">
+            <text x="320" y="135" font-size="14" class="text-primary"><tspan class='text-accent'>Role</tspan><tspan class='text-primary'>: AI Engineer</tspan></text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.2999999999999998s; opacity: 0;">
+            <text x="320" y="160" font-size="14" class="text-primary"><tspan class='text-accent'>College</tspan><tspan class='text-primary'>: ABES Engineering College</tspan></text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.4999999999999998s; opacity: 0;">
+            <text x="320" y="185" font-size="14" class="text-primary"><tspan class='text-accent'>Focus</tspan><tspan class='text-primary'>: GenAI | Computer Vision | Backend</tspan></text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.6999999999999997s; opacity: 0;">
+            <text x="320" y="210" font-size="14" class="text-primary"><tspan class='text-accent'>Experience</tspan><tspan class='text-primary'>: Capri Global, Ragh Vision</tspan></text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.8999999999999997s; opacity: 0;">
+            <text x="320" y="235" font-size="14" class="text-primary"><tspan class='text-accent'>Learning</tspan><tspan class='text-primary'>: System Design</tspan></text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.0999999999999996s; opacity: 0;">
+            <text x="320" y="260" font-size="14" class="text-primary"><tspan class='text-accent'>Status</tspan><tspan class='text-primary'>: Building AI Products 🚀</tspan></text>
+        </g>
+        
+    <g class="fade-in" style="animation-delay: 2.3s; opacity: 0;">
+        <text x="320" y="285" font-size="14" class="text-accent prompt">yash@github:~$ <tspan class="blink">_</tspan></text>
+    </g>
+    
+    
 </svg>

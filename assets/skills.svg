@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+    <style>
+        .text-primary { font-family: JetBrains Mono, monospace; fill: #c9d1d9; }
+        .text-secondary { font-family: JetBrains Mono, monospace; fill: #8b949e; }
+        .text-accent { font-family: JetBrains Mono, monospace; fill: #39d353; }
+        .bg { fill: #0d1117; }
+        .border { stroke: #30363d; fill: none; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.4s forwards ease-out;
+        }
+        
+        @keyframes growBar {
+            from { clip-path: inset(0 100% 0 0); }
+            to { clip-path: inset(0 0 0 0); }
+        }
+        .bar-grow {
+            animation: growBar 0.6s forwards cubic-bezier(0.1, 0.8, 0.2, 1);
+        }
+    </style>
+    
+    <rect width="400" height="300" class="bg" rx="6" />
+    <rect width="400" height="300" class="border" rx="6" stroke-width="2"/>
+    
+    
+    <rect width="100%" height="30" fill="#30363d" rx="4" />
+    <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
+    <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
+    <circle cx="55" cy="15" r="6" fill="#27c93f"/>
+    <text x="50%" y="20" class="text-primary" font-size="14" text-anchor="middle">yash@github: ~/skills</text>
+    
+    
+        <g class="fade-in" style="animation-delay: 0.5s; opacity: 0;">
+            <text x="30" y="60" font-size="14" class="text-accent" xml:space="preserve">Python      </text>
+            <text x="140" y="60" font-size="14" class="text-primary bar-grow" style="animation-delay: 0.7s; clip-path: inset(0 100% 0 0);" xml:space="preserve">██████████████</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.7s; opacity: 0;">
+            <text x="30" y="85" font-size="14" class="text-accent" xml:space="preserve">FastAPI     </text>
+            <text x="140" y="85" font-size="14" class="text-primary bar-grow" style="animation-delay: 0.8999999999999999s; clip-path: inset(0 100% 0 0);" xml:space="preserve">██████████</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.8999999999999999s; opacity: 0;">
+            <text x="30" y="110" font-size="14" class="text-accent" xml:space="preserve">React       </text>
+            <text x="140" y="110" font-size="14" class="text-primary bar-grow" style="animation-delay: 1.0999999999999999s; clip-path: inset(0 100% 0 0);" xml:space="preserve">█████████</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.0999999999999999s; opacity: 0;">
+            <text x="30" y="135" font-size="14" class="text-accent" xml:space="preserve">Next.js     </text>
+            <text x="140" y="135" font-size="14" class="text-primary bar-grow" style="animation-delay: 1.2999999999999998s; clip-path: inset(0 100% 0 0);" xml:space="preserve">████████</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.2999999999999998s; opacity: 0;">
+            <text x="30" y="160" font-size="14" class="text-accent" xml:space="preserve">OpenCV      </text>
+            <text x="140" y="160" font-size="14" class="text-primary bar-grow" style="animation-delay: 1.4999999999999998s; clip-path: inset(0 100% 0 0);" xml:space="preserve">████████</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.4999999999999998s; opacity: 0;">
+            <text x="30" y="185" font-size="14" class="text-accent" xml:space="preserve">LangChain   </text>
+            <text x="140" y="185" font-size="14" class="text-primary bar-grow" style="animation-delay: 1.6999999999999997s; clip-path: inset(0 100% 0 0);" xml:space="preserve">█████████</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.6999999999999997s; opacity: 0;">
+            <text x="30" y="210" font-size="14" class="text-accent" xml:space="preserve">C++         </text>
+            <text x="140" y="210" font-size="14" class="text-primary bar-grow" style="animation-delay: 1.8999999999999997s; clip-path: inset(0 100% 0 0);" xml:space="preserve">████████████</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.8999999999999997s; opacity: 0;">
+            <text x="30" y="235" font-size="14" class="text-accent" xml:space="preserve">TypeScript  </text>
+            <text x="140" y="235" font-size="14" class="text-primary bar-grow" style="animation-delay: 2.0999999999999996s; clip-path: inset(0 100% 0 0);" xml:space="preserve">██████████</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.0999999999999996s; opacity: 0;">
+            <text x="30" y="260" font-size="14" class="text-accent" xml:space="preserve">SQL         </text>
+            <text x="140" y="260" font-size="14" class="text-primary bar-grow" style="animation-delay: 2.3s; clip-path: inset(0 100% 0 0);" xml:space="preserve">███████████</text>
+        </g>
+        
+</svg>

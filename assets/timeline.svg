@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+    <style>
+        .text-primary { font-family: JetBrains Mono, monospace; fill: #c9d1d9; }
+        .text-secondary { font-family: JetBrains Mono, monospace; fill: #8b949e; }
+        .text-accent { font-family: JetBrains Mono, monospace; fill: #39d353; }
+        .bg { fill: #0d1117; }
+        .border { stroke: #30363d; fill: none; }
+        
+        @keyframes slideDownFade {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: slideDownFade 0.5s forwards ease-out;
+        }
+    </style>
+    
+    <rect width="500" height="300" class="bg" rx="6" />
+    <rect width="500" height="300" class="border" rx="6" stroke-width="2"/>
+    
+    
+    <rect width="100%" height="30" fill="#30363d" rx="4" />
+    <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
+    <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
+    <circle cx="55" cy="15" r="6" fill="#27c93f"/>
+    <text x="50%" y="20" class="text-primary" font-size="14" text-anchor="middle">yash@github: ~/timeline</text>
+    
+    
+        <g class="fade-in" style="animation-delay: 0.5s; opacity: 0;">
+            <text x="30" y="70" font-size="14" class="text-accent">2023</text>
+            <text x="80" y="70" font-size="14" class="text-primary">→ Started DSA & Development</text>
+        </g>
+        
+             <g class="fade-in" style="animation-delay: 0.7s; opacity: 0;">
+                <text x="45" y="90" font-size="14" class="text-secondary">↓</text>
+             </g>
+             
+        <g class="fade-in" style="animation-delay: 0.9s; opacity: 0;">
+            <text x="30" y="110" font-size="14" class="text-accent">2024</text>
+            <text x="80" y="110" font-size="14" class="text-primary">→ Computer Vision Intern - Ragh Vision</text>
+        </g>
+        
+             <g class="fade-in" style="animation-delay: 1.1s; opacity: 0;">
+                <text x="45" y="130" font-size="14" class="text-secondary">↓</text>
+             </g>
+             
+        <g class="fade-in" style="animation-delay: 1.3s; opacity: 0;">
+            <text x="30" y="150" font-size="14" class="text-accent">2024</text>
+            <text x="80" y="150" font-size="14" class="text-primary">→ Built Murliwala Sarees & Traffic Management</text>
+        </g>
+        
+             <g class="fade-in" style="animation-delay: 1.5s; opacity: 0;">
+                <text x="45" y="170" font-size="14" class="text-secondary">↓</text>
+             </g>
+             
+        <g class="fade-in" style="animation-delay: 1.7000000000000002s; opacity: 0;">
+            <text x="30" y="190" font-size="14" class="text-accent">2025</text>
+            <text x="80" y="190" font-size="14" class="text-primary">→ GenAI Intern - Capri Global Capital Ltd.</text>
+        </g>
+        
+             <g class="fade-in" style="animation-delay: 1.9000000000000001s; opacity: 0;">
+                <text x="45" y="210" font-size="14" class="text-secondary">↓</text>
+             </g>
+             
+        <g class="fade-in" style="animation-delay: 2.1s; opacity: 0;">
+            <text x="30" y="230" font-size="14" class="text-accent">2025</text>
+            <text x="80" y="230" font-size="14" class="text-primary">→ Building Silent Gallery & DocuDost</text>
+        </g>
+        
+</svg>

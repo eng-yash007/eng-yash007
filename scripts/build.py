@@ -21,7 +21,9 @@ def main():
     
     # Scripts to run in order
     scripts = [
-        "make_info_card.py"
+        "make_info_card.py",
+        "make_skills_svg.py",
+        "make_timeline_svg.py"
     ]
     
     for script in scripts:
