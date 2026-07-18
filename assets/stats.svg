@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+    <style>
+        .text-primary { font-family: JetBrains Mono, monospace; fill: #c9d1d9; }
+        .text-accent { font-family: JetBrains Mono, monospace; fill: #39d353; }
+        .bg { fill: #0d1117; }
+        .border { stroke: #30363d; fill: none; }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .fade-in {
+            animation: slideInRight 0.5s forwards ease-out;
+        }
+    </style>
+    
+    <rect width="400" height="250" class="bg" rx="6" />
+    <rect width="400" height="250" class="border" rx="6" stroke-width="2"/>
+    
+    
+    <rect width="100%" height="30" fill="#30363d" rx="4" />
+    <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
+    <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
+    <circle cx="55" cy="15" r="6" fill="#27c93f"/>
+    <text x="50%" y="20" class="text-primary" font-size="14" text-anchor="middle">yash@github: ~/stats</text>
+    
+    
+        <g class="fade-in" style="animation-delay: 0.5s; opacity: 0;">
+            <text x="40" y="70" font-size="14" class="text-accent">Repositories   </text>
+            <text x="180" y="70" font-size="14" class="text-primary">: 10</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.7s; opacity: 0;">
+            <text x="40" y="105" font-size="14" class="text-accent">Total Stars    </text>
+            <text x="180" y="105" font-size="14" class="text-primary">: 3</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.8999999999999999s; opacity: 0;">
+            <text x="40" y="140" font-size="14" class="text-accent">Total Forks    </text>
+            <text x="180" y="140" font-size="14" class="text-primary">: 0</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.0999999999999999s; opacity: 0;">
+            <text x="40" y="175" font-size="14" class="text-accent">Followers      </text>
+            <text x="180" y="175" font-size="14" class="text-primary">: 1</text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.2999999999999998s; opacity: 0;">
+            <text x="40" y="210" font-size="14" class="text-accent">Following      </text>
+            <text x="180" y="210" font-size="14" class="text-primary">: 0</text>
+        </g>
+        
+</svg>

@@ -26,8 +26,17 @@ def main():
         "fetch_contributions.py",
         "render_heatmap.py",
         "make_info_card.py",
+        "make_projects_svg.py",
         "make_skills_svg.py",
-        "make_timeline_svg.py"
+        "make_timeline_svg.py",
+        "fetch_stats.py",
+        "make_stats_svg.py",
+        "fetch_leetcode.py",
+        "make_leetcode_svg.py",
+        "fetch_codechef.py",
+        "make_codechef_svg.py",
+        "fetch_quote.py",
+        "make_quote_svg.py"
     ]
     
     for script in scripts:

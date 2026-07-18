@@ -91,7 +91,7 @@
         </g>
         
         <g class="fade-in" style="animation-delay: 1.4999999999999998s; opacity: 0;">
-            <text x="320" y="185" font-size="14" class="text-primary"><tspan class='text-accent'>Focus</tspan><tspan class='text-primary'>: GenAI | Computer Vision | Backend</tspan></text>
+            <text x="320" y="185" font-size="14" class="text-primary"><tspan class='text-accent'>Focus</tspan><tspan class='text-primary'>: GenAI | Computer Vision | Development</tspan></text>
         </g>
         
         <g class="fade-in" style="animation-delay: 1.6999999999999997s; opacity: 0;">
@@ -99,7 +99,7 @@
         </g>
         
         <g class="fade-in" style="animation-delay: 1.8999999999999997s; opacity: 0;">
-            <text x="320" y="235" font-size="14" class="text-primary"><tspan class='text-accent'>Learning</tspan><tspan class='text-primary'>: System Design</tspan></text>
+            <text x="320" y="235" font-size="14" class="text-primary"><tspan class='text-accent'>Learning</tspan><tspan class='text-primary'>: Lang Chain</tspan></text>
         </g>
         
         <g class="fade-in" style="animation-delay: 2.0999999999999996s; opacity: 0;">
