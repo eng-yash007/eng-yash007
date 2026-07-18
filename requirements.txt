@@ -3,4 +3,4 @@ beautifulsoup4
 pillow
 numpy
 opencv-python-headless
-rembg
+rembg[cpu]

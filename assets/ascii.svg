@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="400" viewBox="0 0 350 400">
+    <style>
+        .text-primary { font-family: JetBrains Mono, monospace; fill: #c9d1d9; }
+        .text-accent { font-family: JetBrains Mono, monospace; fill: #39d353; font-weight: bold; letter-spacing: 1px; }
+        .bg { fill: #0d1117; }
+        .border { stroke: #30363d; fill: none; }
+        
+        @keyframes fadeInSlide {
+            0% { opacity: 0; transform: translateY(-5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeInSlide 0.2s forwards ease-out;
+        }
+    </style>
+    
+    <rect width="350" height="400" class="bg" rx="6" />
+    <rect width="350" height="400" class="border" rx="6" stroke-width="2"/>
+    
+    
+    <rect width="100%" height="30" fill="#30363d" rx="4" />
+    <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
+    <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
+    <circle cx="55" cy="15" r="6" fill="#27c93f"/>
+    <text x="50%" y="20" class="text-primary" font-size="14" text-anchor="middle">yash@github: ~/portrait</text>
+    
+    
+        <g class="fade-in" style="animation-delay: 0.5s; opacity: 0;">
+            <text x="20" y="60" font-size="10" class="text-accent" xml:space="preserve">                                                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.55s; opacity: 0;">
+            <text x="20" y="72" font-size="10" class="text-accent" xml:space="preserve">                                                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.6000000000000001s; opacity: 0;">
+            <text x="20" y="84" font-size="10" class="text-accent" xml:space="preserve">                                                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.6500000000000001s; opacity: 0;">
+            <text x="20" y="96" font-size="10" class="text-accent" xml:space="preserve">                                                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.7000000000000002s; opacity: 0;">
+            <text x="20" y="108" font-size="10" class="text-accent" xml:space="preserve">                                                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.7500000000000002s; opacity: 0;">
+            <text x="20" y="120" font-size="10" class="text-accent" xml:space="preserve">                                                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.8000000000000003s; opacity: 0;">
+            <text x="20" y="132" font-size="10" class="text-accent" xml:space="preserve">                                                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.8500000000000003s; opacity: 0;">
+            <text x="20" y="144" font-size="10" class="text-accent" xml:space="preserve">                         ....                     </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.9000000000000004s; opacity: 0;">
+            <text x="20" y="156" font-size="10" class="text-accent" xml:space="preserve">                     ..   ..``.                   </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 0.9500000000000004s; opacity: 0;">
+            <text x="20" y="168" font-size="10" class="text-accent" xml:space="preserve">                   ..     .`---`                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.0000000000000004s; opacity: 0;">
+            <text x="20" y="180" font-size="10" class="text-accent" xml:space="preserve">                      ....```.``.                 </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.0500000000000005s; opacity: 0;">
+            <text x="20" y="192" font-size="10" class="text-accent" xml:space="preserve">                 ... .`````. .``.                 </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.1000000000000005s; opacity: 0;">
+            <text x="20" y="204" font-size="10" class="text-accent" xml:space="preserve">                  :=:`:::`.`+*=:                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.1500000000000006s; opacity: 0;">
+            <text x="20" y="216" font-size="10" class="text-accent" xml:space="preserve">                  :*=--+*--+*#*:                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.2000000000000006s; opacity: 0;">
+            <text x="20" y="228" font-size="10" class="text-accent" xml:space="preserve">                  -###*#%##%%%#+-                 </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.2500000000000007s; opacity: 0;">
+            <text x="20" y="240" font-size="10" class="text-accent" xml:space="preserve">                  -###=++*%%%%*#=                 </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.3000000000000007s; opacity: 0;">
+            <text x="20" y="252" font-size="10" class="text-accent" xml:space="preserve">                  .=*=:-+*#%#*=+.                 </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.3500000000000008s; opacity: 0;">
+            <text x="20" y="264" font-size="10" class="text-accent" xml:space="preserve">                   .==--=++*=:                    </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.4000000000000008s; opacity: 0;">
+            <text x="20" y="276" font-size="10" class="text-accent" xml:space="preserve">                    .--+**=-`-                    </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.4500000000000008s; opacity: 0;">
+            <text x="20" y="288" font-size="10" class="text-accent" xml:space="preserve">                    ::....`:=+                    </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.5000000000000009s; opacity: 0;">
+            <text x="20" y="300" font-size="10" class="text-accent" xml:space="preserve">                   :%*:``:=**%+.                  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.550000000000001s; opacity: 0;">
+            <text x="20" y="312" font-size="10" class="text-accent" xml:space="preserve">              .`:-=+%@*==+*#%@#+-:.               </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.600000000000001s; opacity: 0;">
+            <text x="20" y="324" font-size="10" class="text-accent" xml:space="preserve">         .--==+++++*%@@%**%@@%****++=-:`          </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.650000000000001s; opacity: 0;">
+            <text x="20" y="336" font-size="10" class="text-accent" xml:space="preserve">         +#**++=+=++#@@%#%@%@#***********-        </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.700000000000001s; opacity: 0;">
+            <text x="20" y="348" font-size="10" class="text-accent" xml:space="preserve">        :*****++**+*%@%%#%@@%*************        </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.750000000000001s; opacity: 0;">
+            <text x="20" y="360" font-size="10" class="text-accent" xml:space="preserve">        =++****=**+#@@@%%@@@%***********+*+       </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.8000000000000012s; opacity: 0;">
+            <text x="20" y="372" font-size="10" class="text-accent" xml:space="preserve">       :++=**++=**+*%@@@@@@@#****+*****+**#-      </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.8500000000000012s; opacity: 0;">
+            <text x="20" y="384" font-size="10" class="text-accent" xml:space="preserve">       -++-*=...+*+*%@@@@@@%***********++***.     </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.9000000000000012s; opacity: 0;">
+            <text x="20" y="396" font-size="10" class="text-accent" xml:space="preserve">       =+=:====+=*+*%@@@@@@%****+*****+-+**#=     </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 1.9500000000000013s; opacity: 0;">
+            <text x="20" y="408" font-size="10" class="text-accent" xml:space="preserve">      .+*=`-=+**=+**%@@@@@@#***+++****=:+**#*     </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.0000000000000013s; opacity: 0;">
+            <text x="20" y="420" font-size="10" class="text-accent" xml:space="preserve">      `**=`-=++*==**%@@@@@%****+******-`++**#`    </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.050000000000001s; opacity: 0;">
+            <text x="20" y="432" font-size="10" class="text-accent" xml:space="preserve">      :**=.:=++++:**#@@@@@%***++******``++**#-    </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.100000000000001s; opacity: 0;">
+            <text x="20" y="444" font-size="10" class="text-accent" xml:space="preserve">      -**=``=++++:=*#@@@@@#**+++****++`.=+*##+    </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.150000000000001s; opacity: 0;">
+            <text x="20" y="456" font-size="10" class="text-accent" xml:space="preserve">      +**=`.-++++-`*#@@@@@**++****+*++`.-+**##.   </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.2000000000000006s; opacity: 0;">
+            <text x="20" y="468" font-size="10" class="text-accent" xml:space="preserve">     .***+`.-=+++=`=#%@@@%**=+******+=..-=+**#-   </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.2500000000000004s; opacity: 0;">
+            <text x="20" y="480" font-size="10" class="text-accent" xml:space="preserve">     :***+`.-=+++=:`*@@@@%*==+****+++- .:-++===   </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.3000000000000003s; opacity: 0;">
+            <text x="20" y="492" font-size="10" class="text-accent" xml:space="preserve">     =***=`.-=+++=-:+@@@@#+==+*****++:  ``-+**+:  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.35s; opacity: 0;">
+            <text x="20" y="504" font-size="10" class="text-accent" xml:space="preserve">     +***=..-=++++=-=%@@@*=+++*****++:  .`-===+-  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.4s; opacity: 0;">
+            <text x="20" y="516" font-size="10" class="text-accent" xml:space="preserve">    .*#**=.`-=++++=-+@@@%+`+*******++: .-=+***+-. </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.4499999999999997s; opacity: 0;">
+            <text x="20" y="528" font-size="10" class="text-accent" xml:space="preserve">    :*##*=.:-=+++++-*@@@%+********++=-:+**####*:  </text>
+        </g>
+        
+        <g class="fade-in" style="animation-delay: 2.4999999999999996s; opacity: 0;">
+            <text x="20" y="540" font-size="10" class="text-accent" xml:space="preserve">    -*##*-.-==++++=-#@%@@*********+=-`=#*####*-   </text>
+        </g>
+        
+</svg>

@@ -21,6 +21,10 @@ def main():
     
     # Scripts to run in order
     scripts = [
+        "prep_photo.py",
+        "make_ascii_svg.py",
+        "fetch_contributions.py",
+        "render_heatmap.py",
         "make_info_card.py",
         "make_skills_svg.py",
         "make_timeline_svg.py"
