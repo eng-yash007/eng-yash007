@@ -71,7 +71,7 @@
     
     
         <g class="fade-in" style="animation-delay: 0.5s; opacity: 0;">
-            <text x="320" y="60" font-size="14" class="text-primary"><tspan class='text-accent'>OS</tspan><tspan class='text-primary'>: Ubuntu</tspan></text>
+            <text x="320" y="60" font-size="14" class="text-primary"><tspan class='text-accent'>OS</tspan><tspan class='text-primary'>: MacOS</tspan></text>
         </g>
         
         <g class="fade-in" style="animation-delay: 0.7s; opacity: 0;">
