@@ -77,7 +77,7 @@ def generate_all_badges():
     email_icon = """<path fill="#ec4899" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>"""
 
     create_badge("GitHub", "eng-yash007", github_icon, "#818cf8", "#38bdf8", "assets/badge_github.svg")
-    create_badge("LinkedIn", "engyash", linkedin_icon, "#0a66c2", "#38bdf8", "assets/badge_linkedin.svg")
+    create_badge("LinkedIn", "eng-yash007", linkedin_icon, "#0a66c2", "#38bdf8", "assets/badge_linkedin.svg")
     create_badge("LeetCode", "eng-yash007", leetcode_icon, "#ffa116", "#fbbf24", "assets/badge_leetcode.svg")
     create_badge("CodeChef", "yashgupta9171", codechef_icon, "#ea580c", "#f97316", "assets/badge_codechef.svg")
     create_badge("Email", "Direct Connect", email_icon, "#ec4899", "#f472b6", "assets/badge_email.svg")
