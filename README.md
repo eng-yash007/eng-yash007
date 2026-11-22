@@ -2,11 +2,11 @@
 
 <img src="./assets/hero.svg" width="900" alt="Hi, I'm Yash - Generative AI Engineer">
 
-<br><br>
+<br>
 
 <img src="./assets/about.svg" width="900" alt="About Yash Gupta & yash.config">
 
-<br><br>
+<br>
 
 <!-- GENERATIVE VISUAL.MAP & LIVE STACK STREAM -->
 <table>
@@ -15,33 +15,36 @@
       <img src="./assets/yg-particle-map.gif" width="440" alt="VISUAL.MAP - Generative AI Particle Visualization">
     </td>
     <td align="center" valign="top">
-      <img src="./assets/stack_stream.svg" width="440" alt="STACK.STREAM - Verified Skills">
+      <img src="./assets/stack_stream.svg" width="440" alt="STACK.STREAM - Live Technology Matrix">
     </td>
   </tr>
 </table>
 
-<br><br>
+<br>
 
 <!-- FEATURED SYSTEMS (PREMIUM DARK TECH DEPLOYMENTS) -->
 <img src="./assets/projects.svg" width="900" alt="Featured Systems: Silent Gallery & Guardian Transit AI">
 
-<p align="center" style="margin-top: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px;">
-  <b>Silent Gallery:</b> &nbsp;
-  <a href="https://silent-galleryyy.vercel.app" target="_blank" style="color: #38bdf8; text-decoration: none;"><b>🚀 Live Demo ↗</b></a>
-  &nbsp;&nbsp;·&nbsp;&nbsp;
-  <a href="https://github.com/eng-yash007/silent_gallery" target="_blank" style="color: #94a3b8; text-decoration: none;"><b>💻 GitHub Repository ↗</b></a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Guardian Transit AI:</b> &nbsp;
-  <a href="https://guardian-transit-zeta.vercel.app" target="_blank" style="color: #38bdf8; text-decoration: none;"><b>🚀 Live Demo ↗</b></a>
-  &nbsp;&nbsp;·&nbsp;&nbsp;
-  <a href="https://github.com/eng-yash007/guardian-transit" target="_blank" style="color: #94a3b8; text-decoration: none;"><b>💻 GitHub Repository ↗</b></a>
-</p>
+<table>
+  <tr>
+    <td width="440" align="center">
+      <a href="https://silent-galleryyy.vercel.app" target="_blank">🚀 <b>Live Demo</b></a>
+      &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://github.com/eng-yash007/silent_gallery" target="_blank">💻 <b>GitHub Repository</b></a>
+    </td>
+    <td width="440" align="center">
+      <a href="https://guardian-transit-zeta.vercel.app" target="_blank">🚀 <b>Live Demo</b></a>
+      &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://github.com/eng-yash007/guardian-transit" target="_blank">💻 <b>GitHub Repository</b></a>
+    </td>
+  </tr>
+</table>
 
-<br><br>
+<br>
 
 <img src="./assets/metrics.svg" width="900" alt="System Metrics: GitHub, LeetCode, CodeChef">
 
-<br><br>
+<br>
 
 <!-- VERIFIED SOCIAL PROFILES DOCK (SINGLE ROW, ZERO-WRAP, ZERO UNDERLINE GLITCH) -->
 <table>
@@ -54,8 +57,8 @@
   </tr>
 </table>
 
-<p align="center" style="color: #64748b; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; margin-top: 18px;">
-  Automated via GitHub Actions • Data verified in real-time for <a href="https://github.com/eng-yash007" style="color: #2dd4bf; text-decoration: none;">eng-yash007</a>
+<p align="center" style="color: #64748B; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; margin-top: 14px;">
+  Automated via GitHub Actions • Data verified in real-time for <a href="https://github.com/eng-yash007" style="color: #22D3EE; text-decoration: none;">eng-yash007</a>
 </p>
 
 </div>

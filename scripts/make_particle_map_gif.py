@@ -4,48 +4,57 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
 
-def sample_keyword_particles(word: str, font, n_word_particles: int, width: int = 440, height: int = 320):
+def sample_keyword_particles(word: str, font, n_particles: int, width: int = 440, height: int = 320):
     img = Image.new("L", (width, height), 0)
     draw = ImageDraw.Draw(img)
-    # Centered vertically in active zone (50..290)
-    draw.text((width // 2, 162), word, font=font, fill=255, anchor="mm")
+    
+    # Letter spacing expansion for short words so they occupy balanced horizontal scale
+    display_word = word
+    if len(word) == 2:
+        display_word = f"{word[0]}  {word[1]}"
+    elif len(word) == 3:
+        display_word = f"{word[0]} {word[1]} {word[2]}"
+        
+    draw.text((width // 2, 165), display_word, font=font, fill=255, anchor="mm")
     
     arr = np.array(img)
-    y_idx, x_idx = np.where(arr > 128)
+    y_idx, x_idx = np.where(arr > 120)
     
     rng = np.random.RandomState(42)
-    chosen_idx = rng.choice(len(x_idx), size=n_word_particles, replace=(len(x_idx) < n_word_particles))
+    chosen_idx = rng.choice(len(x_idx), size=n_particles, replace=(len(x_idx) < n_particles))
     
-    # Organic jitter for a rich, stippled glowing constellation
-    pts_x = x_idx[chosen_idx].astype(np.float32) + rng.normal(0, 1.4, n_word_particles)
-    pts_y = y_idx[chosen_idx].astype(np.float32) + rng.normal(0, 1.4, n_word_particles)
+    # Controlled Gaussian jitter for a luminous stippled constellation
+    pts_x = x_idx[chosen_idx].astype(np.float32) + rng.normal(0, 1.3, n_particles)
+    pts_y = y_idx[chosen_idx].astype(np.float32) + rng.normal(0, 1.3, n_particles)
     
     pts = np.stack([pts_x, pts_y], axis=1)
     
-    # Sort horizontally for smooth, non-crossing fluid morphing
+    # Sort horizontally for smooth fluid morphing
     order = np.argsort(pts[:, 0])
     return pts[order]
 
 def generate_particle_map_gif():
-    # Symmetrically matched with STACK.STREAM: 440x320
+    # Harmonious frame proportions: 440x320
     width = 440
     height = 320
-    n_word_particles = 360
-    n_ambient_particles = 80
-    n_particles = n_word_particles + n_ambient_particles
+    
+    # 360 primary keyword particles + 64 ambient stardust particles
+    n_keyword_particles = 360
+    n_ambient_particles = 64
+    n_total = n_keyword_particles + n_ambient_particles
+    
     fps = 20
     frames_per_word = 22
     
-    # Short technical keywords strictly from Yash's verified profile
-    keywords = ["GenAI", "LLM", "RAG", "CV"]
-    total_frames = len(keywords) * frames_per_word  # 88 frames = 4.4s @ 20fps
+    keywords = ["GenAI", "CV", "RAG", "LLM"]
+    total_frames = len(keywords) * frames_per_word
 
-    # Font setup: Font size 68 gives balanced, expansive scale
+    # Font setup: size 82 fills the viewport with clear readability
     try:
-        font_word = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 68)
+        font_word = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 82)
     except Exception:
         try:
-            font_word = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 68)
+            font_word = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 82)
         except Exception:
             font_word = ImageFont.load_default()
 
@@ -56,42 +65,44 @@ def generate_particle_map_gif():
         font_mono = ImageFont.load_default()
         font_caption = ImageFont.load_default()
 
-    # Pre-sample target positions for each keyword
-    word_targets = [sample_keyword_particles(w, font_word, n_word_particles, width, height) for w in keywords]
+    word_targets = [sample_keyword_particles(w, font_word, n_keyword_particles, width, height) for w in keywords]
 
-    # Precompute ambient orbital particles that float gently in the outer negative space
+    # Pre-generate ambient stardust positions across negative space
     np_rng = np.random.RandomState(2026)
-    ambient_x = np_rng.uniform(32, width - 32, n_ambient_particles)
-    ambient_y = np_rng.uniform(58, height - 38, n_ambient_particles)
-    ambient_targets = np.stack([ambient_x, ambient_y], axis=1)
+    ambient_x = np_rng.uniform(28, width - 28, n_ambient_particles)
+    ambient_y = np_rng.uniform(56, height - 36, n_ambient_particles)
+    ambient_pts = np.stack([ambient_x, ambient_y], axis=1)
 
-    # Precompute dynamics
-    flutter_phase = np_rng.uniform(0, 2 * math.pi, n_particles)
-    flutter_speed = np_rng.uniform(1.0, 2.0, n_particles)
-    flutter_amp = np_rng.uniform(0.8, 1.6, n_particles)
+    # Dynamics setup
+    flutter_phase = np_rng.uniform(0, 2 * math.pi, n_total)
+    flutter_speed = np_rng.uniform(0.8, 1.8, n_total)
+    flutter_amp = np_rng.uniform(0.6, 1.4, n_total)
     
-    drift_angles = np_rng.uniform(0, 2 * math.pi, n_particles)
-    drift_radii = np_rng.uniform(16, 38, n_particles)
-    drift_dirs = np_rng.choice([-1.0, 1.0], n_particles)
+    drift_angles = np_rng.uniform(0, 2 * math.pi, n_keyword_particles)
+    drift_radii = np_rng.uniform(16, 38, n_keyword_particles)
+    drift_dirs = np_rng.choice([-1.0, 1.0], n_keyword_particles)
 
-    # Curated palette matching Premium Dark Tech Design System:
-    # Violet (#8B5CF6), Cyan (#22D3EE), Electric Blue (#38BDF8), Soft Pink (#F472B6)
+    # Design System Palette: Electric Blue, Cyan, Violet, Soft Pink
     palette = [
-        (139, 92, 246),  # Violet
-        (168, 85, 247),  # Light Violet
-        (34, 211, 238),  # Cyan
-        (56, 189, 248),  # Electric Blue
-        (99, 102, 241),  # Indigo Blue
-        (244, 114, 182), # Soft Pink
-        (192, 132, 252)  # Lavender
+        (56, 189, 248),  # electric blue
+        (34, 211, 238),  # bright cyan
+        (139, 92, 246),  # deep violet
+        (168, 85, 247),  # vivid violet
+        (192, 132, 252), # lavender
+        (244, 114, 182), # soft pink
+        (129, 140, 248)  # soft indigo
     ]
     
     rng = random.Random(42)
-    colors = [palette[rng.randint(0, len(palette) - 1)] for _ in range(n_particles)]
-    radii = np_rng.uniform(0.9, 1.5, n_particles)
+    colors = [palette[rng.randint(0, len(palette) - 1)] for _ in range(n_total)]
+    
+    # Delicate particle sizes: 0.9px to 1.5px
+    radii = np.concatenate([
+        np_rng.uniform(1.0, 1.5, n_keyword_particles),
+        np_rng.uniform(0.7, 1.1, n_ambient_particles)
+    ])
 
-    # Deep navy background: #080D18 -> (8, 13, 24)
-    bg_color = (8, 13, 24)
+    bg_color = (8, 13, 24)  # #080D18
 
     frames = []
 
@@ -103,72 +114,77 @@ def generate_particle_map_gif():
         next_t = word_targets[next_word_idx]
         local_f = f % frames_per_word
         
-        # Word particles morphing
+        # Timing: [0..12] hold formation, [13..21] morph transition
         if local_f <= 12:
-            word_pos = curr_t.copy()
-            bonds_opacity = 0.75
+            kw_pos = curr_t.copy()
+            bonds_opacity = 0.8
         else:
             prog = (local_f - 12) / 9.0
             ease = prog * prog * (3.0 - 2.0 * prog)
             
             arc = math.sin(prog * math.pi)
-            offset_x = arc * drift_radii[:n_word_particles] * np.cos(drift_angles[:n_word_particles] + drift_dirs[:n_word_particles] * prog * 1.3)
-            offset_y = arc * drift_radii[:n_word_particles] * np.sin(drift_angles[:n_word_particles] + drift_dirs[:n_word_particles] * prog * 1.3)
+            offset_x = arc * drift_radii * np.cos(drift_angles + drift_dirs * prog * 1.3)
+            offset_y = arc * drift_radii * np.sin(drift_angles + drift_dirs * prog * 1.3)
             
-            word_pos = (1.0 - ease) * curr_t + ease * next_t
-            word_pos[:, 0] += offset_x
-            word_pos[:, 1] += offset_y
+            kw_pos = (1.0 - ease) * curr_t + ease * next_t
+            kw_pos[:, 0] += offset_x
+            kw_pos[:, 1] += offset_y
             bonds_opacity = max(0.0, 1.0 - arc * 1.4)
 
-        # Ambient field particles gently breathing
-        amb_pos = ambient_targets.copy()
+        # Ambient stardust gentle drifting
+        amb_pos = ambient_pts.copy()
 
-        pos = np.vstack([word_pos, amb_pos])
+        # Combine all particles
+        all_pos = np.vstack([kw_pos, amb_pos])
 
         # Micro-harmonic drift
         global_t = f / float(total_frames)
         micro_x = flutter_amp * np.cos(flutter_phase + flutter_speed * 2 * math.pi * global_t)
         micro_y = flutter_amp * np.sin(flutter_phase + flutter_speed * 2 * math.pi * global_t)
-        pos[:, 0] += micro_x
-        pos[:, 1] += micro_y
+        all_pos[:, 0] += micro_x
+        all_pos[:, 1] += micro_y
 
-        # Clamp safely within frame
-        pos[:, 0] = np.clip(pos[:, 0], 20, width - 20)
-        pos[:, 1] = np.clip(pos[:, 1], 54, height - 36)
+        # Clamp safely within canvas
+        all_pos[:, 0] = np.clip(all_pos[:, 0], 20, width - 20)
+        all_pos[:, 1] = np.clip(all_pos[:, 1], 54, height - 38)
 
         frame_img = Image.new("RGB", (width, height), bg_color)
         draw = ImageDraw.Draw(frame_img)
 
-        # Subtle crystalline lattice filaments
+        # Crystalline Filaments (subtle, delicate)
         if bonds_opacity > 0.1:
-            diff_xy = pos[:n_word_particles, np.newaxis, :] - pos[np.newaxis, :n_word_particles, :]
+            diff_xy = kw_pos[:, np.newaxis, :] - kw_pos[np.newaxis, :, :]
             dists = np.sqrt(np.sum(diff_xy ** 2, axis=-1))
-            i_idx, j_idx = np.where((dists > 3.0) & (dists < 9.0))
+            i_idx, j_idx = np.where((dists > 3.0) & (dists < 8.5))
             for i, j in zip(i_idx, j_idx):
                 if i < j:
-                    draw.line([(pos[i, 0], pos[i, 1]), (pos[j, 0], pos[j, 1])], fill=(22, 36, 62), width=1)
+                    draw.line([(kw_pos[i, 0], kw_pos[i, 1]), (kw_pos[j, 0], kw_pos[j, 1])], fill=(24, 38, 64), width=1)
 
-        # Delicate luminous particles with soft aura
-        for i in range(n_particles):
-            px = pos[i, 0]
-            py = pos[i, 1]
+        # Render particles
+        for i in range(n_total):
+            px = all_pos[i, 0]
+            py = all_pos[i, 1]
             r = radii[i]
             c = colors[i]
             
-            halo_c = (max(c[0] // 4, 10), max(c[1] // 4, 16), max(c[2] // 4, 30))
-            draw.ellipse([px - r - 0.7, py - r - 0.7, px + r + 0.7, py + r + 0.7], fill=halo_c)
+            # Subtle micro halo
+            halo_c = (max(c[0] // 5, 10), max(c[1] // 5, 14), max(c[2] // 5, 28))
+            draw.ellipse([px - r - 0.6, py - r - 0.6, px + r + 0.6, py + r + 0.6], fill=halo_c)
             draw.ellipse([px - r, py - r, px + r, py + r], fill=c)
-            draw.point((int(px), int(py)), fill=(255, 255, 255))
+            
+            # Specular point on primary particles
+            if i < n_keyword_particles:
+                draw.point((int(px), int(py)), fill=(255, 255, 255))
 
-        # Minimal VISUAL.MAP frame
+        # UI Frame
         draw.rounded_rectangle([0, 0, width - 1, height - 1], radius=14, outline=(30, 41, 59), width=1)
 
         # Top-left corner bracket
         draw.line([(18, 34), (18, 18), (34, 18)], fill=(56, 189, 248), width=2)
-        draw.text((38, 27), "VISUAL.MAP", font=font_mono, fill=(56, 189, 248))
+        draw.text((38, 25), "VISUAL.MAP", font=font_mono, fill=(56, 189, 248))
         
-        # Horizontal divider
-        draw.line([(18, 50), (width - 18, 50)], fill=(30, 41, 59), width=1)
+        # Horizontal divider line
+        draw.line([(18, 48), (width - 18, 48)], fill=(30, 41, 59), width=1)
 
         # Bottom-left corner bracket
         draw.line([(18, height - 34), (18, height - 18), (34, height - 18)], fill=(56, 189, 248), width=2)

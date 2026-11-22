@@ -7,6 +7,7 @@
     :root {
       --bg: #080D18;
       --surface: #0D1424;
+      --card-bg: #0B1120;
       --accent-blue: #38BDF8;
       --accent-violet: #8B5CF6;
       --accent-cyan: #22D3EE;
@@ -19,7 +20,7 @@
       color: var(--text-white);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
       margin: 0;
-      padding: 40px 20px;
+      padding: 32px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -41,7 +42,7 @@
       border: none;
     }
     td {
-      padding: 8px;
+      padding: 6px;
       border: none;
     }
     a {
@@ -54,7 +55,11 @@
       text-decoration: underline;
     }
     .spacer {
-      height: 32px;
+      height: 24px;
+    }
+    .links-bar a {
+      font-size: 13.5px;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -81,17 +86,20 @@
 
     <!-- Featured Systems -->
     <img src="./assets/projects.svg" width="900" alt="Featured Systems">
-    <p align="center" style="margin-top: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px;">
-      <b>Silent Gallery:</b> &nbsp;
-      <a href="https://silent-galleryyy.vercel.app" target="_blank" style="color: #38bdf8; text-decoration: none;"><b>🚀 Live Demo ↗</b></a>
-      &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="https://github.com/eng-yash007/silent_gallery" target="_blank" style="color: #94a3b8; text-decoration: none;"><b>💻 GitHub Repository ↗</b></a>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <b>Guardian Transit AI:</b> &nbsp;
-      <a href="https://guardian-transit-zeta.vercel.app" target="_blank" style="color: #38bdf8; text-decoration: none;"><b>🚀 Live Demo ↗</b></a>
-      &nbsp;&nbsp;·&nbsp;&nbsp;
-      <a href="https://github.com/eng-yash007/guardian-transit" target="_blank" style="color: #94a3b8; text-decoration: none;"><b>💻 GitHub Repository ↗</b></a>
-    </p>
+    <table width="100%" class="links-bar" style="margin-top: 6px;">
+      <tr>
+        <td width="440" align="center">
+          <a href="https://silent-galleryyy.vercel.app" target="_blank">🚀 <b>Live Demo</b></a>
+          &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://github.com/eng-yash007/silent_gallery" target="_blank">💻 <b>GitHub Repository</b></a>
+        </td>
+        <td width="440" align="center">
+          <a href="https://guardian-transit-zeta.vercel.app" target="_blank">🚀 <b>Live Demo</b></a>
+          &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://github.com/eng-yash007/guardian-transit" target="_blank">💻 <b>GitHub Repository</b></a>
+        </td>
+      </tr>
+    </table>
     <div class="spacer"></div>
 
     <!-- Verified Metrics -->
@@ -109,8 +117,8 @@
       </tr>
     </table>
 
-    <p style="color: #64748b; font-size: 12px; margin-top: 18px;">
-      Automated via GitHub Actions • Data verified in real-time for <a href="https://github.com/eng-yash007" style="color: #2dd4bf;">eng-yash007</a>
+    <p style="color: var(--text-muted); font-size: 12px; margin-top: 14px;">
+      Automated via GitHub Actions • Data verified in real-time for <a href="https://github.com/eng-yash007" style="color: var(--accent-cyan);">eng-yash007</a>
     </p>
   </div>
 </body>

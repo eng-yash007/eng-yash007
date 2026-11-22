@@ -1,27 +1,35 @@
 """
 Utility functions and configuration constants for generating high-aesthetic SVGs.
-Strictly following the Premium Dark Tech Design System.
+Strictly adhering to the Premium Dark Tech Design System.
 """
 
 from pathlib import Path
 import html
 
-# Premium Dark Tech Design System
+# Premium Dark Tech Design Tokens
 THEME = {
     "bg": "#080D18",
     "background": "#080D18",
-    "surface": "#0D1424",
+    "bg_secondary": "#0D1424",
     "card_bg": "#0B1120",
+    "card_bg_glass": "rgba(11, 17, 32, 0.90)",
     "border": "#1E293B",
-    "border_subtle": "#162032",
-    "border_glow": "#334155",
-    "blue": "#38BDF8",
+    "border_subtle": "#334155",
+    "electric_blue": "#38BDF8",
     "cyan": "#22D3EE",
     "violet": "#8B5CF6",
-    "text_main": "#F1F5F9",
+    "main_text": "#F1F5F9",
+    "text_primary": "#F1F5F9",
+    "text_white": "#F1F5F9",
+    "secondary_text": "#94A3B8",
     "text_secondary": "#94A3B8",
     "text_muted": "#64748B",
-    "success": "#10B981",
+    "accent_cyan": "#22D3EE",
+    "accent_blue": "#38BDF8",
+    "accent_violet": "#8B5CF6",
+    "accent_green": "#34D399",
+    "accent_amber": "#FBBF24",
+    "accent_orange": "#FB923C",
     "accent_pink": "#F472B6"
 }
 
