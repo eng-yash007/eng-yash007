@@ -1,13 +1,50 @@
 {
     "name": "Yash Gupta",
-    "role": "AI Engineer",
-    "college": "ABES Engineering College",
-    "location": "Noida",
-    "focus": "GenAI | Computer Vision | Development",
-    "learning": "Lang Chain",
-    "experience": [
-        "Capri Global",
-        "Ragh Vision"
+    "handle": "eng-yash007",
+    "role": "AI & Computer Vision Engineer",
+    "college": "ABES Engineering College, Ghaziabad",
+    "degree": "B.Tech in Computer Science (Data Science)",
+    "batch": "Batch 2027",
+    "cgpa": "8.0",
+    "location": "Noida, India",
+    "email": "yashgupta9171@gmail.com",
+    "status": "building in production 🚀",
+    "open_to_opportunities": true,
+    "tagline": "Turning Computer Vision and GenAI into systems that actually run in the real world.",
+    "typing_phrases": [
+        "I build safer transport systems & intelligent AI agents",
+        "Computer Vision · Multi-Face Detection & ArcFace Embeddings",
+        "GenAI & RAG · LangChain, Llama-3 & Autonomous Agents",
+        "Production AI · FastAPI, Next.js, Docker & WebSockets"
     ],
-    "status": "Building AI Products 🚀"
+    "bio": "Final-year Computer Science (Data Science) student turning computer vision and GenAI into systems that actually run in the real world. Computer Vision intern at Ragh Vision (ATMS & real-time traffic monitoring) and former GenAI intern at Capri Global (Jira analytics & RAG chatbots).",
+    "config": {
+        "role": "AI & CV Engineer",
+        "focus": ["Computer Vision", "GenAI", "RAG"],
+        "experience": ["Ragh Vision", "Capri Global"],
+        "also": ["Real-time Systems", "DSA / CP"],
+        "status": "building in production"
+    },
+    "skills": {
+        "languages": ["Python", "C++", "SQL", "JavaScript", "Java"],
+        "ai_ml": ["Generative AI", "LLMs", "RAG", "LangChain", "Hugging Face", "PyTorch", "OpenCV", "YOLOv8"],
+        "development": ["FastAPI", "Next.js", "PostgreSQL", "pgvector", "Docker", "WebSockets"],
+        "tools": ["Git", "GitHub", "Docker", "Postman", "Vercel", "Cursor"]
+    },
+    "projects": [
+        {
+            "name": "Silent Gallery",
+            "type": "Voice-Enabled Smart Workspace",
+            "status": "Live Demo",
+            "stack": ["Next.js", "PostgreSQL", "Llama-3", "Whisper", "Groq API", "Google APIs"],
+            "description": "Voice-controlled assistant powered by Whisper & Llama-3 to understand natural language commands, automate task creation, and schedule Google Meet links."
+        },
+        {
+            "name": "Guardian Transit",
+            "type": "AI School Bus Safety Platform",
+            "status": "Open Source",
+            "stack": ["Next.js 14", "FastAPI", "YOLOv8-Face", "InsightFace", "pgvector", "Docker"],
+            "description": "Real-time computer vision pipeline for multi-face detection & 512-d ArcFace embeddings with asynchronous FastAPI, geofencing, and WebSocket telemetry."
+        }
+    ]
 }

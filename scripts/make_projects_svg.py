@@ -1,67 +1,130 @@
 import json
-from utils import COLORS, FONTS, save_svg
-from pathlib import Path
+from utils import THEME, FONTS, escape, save_svg
 
 def generate_projects_svg():
-    title_bar = f"""
-    <rect width="100%" height="30" fill="{COLORS['border']}" rx="4" />
-    <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
-    <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
-    <circle cx="55" cy="15" r="6" fill="#27c93f"/>
-    <text x="50%" y="20" class="text-primary" font-size="14" text-anchor="middle">yash@github: ~/projects</text>
-    """
-    
-    projects = [
-        "Silent Gallery",
-        "DocuDost",
-        "Traffic Management",
-        "Murliwala Sarees"
-    ]
-    
-    tree_ui = f"""
-    <g class="fade-in" style="animation-delay: 0.5s; opacity: 0;">
-        <text x="30" y="70" font-size="14" class="text-accent">projects/</text>
-    </g>
-    """
-    
-    delay = 0.8
-    for i, proj in enumerate(projects):
-        is_last = (i == len(projects) - 1)
-        branch = "└──" if is_last else "├──"
-        
-        tree_ui += f"""
-        <g class="fade-in" style="animation-delay: {delay}s; opacity: 0;">
-            <text x="30" y="{100 + i * 25}" font-size="14" class="text-secondary">{branch} </text>
-            <text x="65" y="{100 + i * 25}" font-size="14" class="text-primary">{proj}</text>
-        </g>
-        """
-        delay += 0.3
+    width = 900
+    height = 300
 
-    svg_content = f"""<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220" viewBox="0 0 400 220">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+    <defs>
+        <linearGradient id="proj-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#080b12" />
+            <stop offset="50%" stop-color="#0c111e" />
+            <stop offset="100%" stop-color="#070a11" />
+        </linearGradient>
+
+        <linearGradient id="card-inner-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0f172a" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#090d16" stop-opacity="0.9" />
+        </linearGradient>
+
+        <linearGradient id="proj-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#334155" stop-opacity="0.8"/>
+            <stop offset="50%" stop-color="#1e293b" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#334155" stop-opacity="0.8"/>
+        </linearGradient>
+    </defs>
+
     <style>
-        .text-primary {{ font-family: {FONTS['primary']}; fill: {COLORS['primary']}; }}
-        .text-secondary {{ font-family: {FONTS['primary']}; fill: {COLORS['secondary']}; }}
-        .text-accent {{ font-family: {FONTS['primary']}; fill: {COLORS['accent']}; }}
-        .bg {{ fill: {COLORS['background']}; }}
-        .border {{ stroke: {COLORS['border']}; fill: none; }}
-        
-        @keyframes fadeIn {{
-            from {{ opacity: 0; }}
-            to {{ opacity: 1; }}
-        }}
-        .fade-in {{
-            animation: fadeIn 0.4s forwards ease-in-out;
-        }}
+        .font-sans {{ font-family: {FONTS['sans']}; }}
+        .font-mono {{ font-family: {FONTS['mono']}; }}
     </style>
-    
-    <rect width="400" height="220" class="bg" rx="6" />
-    <rect width="400" height="220" class="border" rx="6" stroke-width="2"/>
-    
-    {title_bar}
-    {tree_ui}
+
+    <!-- Background Frame -->
+    <rect width="{width}" height="{height}" rx="16" fill="url(#proj-bg)" />
+    <rect width="{width}" height="{height}" rx="16" fill="none" stroke="url(#proj-glow)" stroke-width="1.2" />
+
+    <!-- Header Section -->
+    <g transform="translate(36, 36)">
+        <text x="0" y="0" class="font-mono" font-size="12" font-weight="700" fill="#2dd4bf" letter-spacing="0.18em">
+            FEATURED.SYSTEMS // PRODUCTION &amp; RESEARCH
+        </text>
+    </g>
+
+    <!-- LEFT PROJECT: Silent Gallery -->
+    <g transform="translate(36, 60)">
+        <rect width="404" height="210" rx="14" fill="url(#card-inner-bg)" stroke="#1e293b" stroke-width="1.2" />
+
+        <!-- Top Badge -->
+        <g transform="translate(20, 20)">
+            <rect width="70" height="22" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+            <text x="35" y="15" fill="#34d399" font-size="11" font-weight="700" class="font-mono" text-anchor="middle">LIVE DEMO</text>
+        </g>
+
+        <!-- Project Title -->
+        <text x="20" y="74" class="font-sans" font-size="20" font-weight="700" fill="#f8fafc">
+            Silent Gallery
+        </text>
+        <text x="20" y="96" class="font-sans" font-size="13" font-weight="500" fill="#818cf8">
+            Voice-Enabled Smart Workspace
+        </text>
+
+        <!-- Description -->
+        <text x="20" y="126" class="font-sans" font-size="12.5" fill="#94a3b8">
+            <tspan x="20" dy="0">Voice assistant powered by Whisper &amp; Llama-3 (Groq API)</tspan>
+            <tspan x="20" dy="19">to parse natural voice commands, automate task creation</tspan>
+            <tspan x="20" dy="19">and sync with Google Workspace &amp; Meet pipelines.</tspan>
+        </text>
+
+        <!-- Tech Pills -->
+        <g transform="translate(20, 172)">
+            <rect width="58" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="29" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">Next.js</text>
+
+            <rect x="66" width="65" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="98" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">Llama-3</text>
+
+            <rect x="139" width="65" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="171" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">Whisper</text>
+
+            <rect x="212" width="75" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="249" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">PostgreSQL</text>
+        </g>
+    </g>
+
+    <!-- RIGHT PROJECT: Guardian Transit -->
+    <g transform="translate(460, 60)">
+        <rect width="404" height="210" rx="14" fill="url(#card-inner-bg)" stroke="#1e293b" stroke-width="1.2" />
+
+        <!-- Top Badge -->
+        <g transform="translate(20, 20)">
+            <rect width="92" height="22" rx="6" fill="#818cf8" fill-opacity="0.15" stroke="#818cf8" stroke-width="1"/>
+            <text x="46" y="15" fill="#a5b4fc" font-size="11" font-weight="700" class="font-mono" text-anchor="middle">OPEN SOURCE</text>
+        </g>
+
+        <!-- Project Title -->
+        <text x="20" y="74" class="font-sans" font-size="20" font-weight="700" fill="#f8fafc">
+            Guardian Transit
+        </text>
+        <text x="20" y="96" class="font-sans" font-size="13" font-weight="500" fill="#2dd4bf">
+            AI School Bus Safety &amp; Telemetry
+        </text>
+
+        <!-- Description -->
+        <text x="20" y="126" class="font-sans" font-size="12.5" fill="#94a3b8">
+            <tspan x="20" dy="0">Real-time CV pipeline using YOLOv8-Face &amp; ArcFace</tspan>
+            <tspan x="20" dy="19">for 512-d facial embeddings, pgvector biometric search,</tspan>
+            <tspan x="20" dy="19">context-aware geofencing, and WebSocket alerts.</tspan>
+        </text>
+
+        <!-- Tech Pills -->
+        <g transform="translate(20, 172)">
+            <rect width="60" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="30" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">FastAPI</text>
+
+            <rect x="68" width="70" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="103" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">YOLOv8</text>
+
+            <rect x="146" width="75" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="183" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">InsightFace</text>
+
+            <rect x="229" width="65" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="261" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">pgvector</text>
+        </g>
+    </g>
 </svg>"""
 
-    save_svg("projects.svg", svg_content)
+    save_svg("projects.svg", svg)
 
 if __name__ == "__main__":
     generate_projects_svg()

@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360">
+    <defs>
+        <linearGradient id="about-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#080b12" />
+            <stop offset="60%" stop-color="#0b101b" />
+            <stop offset="100%" stop-color="#07090f" />
+        </linearGradient>
+
+        <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0f172a" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#020617" stop-opacity="0.8" />
+        </linearGradient>
+
+        <linearGradient id="border-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#334155" stop-opacity="0.8"/>
+            <stop offset="50%" stop-color="#1e293b" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#334155" stop-opacity="0.7"/>
+        </linearGradient>
+    </defs>
+
+    <style>
+        .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace; }
+    </style>
+
+    <!-- Background Container -->
+    <rect width="900" height="360" rx="16" fill="url(#about-bg)" />
+    <rect width="900" height="360" rx="16" fill="none" stroke="url(#border-glow)" stroke-width="1.2" />
+
+    <!-- Top Tag: Yash — Portfolio -->
+    <g transform="translate(36, 26)">
+        <rect width="130" height="24" rx="6" fill="#1e293b" fill-opacity="0.6"/>
+        <text x="65" y="16" fill="#94a3b8" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+            Yash — Portfolio
+        </text>
+    </g>
+
+    <!-- LEFT COLUMN: About & Narrative -->
+    <g transform="translate(36, 75)">
+        <text x="0" y="36" class="font-sans" font-size="34" font-weight="800" fill="#f8fafc">
+            About
+        </text>
+
+        <text x="0" y="66" class="font-sans" font-size="14.5" font-weight="500" fill="#94a3b8">
+            ABES Engineering College, Ghaziabad
+        </text>
+
+        <!-- Paragraph -->
+        <text x="0" y="104" class="font-sans" font-size="14.5" fill="#94a3b8" line-height="1.6">
+            <tspan x="0" dy="0">I'm a Computer Vision intern at Ragh Vision, working on real-</tspan>
+            <tspan x="0" dy="24">time traffic monitoring. Outside work I solve problems in</tspan>
+            <tspan x="0" dy="24">competitive programming and explore GenAI, blockchain and</tspan>
+            <tspan x="0" dy="24">full-stack development.</tspan>
+        </text>
+    </g>
+
+    <!-- RIGHT COLUMN: # yash.config Terminal Card -->
+    <g transform="translate(485, 36)">
+        <!-- Code Window Box -->
+        <rect width="375" height="225" rx="16" fill="url(#card-grad)" stroke="#1e293b" stroke-width="1.2"/>
+
+        <g transform="translate(24, 32)">
+            <!-- Header comment -->
+            <text x="0" y="0" class="font-mono" font-size="13.5" fill="#64748b" font-weight="600">
+                # yash.config
+            </text>
+
+            <!-- role: "CV Intern" -->
+            <text x="0" y="32" class="font-mono" font-size="13.5">
+                <tspan fill="#2dd4bf">role</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"CV Intern"</tspan>
+            </text>
+
+            <!-- focus: ["Computer Vision", "GenAI"] -->
+            <text x="0" y="62" class="font-mono" font-size="13.5">
+                <tspan fill="#2dd4bf">focus</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Computer Vision"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"GenAI"</tspan><tspan fill="#64748b">]</tspan>
+            </text>
+
+            <!-- also: ["Blockchain", "Full-stack", "CP"] -->
+            <text x="0" y="92" class="font-mono" font-size="13.5">
+                <tspan fill="#2dd4bf">also</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Blockchain"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Full-stack"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"CP"</tspan><tspan fill="#64748b">]</tspan>
+            </text>
+
+            <!-- status: "building" -->
+            <text x="0" y="122" class="font-mono" font-size="13.5">
+                <tspan fill="#2dd4bf">status</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"building"</tspan>
+            </text>
+        </g>
+    </g>
+
+    <!-- BOTTOM ROW: Tech Pills -->
+    
+        <g transform="translate(36, 300)">
+            <rect width="80" height="32" rx="16" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <text x="40.0" y="20.5" fill="#f1f5f9" font-size="13" font-weight="500" class="font-sans" text-anchor="middle">
+                Python
+            </text>
+        </g>
+        
+
+        <g transform="translate(128, 300)">
+            <rect width="53" height="32" rx="16" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <text x="26.5" y="20.5" fill="#f1f5f9" font-size="13" font-weight="500" class="font-sans" text-anchor="middle">
+                SQL
+            </text>
+        </g>
+        
+
+        <g transform="translate(193, 300)">
+            <rect width="62" height="32" rx="16" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <text x="31.0" y="20.5" fill="#f1f5f9" font-size="13" font-weight="500" class="font-sans" text-anchor="middle">
+                Java
+            </text>
+        </g>
+        
+
+        <g transform="translate(267, 300)">
+            <rect width="53" height="32" rx="16" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <text x="26.5" y="20.5" fill="#f1f5f9" font-size="13" font-weight="500" class="font-sans" text-anchor="middle">
+                C++
+            </text>
+        </g>
+        
+
+        <g transform="translate(332, 300)">
+            <rect width="71" height="32" rx="16" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <text x="35.5" y="20.5" fill="#f1f5f9" font-size="13" font-weight="500" class="font-sans" text-anchor="middle">
+                LaTeX
+            </text>
+        </g>
+        
+
+        <g transform="translate(415, 300)">
+            <rect width="161" height="32" rx="16" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <text x="80.5" y="20.5" fill="#f1f5f9" font-size="13" font-weight="500" class="font-sans" text-anchor="middle">
+                Computer Vision
+            </text>
+        </g>
+        
+
+        <g transform="translate(588, 300)">
+            <rect width="71" height="32" rx="16" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <text x="35.5" y="20.5" fill="#f1f5f9" font-size="13" font-weight="500" class="font-sans" text-anchor="middle">
+                GenAI
+            </text>
+        </g>
+        
+
+        <g transform="translate(671, 300)">
+            <rect width="116" height="32" rx="16" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <text x="58.0" y="20.5" fill="#f1f5f9" font-size="13" font-weight="500" class="font-sans" text-anchor="middle">
+                Blockchain
+            </text>
+        </g>
+        
+</svg>

@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="908" height="232" viewBox="0 0 908 232">
     <style>
-        .text-primary { font-family: JetBrains Mono, monospace; fill: #c9d1d9; }
-        .text-secondary { font-family: JetBrains Mono, monospace; fill: #8b949e; }
-        .text-accent { font-family: JetBrains Mono, monospace; fill: #39d353; }
-        .bg { fill: #0d1117; }
-        .border { stroke: #30363d; fill: none; }
+        .text-primary { font-family: 'JetBrains Mono', 'Fira Code', monospace; fill: #e2e8f0; }
+        .text-secondary { font-family: 'JetBrains Mono', 'Fira Code', monospace; fill: #94a3b8; }
+        .text-accent { font-family: 'JetBrains Mono', 'Fira Code', monospace; fill: #2dd4bf; }
+        .bg { fill: #090d16; }
+        .border { stroke: #1e293b; fill: none; }
         
         @keyframes revealCell {
             to { opacity: 1; transform: scale(1); }
@@ -27,7 +27,7 @@
     <rect width="908" height="232" class="border" rx="6" stroke-width="2"/>
     
     
-    <rect width="100%" height="30" fill="#30363d" rx="4" />
+    <rect width="100%" height="30" fill="#1e293b" rx="4" />
     <circle cx="15" cy="15" r="6" fill="#ff5f56"/>
     <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
     <circle cx="55" cy="15" r="6" fill="#27c93f"/>

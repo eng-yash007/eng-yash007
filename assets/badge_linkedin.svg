@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="175" height="42" viewBox="0 0 175 42">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0b101c" />
+            <stop offset="100%" stop-color="#050811" />
+        </linearGradient>
+
+        <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.8" />
+            <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.7" />
+        </linearGradient>
+
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </defs>
+
+    <style>
+        .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+        @keyframes badgePulse {
+            0%, 100% {
+                stroke-opacity: 0.6;
+            }
+            50% {
+                stroke-opacity: 1;
+                filter: drop-shadow(0 0 4px #38bdf8);
+            }
+        }
+
+        @keyframes dotGlow {
+            0%, 100% { r: 3px; opacity: 0.8; }
+            50% { r: 4.5px; opacity: 1; }
+        }
+
+        .card-border {
+            animation: badgePulse 3s infinite ease-in-out;
+        }
+        .live-dot {
+            animation: dotGlow 2s infinite ease-in-out;
+        }
+    </style>
+
+    <!-- Pill Container -->
+    <rect width="175" height="42" rx="21" fill="url(#bg-grad)" />
+    <rect width="175" height="42" rx="21" fill="none" stroke="url(#border-grad)" stroke-width="1.3" class="card-border" />
+
+    <!-- Icon on Left -->
+    <g transform="translate(14, 11)">
+        <path fill="#0ea5e9" d="M19 0h-18c-.55 0-1 .45-1 1v18c0 .55.45 1 1 1h18c.55 0 1-.45 1-1v-18c0-.55-.45-1-1-1zm-11 17h-3v-9h3v9zm-1.5-10.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm11.5 10.27h-3v-4.6c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.78 1.2-1.78 2.44v4.68h-3v-9h2.88v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v4.73z"/>
+    </g>
+
+    <!-- Text details -->
+    <text x="44" y="19" class="font-sans" font-size="11.5" font-weight="700" fill="#f8fafc">
+        LinkedIn
+    </text>
+    <text x="44" y="32" class="font-mono" font-size="10" font-weight="500" fill="#94a3b8">
+        eng-yash007
+    </text>
+
+    <!-- Right Live Dot -->
+    <circle cx="159" cy="21" r="3.5" fill="#0ea5e9" class="live-dot" />
+</svg>

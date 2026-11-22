@@ -1,4 +1,4 @@
-import requests
+import urllib.request
 import json
 import logging
 from pathlib import Path
@@ -9,38 +9,32 @@ def fetch_leetcode_stats(username="eng-yash007"):
     url = f"https://leetcode-stats-api.herokuapp.com/{username}"
     logging.info(f"Fetching LeetCode stats for {username}...")
     
-    try:
-        response = requests.get(url, timeout=10)
-        data = response.json()
-        
-        if data.get("status") == "success":
-            stats = {
-                "totalSolved": data.get("totalSolved", 0),
-                "easySolved": data.get("easySolved", 0),
-                "mediumSolved": data.get("mediumSolved", 0),
-                "hardSolved": data.get("hardSolved", 0),
-                "ranking": data.get("ranking", 0)
-            }
-        else:
-            logging.warning(f"LeetCode API returned error: {data.get('message')}")
-            stats = {
-                "totalSolved": 125, # Fallback dummy data if API fails or username is wrong
-                "easySolved": 50,
-                "mediumSolved": 60,
-                "hardSolved": 15,
-                "ranking": 120000
-            }
-    except Exception as e:
-        logging.error(f"Failed to fetch LeetCode data: {e}")
-        stats = {
-            "totalSolved": 125,
-            "easySolved": 50,
-            "mediumSolved": 60,
-            "hardSolved": 15,
-            "ranking": 120000
-        }
-        
     out_path = Path("data/leetcode.json")
+    stats = {
+        "totalSolved": 125,
+        "easySolved": 50,
+        "mediumSolved": 60,
+        "hardSolved": 15,
+        "ranking": 120000
+    }
+    
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=8) as response:
+            if response.status == 200:
+                data = json.loads(response.read().decode())
+                if data.get("status") == "success":
+                    stats = {
+                        "totalSolved": data.get("totalSolved", 125),
+                        "easySolved": data.get("easySolved", 50),
+                        "mediumSolved": data.get("mediumSolved", 60),
+                        "hardSolved": data.get("hardSolved", 15),
+                        "ranking": data.get("ranking", 120000)
+                    }
+    except Exception as e:
+        logging.warning(f"Using cached or fallback LeetCode stats: {e}")
+        
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(stats, f, indent=4)
         

@@ -1,0 +1,415 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="360" viewBox="0 0 440 360">
+    <defs>
+        <linearGradient id="stack-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#060911" />
+            <stop offset="50%" stop-color="#0b101d" />
+            <stop offset="100%" stop-color="#060810" />
+        </linearGradient>
+
+        <linearGradient id="neon-border" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.85" />
+            <stop offset="50%" stop-color="#818cf8" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.85" />
+        </linearGradient>
+
+        <radialGradient id="stack-ambient" cx="80%" cy="30%" r="60%">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.14" />
+            <stop offset="60%" stop-color="#818cf8" stop-opacity="0.06" />
+            <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+        </radialGradient>
+
+        <!-- Clip Path to keep streaming pills strictly within container borders -->
+        <clipPath id="inner-stream-clip">
+            <rect x="16" y="60" width="408" height="284" rx="10" />
+        </clipPath>
+    </defs>
+
+    <style>
+        .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+        /* Row 1 Stream Animation (Leftwards) */
+        @keyframes streamRow1 {
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(-615.0px);
+            }
+        }
+
+        /* Row 2 Stream Animation (Rightwards) */
+        @keyframes streamRow2 {
+            0% {
+                transform: translateX(-675.5px);
+            }
+            100% {
+                transform: translateX(0px);
+            }
+        }
+
+        /* Row 3 Stream Animation (Leftwards, slightly different tempo) */
+        @keyframes streamRow3 {
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(-649.5px);
+            }
+        }
+
+        .row1 {
+            animation: streamRow1 16s linear infinite;
+        }
+        .row2 {
+            animation: streamRow2 18s linear infinite;
+        }
+        .row3 {
+            animation: streamRow3 15s linear infinite;
+        }
+
+        /* Live Indicator Blink */
+        @keyframes streamDotPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .stream-live {
+            animation: streamDotPulse 1.4s infinite ease-in-out;
+        }
+    </style>
+
+    <!-- Card Base -->
+    <rect width="440" height="360" rx="14" fill="url(#stack-bg)" />
+    <rect width="440" height="360" rx="14" fill="url(#stack-ambient)" />
+    
+    <!-- Outer Neon Glow Border -->
+    <rect x="12" y="12" width="416" height="336" rx="12" fill="none" stroke="url(#neon-border)" stroke-width="1.4" />
+
+    <!-- Top Label Bar -->
+    <g transform="translate(26, 38)">
+        <text x="0" y="0" class="font-mono" font-size="12.5" font-weight="700" fill="#38bdf8" letter-spacing="0.18em">
+            STACK.STREAM
+        </text>
+
+        <!-- Live Streaming Pill Tag -->
+        <g transform="translate(136, -14)">
+            <rect width="96" height="20" rx="5" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <circle cx="12" cy="10" r="3.5" fill="#2dd4bf" class="stream-live"/>
+            <text x="22" y="14" fill="#94a3b8" font-size="11" font-weight="600" class="font-mono">
+                LIVE FLOW
+            </text>
+        </g>
+    </g>
+
+    <!-- Clipped Stream Rows -->
+    <g clip-path="url(#inner-stream-clip)">
+        <!-- Row 1 -->
+        <g transform="translate(0, 80)">
+            <g class="row1">
+                
+    <g transform="translate(0, 0)">
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0284c7" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Next.js
+        </text>
+    </g>
+    
+    <g transform="translate(105.5, 0)">
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0d9488" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            FastAPI
+        </text>
+    </g>
+    
+    <g transform="translate(211.0, 0)">
+        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#d97706" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Python
+        </text>
+    </g>
+    
+    <g transform="translate(308.0, 0)">
+        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#60a5fa" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#2563eb" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            C++
+        </text>
+    </g>
+    
+    <g transform="translate(396.0, 0)">
+        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0284c7" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            TypeScript
+        </text>
+    </g>
+    
+    <g transform="translate(527.0, 0)">
+        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0d9488" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            SQL
+        </text>
+    </g>
+    
+    <g transform="translate(615.0, 0)">
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0284c7" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Next.js
+        </text>
+    </g>
+    
+    <g transform="translate(720.5, 0)">
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0d9488" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            FastAPI
+        </text>
+    </g>
+    
+    <g transform="translate(826.0, 0)">
+        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#d97706" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Python
+        </text>
+    </g>
+    
+    <g transform="translate(923.0, 0)">
+        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#60a5fa" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#2563eb" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            C++
+        </text>
+    </g>
+    
+    <g transform="translate(1011.0, 0)">
+        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0284c7" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            TypeScript
+        </text>
+    </g>
+    
+    <g transform="translate(1142.0, 0)">
+        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0d9488" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            SQL
+        </text>
+    </g>
+    
+            </g>
+        </g>
+
+        <!-- Row 2 -->
+        <g transform="translate(0, 155)">
+            <g class="row2">
+                
+    <g transform="translate(0, 0)">
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fb923c" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#ea580c" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            PyTorch
+        </text>
+    </g>
+    
+    <g transform="translate(105.5, 0)">
+        <rect width="110.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#9333ea" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            LangChain
+        </text>
+    </g>
+    
+    <g transform="translate(228.0, 0)">
+        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#4ade80" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#16a34a" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            OpenCV
+        </text>
+    </g>
+    
+    <g transform="translate(325.0, 0)">
+        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0284c7" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Docker
+        </text>
+    </g>
+    
+    <g transform="translate(422.0, 0)">
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#a855f7" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#7e22ce" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Llama-3
+        </text>
+    </g>
+    
+    <g transform="translate(527.5, 0)">
+        <rect width="136.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#d97706" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Hugging Face
+        </text>
+    </g>
+    
+    <g transform="translate(675.5, 0)">
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fb923c" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#ea580c" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            PyTorch
+        </text>
+    </g>
+    
+    <g transform="translate(781.0, 0)">
+        <rect width="110.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#9333ea" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            LangChain
+        </text>
+    </g>
+    
+    <g transform="translate(903.5, 0)">
+        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#4ade80" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#16a34a" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            OpenCV
+        </text>
+    </g>
+    
+    <g transform="translate(1000.5, 0)">
+        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#0284c7" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Docker
+        </text>
+    </g>
+    
+    <g transform="translate(1097.5, 0)">
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#a855f7" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#7e22ce" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Llama-3
+        </text>
+    </g>
+    
+    <g transform="translate(1203.0, 0)">
+        <rect width="136.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#d97706" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Hugging Face
+        </text>
+    </g>
+    
+            </g>
+        </g>
+
+        <!-- Row 3 -->
+        <g transform="translate(0, 230)">
+            <g class="row3">
+                
+    <g transform="translate(0, 0)">
+        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#818cf8" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#4f46e5" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            PostgreSQL
+        </text>
+    </g>
+    
+    <g transform="translate(131.0, 0)">
+        <rect width="102.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#34d399" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#059669" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            pgvector
+        </text>
+    </g>
+    
+    <g transform="translate(245.0, 0)">
+        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f472b6" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#db2777" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            WebSockets
+        </text>
+    </g>
+    
+    <g transform="translate(376.0, 0)">
+        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f87171" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#dc2626" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Git
+        </text>
+    </g>
+    
+    <g transform="translate(464.0, 0)">
+        <rect width="76.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#d97706" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Linux
+        </text>
+    </g>
+    
+    <g transform="translate(552.5, 0)">
+        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#e2e8f0" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#94a3b8" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Vercel
+        </text>
+    </g>
+    
+    <g transform="translate(649.5, 0)">
+        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#818cf8" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#4f46e5" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            PostgreSQL
+        </text>
+    </g>
+    
+    <g transform="translate(780.5, 0)">
+        <rect width="102.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#34d399" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#059669" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            pgvector
+        </text>
+    </g>
+    
+    <g transform="translate(894.5, 0)">
+        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f472b6" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#db2777" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            WebSockets
+        </text>
+    </g>
+    
+    <g transform="translate(1025.5, 0)">
+        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f87171" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#dc2626" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Git
+        </text>
+    </g>
+    
+    <g transform="translate(1113.5, 0)">
+        <rect width="76.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#d97706" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Linux
+        </text>
+    </g>
+    
+    <g transform="translate(1202.0, 0)">
+        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#e2e8f0" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#94a3b8" />
+        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
+            Vercel
+        </text>
+    </g>
+    
+            </g>
+        </g>
+    </g>
+</svg>

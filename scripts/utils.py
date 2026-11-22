@@ -1,38 +1,47 @@
 """
-Utility functions and configuration constants for generating SVGs.
+Utility functions and configuration constants for generating high-aesthetic SVGs.
 """
 
 from pathlib import Path
+import html
 
-# Color Palette
-COLORS = {
-    "background": "#0d1117",
-    "primary": "#c9d1d9",
-    "secondary": "#8b949e",
-    "accent": "#39d353",
-    "border": "#30363d"
+# Modern Dark Cyberpunk / Linear Portfolio Palette
+THEME = {
+    "bg": "#090d16",
+    "background": "#090d16",
+    "card_bg": "#0d131f",
+    "card_bg_glass": "rgba(13, 19, 31, 0.85)",
+    "border": "#1e293b",
+    "border_glow": "#334155",
+    "primary": "#e2e8f0",
+    "secondary": "#94a3b8",
+    "accent": "#2dd4bf",
+    "text_white": "#ffffff",
+    "text_primary": "#e2e8f0",
+    "text_secondary": "#94a3b8",
+    "text_muted": "#64748b",
+    "accent_cyan": "#2dd4bf",
+    "accent_indigo": "#818cf8",
+    "accent_purple": "#c084fc",
+    "accent_pink": "#f472b6",
+    "accent_green": "#34d399",
+    "accent_amber": "#fbbf24",
+    "accent_orange": "#fb923c"
 }
 
-# Fonts
+# Backward compatibility alias
+COLORS = THEME
+
 FONTS = {
-    "primary": "JetBrains Mono, monospace",
+    "sans": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif",
+    "mono": "'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace",
+    "primary": "'JetBrains Mono', 'Fira Code', monospace",
     "fallback": "monospace"
 }
 
-def create_svg_container(width: int, height: int, content: str) -> str:
-    """Wraps content in a standard SVG container with styling."""
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
-    <style>
-        .text-primary {{ font-family: {FONTS['primary']}; fill: {COLORS['primary']}; }}
-        .text-secondary {{ font-family: {FONTS['primary']}; fill: {COLORS['secondary']}; }}
-        .text-accent {{ font-family: {FONTS['primary']}; fill: {COLORS['accent']}; }}
-        .bg {{ fill: {COLORS['background']}; }}
-        .border {{ stroke: {COLORS['border']}; fill: none; }}
-    </style>
-    <rect width="{width}" height="{height}" class="bg" rx="10" />
-    <rect width="{width}" height="{height}" class="border" rx="10" stroke-width="2"/>
-    {content}
-</svg>'''
+def escape(text: str) -> str:
+    """Escapes special characters for XML/SVG safety."""
+    return html.escape(str(text))
 
 def save_svg(filename: str, content: str):
     """Saves SVG content to the assets directory."""
@@ -40,5 +49,5 @@ def save_svg(filename: str, content: str):
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / filename
     with open(out_path, "w", encoding="utf-8") as f:
-        f.write(content)
+        f.write(content.strip())
     print(f"Generated {out_path}")
