@@ -10,12 +10,14 @@ def generate_hero():
     batch = profile.get("batch", "Batch 2027")
     status_pill = f"Open to opportunities  ·  {batch}"
     
-    typing_text = "I build safer transport systems & intelligent AI agents"
-    sub_text_1 = "Final-year Computer Science (Data Science) student turning computer"
-    sub_text_2 = "vision and GenAI into systems that actually run in the real world."
+    # Generic, high-impact AI & Software Engineer headline
+    typing_text = "Building intelligent Generative AI & Computer Vision systems"
+    sub_text_1 = "Computer Science (Data Science) undergraduate engineer turning LLMs, RAG"
+    sub_text_2 = "and computer vision architectures into high-performance production systems."
 
     width = 900
     height = 250
+    cursor_x = int(len(typing_text) * 10.0 + 8)
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
     <defs>
@@ -59,9 +61,8 @@ def generate_hero():
 
         /* Status Beacon Pulse */
         @keyframes pulseDot {{
-            0% {{ r: 4px; opacity: 1; }}
-            50% {{ r: 6.5px; opacity: 0.4; }}
-            100% {{ r: 4px; opacity: 1; }}
+            0%, 100% {{ transform: scale(1); opacity: 0.8; }}
+            50% {{ transform: scale(1.6); opacity: 0; }}
         }}
         .beacon {{
             animation: pulseDot 2s infinite ease-in-out;
@@ -75,17 +76,6 @@ def generate_hero():
         }}
         .cursor {{
             animation: blink 0.9s infinite;
-        }}
-
-        /* Typewriter Clip */
-        @keyframes typeIn {{
-            from {{ width: 0; }}
-            to {{ width: 100%; }}
-        }}
-        .typing-box {{
-            overflow: hidden;
-            white-space: nowrap;
-            display: inline-block;
         }}
     </style>
 
@@ -110,13 +100,12 @@ def generate_hero():
         Hi, I'm <tspan fill="url(#name-grad)">{escape(first_name)}.</tspan>
     </text>
 
-    <!-- Animated Typewriter Subheading -->
+    <!-- Animated Subheading -->
     <g transform="translate(36, 150)">
-        <text x="0" y="0" class="font-sans" font-size="20" font-weight="500" fill="#94a3b8">
-            <tspan fill="#f1f5f9" font-weight="600">{escape(typing_text)}</tspan>
+        <text x="0" y="0" class="font-sans" font-size="19" font-weight="600" fill="#f1f5f9">
+            {escape(typing_text)}
         </text>
-        <!-- Typewriter vertical bar cursor -->
-        <line x1="530" y1="-16" x2="530" y2="4" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round" class="cursor"/>
+        <line x1="{cursor_x}" y1="-16" x2="{cursor_x}" y2="4" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round" class="cursor"/>
     </g>
 
     <!-- Description Paragraph -->
@@ -132,4 +121,3 @@ def generate_hero():
 
 if __name__ == "__main__":
     generate_hero()
-

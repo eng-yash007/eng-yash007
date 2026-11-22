@@ -1,15 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="480" viewBox="0 0 440 480">
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="340" viewBox="0 0 440 340">
     <defs>
         <linearGradient id="stack-bg" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#060911" />
             <stop offset="50%" stop-color="#0b101d" />
             <stop offset="100%" stop-color="#060810" />
-        </linearGradient>
-
-        <linearGradient id="neon-border" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.85" />
-            <stop offset="50%" stop-color="#818cf8" stop-opacity="0.5" />
-            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.85" />
         </linearGradient>
 
         <radialGradient id="stack-ambient" cx="80%" cy="30%" r="60%">
@@ -18,9 +12,8 @@
             <stop offset="100%" stop-color="#000000" stop-opacity="0" />
         </radialGradient>
 
-        <!-- Clip Path to keep streaming pills strictly within container borders -->
         <clipPath id="inner-stream-clip">
-            <rect x="16" y="60" width="408" height="370" rx="10" />
+            <rect x="16" y="56" width="408" height="244" rx="10" />
         </clipPath>
     </defs>
 
@@ -38,11 +31,7 @@
         }
         @keyframes streamRow3 {
             0% { transform: translateX(0px); }
-            100% { transform: translateX(-649.5px); }
-        }
-        @keyframes streamRow4 {
-            0% { transform: translateX(-624.5px); }
-            100% { transform: translateX(0px); }
+            100% { transform: translateX(-624.0px); }
         }
 
         .row-stream-1 {
@@ -54,39 +43,35 @@
         .row-stream-3 {
             animation: streamRow3 32s linear infinite;
         }
-        .row-stream-4 {
-            animation: streamRow4 36s linear infinite;
-        }
 
         .stream-viewport:hover .row-stream-1,
         .stream-viewport:hover .row-stream-2,
-        .stream-viewport:hover .row-stream-3,
-        .stream-viewport:hover .row-stream-4 {
+        .stream-viewport:hover .row-stream-3 {
             animation-play-state: paused;
         }
     </style>
 
-    <!-- Background card with neon border matching VISUAL.MAP -->
-    <rect width="440" height="480" rx="14" fill="url(#stack-bg)" />
-    <rect width="440" height="480" rx="14" fill="url(#stack-ambient)" />
-    <rect width="440" height="480" rx="14" fill="none" stroke="#18202f" stroke-width="1" />
+    <!-- Background card -->
+    <rect width="440" height="340" rx="14" fill="url(#stack-bg)" />
+    <rect width="440" height="340" rx="14" fill="url(#stack-ambient)" />
+    <rect width="440" height="340" rx="14" fill="none" stroke="#18202f" stroke-width="1" />
 
-    <!-- Corner brackets matching VISUAL.MAP -->
+    <!-- Corner brackets -->
     <path d="M 18 36 L 18 18 L 36 18" fill="none" stroke="#38bdf8" stroke-width="2" />
-    <path d="M 18 444 L 18 462 L 36 462" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <path d="M 18 304 L 18 322 L 36 322" fill="none" stroke="#38bdf8" stroke-width="2" />
 
     <!-- Header bar -->
     <text x="40" y="27" fill="#38bdf8" font-size="13" font-weight="700" class="font-mono">STACK.STREAM</text>
     <circle cx="165" cy="22" r="3.5" fill="#22c55e" />
     <text x="176" y="26" fill="#64748b" font-size="11" class="font-mono">LIVE MATRIX</text>
     
-    <!-- Thin divider matching VISUAL.MAP -->
+    <!-- Divider -->
     <line x1="18" y1="52" x2="422" y2="52" stroke="#18202f" stroke-width="1" />
 
-    <!-- Streaming viewport clipped inside bounds -->
+    <!-- Streaming viewport -->
     <g class="stream-viewport" clip-path="url(#inner-stream-clip)">
-        <!-- Row 1: Leftward stream -->
-        <g transform="translate(0, 78)">
+        <!-- Row 1 -->
+        <g transform="translate(0, 72)">
             <g class="row-stream-1">
                 
     <g transform="translate(0, 0)">
@@ -188,8 +173,8 @@
             </g>
         </g>
 
-        <!-- Row 2: Rightward stream -->
-        <g transform="translate(0, 162)">
+        <!-- Row 2 -->
+        <g transform="translate(0, 150)">
             <g class="row-stream-2">
                 
     <g transform="translate(0, 0)">
@@ -291,8 +276,8 @@
             </g>
         </g>
 
-        <!-- Row 3: Leftward stream -->
-        <g transform="translate(0, 246)">
+        <!-- Row 3 -->
+        <g transform="translate(0, 228)">
             <g class="row-stream-3">
                 
     <g transform="translate(0, 0)">
@@ -312,14 +297,14 @@
     </g>
     
     <g transform="translate(245.0, 0)">
-        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f472b6" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#db2777" />
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#9333ea" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            WebSockets
+            Whisper
         </text>
     </g>
     
-    <g transform="translate(376.0, 0)">
+    <g transform="translate(350.5, 0)">
         <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f87171" stroke-width="1.3" />
         <circle cx="16" cy="19" r="4" fill="#dc2626" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
@@ -327,7 +312,7 @@
         </text>
     </g>
     
-    <g transform="translate(464.0, 0)">
+    <g transform="translate(438.5, 0)">
         <rect width="76.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
         <circle cx="16" cy="19" r="4" fill="#d97706" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
@@ -335,7 +320,7 @@
         </text>
     </g>
     
-    <g transform="translate(552.5, 0)">
+    <g transform="translate(527.0, 0)">
         <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#e2e8f0" stroke-width="1.3" />
         <circle cx="16" cy="19" r="4" fill="#94a3b8" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
@@ -343,7 +328,7 @@
         </text>
     </g>
     
-    <g transform="translate(649.5, 0)">
+    <g transform="translate(624.0, 0)">
         <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#818cf8" stroke-width="1.3" />
         <circle cx="16" cy="19" r="4" fill="#4f46e5" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
@@ -351,7 +336,7 @@
         </text>
     </g>
     
-    <g transform="translate(780.5, 0)">
+    <g transform="translate(755.0, 0)">
         <rect width="102.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#34d399" stroke-width="1.3" />
         <circle cx="16" cy="19" r="4" fill="#059669" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
@@ -359,15 +344,15 @@
         </text>
     </g>
     
-    <g transform="translate(894.5, 0)">
-        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f472b6" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#db2777" />
+    <g transform="translate(869.0, 0)">
+        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
+        <circle cx="16" cy="19" r="4" fill="#9333ea" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            WebSockets
+            Whisper
         </text>
     </g>
     
-    <g transform="translate(1025.5, 0)">
+    <g transform="translate(974.5, 0)">
         <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f87171" stroke-width="1.3" />
         <circle cx="16" cy="19" r="4" fill="#dc2626" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
@@ -375,7 +360,7 @@
         </text>
     </g>
     
-    <g transform="translate(1113.5, 0)">
+    <g transform="translate(1062.5, 0)">
         <rect width="76.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
         <circle cx="16" cy="19" r="4" fill="#d97706" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
@@ -383,7 +368,7 @@
         </text>
     </g>
     
-    <g transform="translate(1202.0, 0)">
+    <g transform="translate(1151.0, 0)">
         <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#e2e8f0" stroke-width="1.3" />
         <circle cx="16" cy="19" r="4" fill="#94a3b8" />
         <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
@@ -393,114 +378,11 @@
     
             </g>
         </g>
-
-        <!-- Row 4: Rightward stream -->
-        <g transform="translate(0, 330)">
-            <g class="row-stream-4">
-                
-    <g transform="translate(0, 0)">
-        <rect width="76.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#34d399" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#059669" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            FAISS
-        </text>
-    </g>
-    
-    <g transform="translate(88.5, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#9333ea" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Whisper
-        </text>
-    </g>
-    
-    <g transform="translate(194.0, 0)">
-        <rect width="102.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0d9488" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Supabase
-        </text>
-    </g>
-    
-    <g transform="translate(308.0, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fb923c" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#ea580c" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            YOLOv8
-        </text>
-    </g>
-    
-    <g transform="translate(405.0, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#60a5fa" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#2563eb" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            ArcFace
-        </text>
-    </g>
-    
-    <g transform="translate(510.5, 0)">
-        <rect width="102.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f472b6" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#db2777" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Groq API
-        </text>
-    </g>
-    
-    <g transform="translate(624.5, 0)">
-        <rect width="76.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#34d399" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#059669" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            FAISS
-        </text>
-    </g>
-    
-    <g transform="translate(713.0, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#9333ea" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Whisper
-        </text>
-    </g>
-    
-    <g transform="translate(818.5, 0)">
-        <rect width="102.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0d9488" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Supabase
-        </text>
-    </g>
-    
-    <g transform="translate(932.5, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fb923c" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#ea580c" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            YOLOv8
-        </text>
-    </g>
-    
-    <g transform="translate(1029.5, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#60a5fa" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#2563eb" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            ArcFace
-        </text>
-    </g>
-    
-    <g transform="translate(1135.0, 0)">
-        <rect width="102.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f472b6" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#db2777" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Groq API
-        </text>
-    </g>
-    
-            </g>
-        </g>
     </g>
 
-    <!-- Side edge fade vignettes to prevent clipping visual jumps -->
-    <rect x="16" y="60" width="30" height="370" fill="url(#left-fade)" pointer-events="none" />
-    <rect x="394" y="60" width="30" height="370" fill="url(#right-fade)" pointer-events="none" />
+    <!-- Edge vignettes -->
+    <rect x="16" y="56" width="30" height="244" fill="url(#left-fade)" pointer-events="none" />
+    <rect x="394" y="56" width="30" height="244" fill="url(#right-fade)" pointer-events="none" />
 
     <defs>
         <linearGradient id="left-fade" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -513,8 +395,8 @@
         </linearGradient>
     </defs>
 
-    <!-- Footer caption matching VISUAL.MAP film.cut() alignment -->
-    <text x="220.0" y="456" fill="#64748b" font-size="11" class="font-mono" text-anchor="middle">
-        CONTINUOUS PIPELINE • 24 TECHNOLOGIES
+    <!-- Footer caption -->
+    <text x="220.0" y="318" fill="#64748b" font-size="11" class="font-mono" text-anchor="middle">
+        CONTINUOUS PIPELINE • 18 TECHNOLOGIES
     </text>
 </svg>

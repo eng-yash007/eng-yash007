@@ -9,8 +9,9 @@ def generate_about():
     width = 900
     height = 340
 
+    # Skills aligned 100% with Yash's Resume
     pills = [
-        "Python", "C++", "FastAPI", "Next.js", "LangChain", "PyTorch", "OpenCV", "PostgreSQL", "Docker", "SQL"
+        "Python", "C++", "FastAPI", "LangChain", "PyTorch", "Next.js", "OpenCV", "Docker", "SQL", "Git"
     ]
 
     # Calculate pill positions
@@ -60,7 +61,7 @@ def generate_about():
     <rect width="{width}" height="{height}" rx="14" fill="url(#about-bg)" />
     <rect width="{width}" height="{height}" rx="14" fill="none" stroke="url(#about-border)" stroke-width="1.2" />
 
-    <!-- Top Tag: Yash Gupta — Identity -->
+    <!-- Top Tag -->
     <g transform="translate(36, 26)">
         <rect width="180" height="22" rx="4" fill="#1e293b" fill-opacity="0.6"/>
         <text x="90" y="15" fill="#818cf8" font-size="11" font-weight="600" class="font-mono" text-anchor="middle">
@@ -75,23 +76,23 @@ def generate_about():
         </text>
 
         <text x="0" y="52" class="font-sans" font-size="13" font-weight="600" fill="#2dd4bf">
-            AI Engineer | Computer Vision | Generative AI
+            AI &amp; Software Engineer | Generative AI &amp; Computer Vision
         </text>
 
         <text x="0" y="74" class="font-sans" font-size="12.5" font-weight="500" fill="#94a3b8">
             {escape(college)} · CGPA 8.0
         </text>
 
-        <!-- Concise, Verified Paragraph -->
+        <!-- Concise, Resume-aligned Paragraph -->
         <text x="0" y="104" class="font-sans" font-size="13" fill="#94a3b8" line-height="1.5">
             <tspan x="0" dy="0">Computer Science (Data Science) undergraduate engineer</tspan>
-            <tspan x="0" dy="20">turning CV and GenAI into production systems. Hands-on</tspan>
-            <tspan x="0" dy="20">experience with real-time video workflows at Ragh Vision</tspan>
-            <tspan x="0" dy="20">and enterprise RAG pipelines at Capri Global.</tspan>
+            <tspan x="0" dy="20">turning LLMs, RAG and CV into production applications.</tspan>
+            <tspan x="0" dy="20">Hands-on experience with computer vision workflows at Ragh</tspan>
+            <tspan x="0" dy="20">Vision and enterprise RAG &amp; AI analytics at Capri Global.</tspan>
         </text>
     </g>
 
-    <!-- RIGHT COLUMN: Compact Terminal-Style Identity Card -->
+    <!-- RIGHT COLUMN: Terminal Identity Card -->
     <g transform="translate(485, 32)">
         <rect width="380" height="228" rx="12" fill="url(#card-grad)" stroke="#1e293b" stroke-width="1.1"/>
 
@@ -109,12 +110,12 @@ def generate_about():
         <g transform="translate(18, 54)">
             <!-- identity -->
             <text x="0" y="0" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">identity</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"AI &amp; CV Engineer"</tspan>
+                <tspan fill="#2dd4bf">identity</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"AI &amp; Software Engineer"</tspan>
             </text>
 
             <!-- focus -->
             <text x="0" y="26" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">focus</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Computer Vision"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"GenAI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"RAG"</tspan><tspan fill="#64748b">]</tspan>
+                <tspan fill="#2dd4bf">focus</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"GenAI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LLMs"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"RAG"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Computer Vision"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
             <!-- experience -->
@@ -124,12 +125,12 @@ def generate_about():
 
             <!-- core_stack -->
             <text x="0" y="78" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">core_stack</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"FastAPI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Next.js"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Docker"</tspan><tspan fill="#64748b">]</tspan>
+                <tspan fill="#2dd4bf">core_stack</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Python"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"FastAPI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LangChain"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Docker"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
             <!-- status -->
             <text x="0" y="104" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">status</tspan><tspan fill="#64748b">: </tspan><tspan fill="#34d399">"building real-world AI systems"</tspan>
+                <tspan fill="#2dd4bf">status</tspan><tspan fill="#64748b">: </tspan><tspan fill="#34d399">"building production AI systems"</tspan>
             </text>
         </g>
     </g>

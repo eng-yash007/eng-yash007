@@ -26,12 +26,12 @@
 <table>
   <tr>
     <td width="50%" align="center" valign="top">
-      <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="./assets/project_silent_gallery.svg" width="440" alt="Silent Gallery"></a>
+      <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="https://raw.githubusercontent.com/eng-yash007/eng-yash007/main/assets/project_silent_gallery.svg" width="440" alt="Silent Gallery"></a>
       <br>
       <a href="https://silent-galleryyy.vercel.app" target="_blank"><b>🚀 Launch Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/silent_gallery" target="_blank"><b>💻 GitHub Repo</b></a>
     </td>
     <td width="50%" align="center" valign="top">
-      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="./assets/project_guardian_transit.svg" width="440" alt="Guardian Transit AI"></a>
+      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="https://raw.githubusercontent.com/eng-yash007/eng-yash007/main/assets/project_guardian_transit.svg" width="440" alt="Guardian Transit AI"></a>
       <br>
       <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><b>🚀 Launch Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/guardian-transit" target="_blank"><b>💻 GitHub Repo</b></a>
     </td>
