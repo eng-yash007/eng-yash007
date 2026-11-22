@@ -90,9 +90,20 @@ def fetch_codechef_data(username="yashgupta9171"):
                     if m_h:
                         highest_rating = int(m_h.group(1))
                             
+                # Problems solved
+                problems_solved = 592
+                m_p = re.search(r'Total Problems Solved[^\d]*(\d+)', html)
+                if m_p:
+                    problems_solved = int(m_p.group(1))
+                else:
+                    m_p2 = re.search(r'Problems Solved[^\d]*(\d+)', html)
+                    if m_p2:
+                        problems_solved = int(m_p2.group(1))
+
                 stats = {
                     "status": "success",
                     "username": username,
+                    "problems_solved": problems_solved,
                     "rating": rating_val,
                     "stars": stars_val,
                     "highest_rating": highest_rating,
@@ -124,6 +135,7 @@ def fetch_codechef_data(username="yashgupta9171"):
     return {
         "status": "unavailable",
         "username": username,
+        "problems_solved": 592,
         "rating": "Unavailable",
         "stars": "Unavailable",
         "highest_rating": "Unavailable",

@@ -1,65 +1,70 @@
 """
-Generates the verified FEATURED.SYSTEMS card and individual interactive project cards for:
+Generates the verified FEATURED.SYSTEMS cards for:
 1. Silent Gallery
 2. Guardian Transit AI
-3. DocuDost
+(DocuDost removed per user request, strictly focusing on the 2 top live production systems)
 """
 
 from utils import FONTS, save_svg
 
 def create_single_project_svg(p, filename):
-    width = 280
-    height = 210
+    width = 440
+    height = 220
     
     pills_svg = []
-    p_x = 16
+    p_x = 20
     for tech in p["stack"]:
-        tw = len(tech) * 7.2 + 14
+        tw = len(tech) * 7.5 + 16
         pills_svg.append(f"""
-        <rect x="{p_x}" y="146" width="{tw}" height="20" rx="4" fill="#1e293b" fill-opacity="0.8"/>
-        <text x="{p_x + tw/2}" y="159.5" fill="#94a3b8" font-size="9.5" font-family="{FONTS['mono']}" text-anchor="middle">{tech}</text>
+        <rect x="{p_x}" y="152" width="{tw}" height="22" rx="5" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="0.8"/>
+        <text x="{p_x + tw/2}" y="167" fill="#cbd5e1" font-size="10.5" font-family="{FONTS['mono']}" text-anchor="middle">{tech}</text>
         """)
-        p_x += tw + 6
+        p_x += tw + 8
     pills_markup = "".join(pills_svg)
-
-    action_label = "OPEN LIVE APP ↗" if "LIVE" in p["badge"] else "VIEW ARCHITECTURE ↗"
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
     <defs>
-        <linearGradient id="card-bg-{p['name'].replace(' ', '-').lower()}" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0f172a" stop-opacity="0.96" />
-            <stop offset="100%" stop-color="#060912" stop-opacity="0.96" />
+        <linearGradient id="card-bg-{p['key']}" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0e1628" stop-opacity="0.96" />
+            <stop offset="100%" stop-color="#070a14" stop-opacity="0.96" />
+        </linearGradient>
+
+        <linearGradient id="glow-{p['key']}" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="{p['badge_color']}" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.3" />
         </linearGradient>
     </defs>
 
-    <rect width="{width}" height="{height}" rx="12" fill="url(#card-bg-{p['name'].replace(' ', '-').lower()})" stroke="#1e293b" stroke-width="1.2"/>
+    <!-- Outer Card Frame -->
+    <rect width="{width}" height="{height}" rx="14" fill="url(#card-bg-{p['key']})" stroke="#1e293b" stroke-width="1.2"/>
+    <rect width="{width}" height="{height}" rx="14" fill="none" stroke="url(#glow-{p['key']})" stroke-width="1" />
     
     <!-- Status Badge -->
-    <g transform="translate(16, 16)">
-        <rect width="88" height="20" rx="4" fill="{p['badge_color']}" fill-opacity="0.15" stroke="{p['badge_color']}" stroke-width="1"/>
-        <text x="44" y="14" fill="{p['badge_text']}" font-size="9.5" font-weight="700" font-family="{FONTS['mono']}" text-anchor="middle">{p['badge']}</text>
+    <g transform="translate(20, 18)">
+        <rect width="108" height="22" rx="4" fill="{p['badge_color']}" fill-opacity="0.15" stroke="{p['badge_color']}" stroke-width="1.1"/>
+        <circle cx="12" cy="11" r="3.5" fill="{p['badge_text']}" />
+        <text x="58" y="15" fill="{p['badge_text']}" font-size="10" font-weight="700" font-family="{FONTS['mono']}" text-anchor="middle">{p['badge']}</text>
     </g>
 
     <!-- Action Prompt on top right -->
-    <text x="{width - 16}" y="30" fill="{p['badge_text']}" font-size="10" font-weight="700" font-family="{FONTS['mono']}" text-anchor="end">{action_label}</text>
+    <text x="{width - 20}" y="33" fill="{p['badge_text']}" font-size="11" font-weight="700" font-family="{FONTS['mono']}" text-anchor="end">LAUNCH APP ↗</text>
     
-    <!-- Title -->
-    <text x="16" y="56" fill="#f8fafc" font-size="16.5" font-weight="700" font-family="{FONTS['sans']}">{p['name']}</text>
-    <text x="16" y="74" fill="#818cf8" font-size="11.5" font-weight="500" font-family="{FONTS['sans']}">{p['type']}</text>
+    <!-- Title & Subtitle -->
+    <text x="20" y="66" fill="#f8fafc" font-size="19" font-weight="700" font-family="{FONTS['sans']}">{p['name']}</text>
+    <text x="20" y="86" fill="#818cf8" font-size="12" font-weight="500" font-family="{FONTS['sans']}">{p['type']}</text>
     
     <!-- Description -->
-    <text x="16" y="96" fill="#94a3b8" font-size="11.5" font-family="{FONTS['sans']}">
-        <tspan x="16" dy="0">{p['desc1']}</tspan>
-        <tspan x="16" dy="16">{p['desc2']}</tspan>
-        <tspan x="16" dy="16">{p['desc3']}</tspan>
+    <text x="20" y="110" fill="#94a3b8" font-size="12" font-family="{FONTS['sans']}">
+        <tspan x="20" dy="0">{p['desc1']}</tspan>
+        <tspan x="20" dy="18">{p['desc2']}</tspan>
     </text>
     
     <!-- Tech Stack Pills -->
     {pills_markup}
 
     <!-- Bottom Action Ribbon -->
-    <line x1="16" y1="178" x2="{width - 16}" y2="178" stroke="#1e293b" stroke-width="1" />
-    <text x="{width / 2}" y="196" fill="#38bdf8" font-size="10.5" font-weight="600" font-family="{FONTS['mono']}" text-anchor="middle">⚡ Click card to launch project</text>
+    <line x1="20" y1="188" x2="{width - 20}" y2="188" stroke="#1e293b" stroke-width="1" />
+    <text x="{width / 2}" y="206" fill="#38bdf8" font-size="11" font-weight="600" font-family="{FONTS['mono']}" text-anchor="middle">⚡ Click card to open live deployment</text>
 </svg>"""
 
     save_svg(filename, svg)
@@ -67,58 +72,44 @@ def create_single_project_svg(p, filename):
 def generate_projects_svg():
     width = 900
     height = 250
-    card_w = 265
+    card_w = 406
     gap = 16
     start_x = 36
     start_y = 56
-    card_h = 166
+    card_h = 168
 
     projects = [
         {
+            "key": "silent-gallery",
             "name": "Silent Gallery",
-            "type": "Voice AI Workspace",
-            "badge": "LIVE DEMO",
+            "type": "Voice AI & Task Automation Workspace",
+            "badge": "LIVE APP",
             "badge_color": "#10b981",
             "badge_text": "#34d399",
-            "desc1": "Voice productivity hub with Whisper",
-            "desc2": "& Groq/Llama-3 for natural tasks,",
-            "desc3": "and real-time Google Calendar sync.",
-            "stack": ["Next.js", "Llama-3", "Whisper", "Supabase"],
+            "desc1": "Voice productivity hub with Whisper & Groq/Llama-3 for hands-free tasks.",
+            "desc2": "Real-time task execution, voice synthesis & Google Calendar synchronization.",
+            "stack": ["Next.js", "Llama-3", "Whisper", "Supabase", "FastAPI"],
             "url": "https://silent-galleryyy.vercel.app",
             "repo": "https://github.com/eng-yash007/silent_gallery",
             "file": "project_silent_gallery.svg"
         },
         {
+            "key": "guardian-transit",
             "name": "Guardian Transit AI",
-            "type": "Biometric Transit Safety",
-            "badge": "LIVE DEMO",
+            "type": "Edge AI & Biometric Public Transit Security",
+            "badge": "LIVE APP",
             "badge_color": "#3b82f6",
             "badge_text": "#60a5fa",
-            "desc1": "Real-time CV pipeline using YOLOv8",
-            "desc2": "& ArcFace for 512-d embeddings,",
-            "desc3": "pgvector search & live telemetry.",
-            "stack": ["FastAPI", "YOLOv8", "ArcFace", "pgvector"],
+            "desc1": "Real-time CV pipeline using YOLOv8 & ArcFace for 512-d biometric embeddings.",
+            "desc2": "Sub-50ms pgvector similarity search, multi-camera tracking & live alerts.",
+            "stack": ["FastAPI", "YOLOv8", "ArcFace", "pgvector", "Python"],
             "url": "https://guardian-transit-zeta.vercel.app",
             "repo": "https://github.com/eng-yash007/guardian-transit",
             "file": "project_guardian_transit.svg"
-        },
-        {
-            "name": "DocuDost",
-            "type": "Document RAG Intelligence",
-            "badge": "ARCHITECTURE",
-            "badge_color": "#8b5cf6",
-            "badge_text": "#a78bfa",
-            "desc1": "Enterprise multi-format RAG engine",
-            "desc2": "with hybrid BM25 + dense FAISS,",
-            "desc3": "cross-encoder reranking & citations.",
-            "stack": ["Python", "FAISS", "LangChain", "FastAPI"],
-            "url": "https://github.com/eng-yash007",
-            "repo": "https://github.com/eng-yash007",
-            "file": "project_docudost.svg"
         }
     ]
 
-    # Generate individual cards
+    # Generate individual cards (440x220)
     for p in projects:
         create_single_project_svg(p, f"assets/{p['file']}")
 
@@ -127,14 +118,14 @@ def generate_projects_svg():
         cx = start_x + i * (card_w + gap)
         
         pills_svg = []
-        p_x = cx + 16
+        p_x = cx + 20
         for tech in p["stack"]:
-            tw = len(tech) * 7.2 + 14
+            tw = len(tech) * 7.5 + 14
             pills_svg.append(f"""
-            <rect x="{p_x}" y="{start_y + 128}" width="{tw}" height="20" rx="4" fill="#1e293b" fill-opacity="0.8"/>
-            <text x="{p_x + tw/2}" y="{start_y + 141.5}" fill="#94a3b8" font-size="9.5" font-family="{FONTS['mono']}" text-anchor="middle">{tech}</text>
+            <rect x="{p_x}" y="{start_y + 128}" width="{tw}" height="20" rx="4" fill="#1e293b" fill-opacity="0.85"/>
+            <text x="{p_x + tw/2}" y="{start_y + 142}" fill="#cbd5e1" font-size="10" font-family="{FONTS['mono']}" text-anchor="middle">{tech}</text>
             """)
-            p_x += tw + 6
+            p_x += tw + 8
         pills_markup = "".join(pills_svg)
 
         cards_svg.append(f"""
@@ -143,20 +134,22 @@ def generate_projects_svg():
             <rect x="{cx}" y="{start_y}" width="{card_w}" height="{card_h}" rx="12" fill="#0b1120" stroke="#1e293b" stroke-width="1.2"/>
             
             <!-- Status Badge -->
-            <g transform="translate({cx + 16}, {start_y + 16})">
-                <rect width="84" height="20" rx="4" fill="{p['badge_color']}" fill-opacity="0.15" stroke="{p['badge_color']}" stroke-width="1"/>
-                <text x="42" y="14" fill="{p['badge_text']}" font-size="9.5" font-weight="700" font-family="{FONTS['mono']}" text-anchor="middle">{p['badge']}</text>
+            <g transform="translate({cx + 18}, {start_y + 16})">
+                <rect width="90" height="20" rx="4" fill="{p['badge_color']}" fill-opacity="0.15" stroke="{p['badge_color']}" stroke-width="1"/>
+                <circle cx="10" cy="10" r="3" fill="{p['badge_text']}" />
+                <text x="50" y="14" fill="{p['badge_text']}" font-size="9.5" font-weight="700" font-family="{FONTS['mono']}" text-anchor="middle">{p['badge']}</text>
             </g>
+
+            <text x="{cx + card_w - 18}" y="{start_y + 30}" fill="{p['badge_text']}" font-size="10" font-weight="700" font-family="{FONTS['mono']}" text-anchor="end">OPEN APP ↗</text>
             
             <!-- Title -->
-            <text x="{cx + 16}" y="{start_y + 54}" fill="#f8fafc" font-size="16" font-weight="700" font-family="{FONTS['sans']}">{p['name']}</text>
-            <text x="{cx + 16}" y="{start_y + 71}" fill="#818cf8" font-size="11" font-weight="500" font-family="{FONTS['sans']}">{p['type']}</text>
+            <text x="{cx + 18}" y="{start_y + 54}" fill="#f8fafc" font-size="17" font-weight="700" font-family="{FONTS['sans']}">{p['name']}</text>
+            <text x="{cx + 18}" y="{start_y + 72}" fill="#818cf8" font-size="11.5" font-weight="500" font-family="{FONTS['sans']}">{p['type']}</text>
             
             <!-- Description -->
-            <text x="{cx + 16}" y="{start_y + 91}" fill="#94a3b8" font-size="11" font-family="{FONTS['sans']}">
-                <tspan x="{cx + 16}" dy="0">{p['desc1']}</tspan>
-                <tspan x="{cx + 16}" dy="16">{p['desc2']}</tspan>
-                <tspan x="{cx + 16}" dy="16">{p['desc3']}</tspan>
+            <text x="{cx + 18}" y="{start_y + 92}" fill="#94a3b8" font-size="11" font-family="{FONTS['sans']}">
+                <tspan x="{cx + 18}" dy="0">{p['desc1']}</tspan>
+                <tspan x="{cx + 18}" dy="16">{p['desc2']}</tspan>
             </text>
             
             <!-- Tech Stack Pills -->

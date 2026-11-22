@@ -22,23 +22,18 @@
 
 <br><br>
 
-<!-- FEATURED SYSTEMS (INTERACTIVE CARDS & DIRECT LINKS) -->
+<!-- FEATURED SYSTEMS (2 PRODUCTION PROJECTS) -->
 <table>
   <tr>
-    <td width="33%" align="center" valign="top">
-      <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="./assets/project_silent_gallery.svg" width="280" alt="Silent Gallery"></a>
+    <td width="50%" align="center" valign="top">
+      <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="./assets/project_silent_gallery.svg" width="440" alt="Silent Gallery"></a>
       <br>
-      <a href="https://silent-galleryyy.vercel.app" target="_blank"><b>🚀 Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/silent_gallery" target="_blank"><b>💻 GitHub</b></a>
+      <a href="https://silent-galleryyy.vercel.app" target="_blank"><b>🚀 Launch Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/silent_gallery" target="_blank"><b>💻 GitHub Repo</b></a>
     </td>
-    <td width="33%" align="center" valign="top">
-      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="./assets/project_guardian_transit.svg" width="280" alt="Guardian Transit AI"></a>
+    <td width="50%" align="center" valign="top">
+      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="./assets/project_guardian_transit.svg" width="440" alt="Guardian Transit AI"></a>
       <br>
-      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><b>🚀 Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/guardian-transit" target="_blank"><b>💻 GitHub</b></a>
-    </td>
-    <td width="33%" align="center" valign="top">
-      <a href="https://github.com/eng-yash007" target="_blank"><img src="./assets/project_docudost.svg" width="280" alt="DocuDost"></a>
-      <br>
-      <a href="https://github.com/eng-yash007" target="_blank"><b>💻 GitHub Repository</b></a>
+      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><b>🚀 Launch Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/guardian-transit" target="_blank"><b>💻 GitHub Repo</b></a>
     </td>
   </tr>
 </table>

@@ -44,8 +44,9 @@ def generate_metrics_svg():
     else:
         lc_rank_fmt = str(lc_rank)
 
+    cc_solved = cc.get("problems_solved", 592)
     cc_rating = cc.get("rating", "Unavailable")
-    cc_stars = cc.get("stars", "Unavailable")
+    cc_stars = cc.get("stars", "1★")
     cc_rank = cc.get("global_rank", "Unavailable")
     if isinstance(cc_rank, int):
         cc_rank_fmt = f"#{cc_rank:,}"
@@ -167,18 +168,20 @@ def generate_metrics_svg():
         
         <!-- Metrics Row -->
         <g transform="translate(16, 42)">
-            <!-- Rating -->
-            <text x="0" y="0" class="font-mono text-muted" font-size="10">RATING</text>
-            <text x="0" y="24" class="font-sans text-white" font-size="22" font-weight="800">{cc_rating}</text>
+            <!-- Problems Solved -->
+            <text x="0" y="0" class="font-mono text-muted" font-size="10">PROBLEMS</text>
+            <text x="0" y="24" class="font-sans text-white" font-size="22" font-weight="800">{cc_solved}</text>
             
-            <!-- Stars -->
-            <text x="86" y="0" class="font-mono text-muted" font-size="10">DIVISION</text>
-            <text x="86" y="24" class="font-sans" font-size="22" font-weight="800" fill="#f97316">{cc_stars}</text>
-
             <!-- Global Rank -->
-            <g transform="translate(150, 0)">
+            <g transform="translate(86, 0)">
                 <text x="0" y="0" class="font-mono text-muted" font-size="10">GLOBAL RANK</text>
-                <text x="0" y="20" class="font-mono text-white" font-size="11.5" font-weight="700">{cc_rank_fmt}</text>
+                <text x="0" y="22" class="font-mono text-white" font-size="13" font-weight="700">{cc_rank_fmt}</text>
+            </g>
+
+            <!-- Division -->
+            <g transform="translate(186, 0)">
+                <text x="0" y="0" class="font-mono text-muted" font-size="10">DIVISION</text>
+                <text x="0" y="22" class="font-sans" font-size="16" font-weight="800" fill="#f97316">{cc_stars}</text>
             </g>
         </g>
         
