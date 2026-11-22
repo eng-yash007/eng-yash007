@@ -11,16 +11,14 @@
 <!-- GENERATIVE VISUAL.MAP & LIVE STACK STREAM -->
 <table>
   <tr>
-    <td align="center" valign="top">
-      <img src="./assets/yg-particle-map.gif" width="440" alt="VISUAL.MAP - Generative AI Particle Visualization">
+    <td align="center" valign="middle">
+      <img src="./assets/yg-particle-map.gif" width="440" height="320" alt="VISUAL.MAP - Generative AI Particle Visualization">
     </td>
-    <td align="center" valign="top">
-      <img src="./assets/stack_stream.svg" width="440" alt="STACK.STREAM - Live Technology Matrix">
+    <td align="center" valign="middle">
+      <img src="./assets/stack_stream.svg" width="440" height="320" alt="STACK.STREAM - Live Technology Matrix">
     </td>
   </tr>
 </table>
-
-<br>
 
 <!-- FEATURED SYSTEMS (PREMIUM DARK TECH DEPLOYMENTS) -->
 <img src="./assets/projects.svg" width="900" alt="Featured Systems: Silent Gallery & Guardian Transit AI">
