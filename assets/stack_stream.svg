@@ -1,402 +1,166 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="340" viewBox="0 0 440 340">
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="320" viewBox="0 0 440 320">
     <defs>
         <linearGradient id="stack-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#060911" />
-            <stop offset="50%" stop-color="#0b101d" />
-            <stop offset="100%" stop-color="#060810" />
+            <stop offset="0%" stop-color="#080D18" />
+            <stop offset="50%" stop-color="#0D1424" />
+            <stop offset="100%" stop-color="#080D18" />
         </linearGradient>
 
-        <radialGradient id="stack-ambient" cx="80%" cy="30%" r="60%">
-            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.14" />
-            <stop offset="60%" stop-color="#818cf8" stop-opacity="0.06" />
-            <stop offset="100%" stop-color="#000000" stop-opacity="0" />
-        </radialGradient>
-
-        <clipPath id="inner-stream-clip">
-            <rect x="16" y="56" width="408" height="244" rx="10" />
-        </clipPath>
+        <linearGradient id="stack-border" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9"/>
+            <stop offset="50%" stop-color="#334155" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#1E293B" stop-opacity="0.9"/>
+        </linearGradient>
     </defs>
-
-    <style>
-        .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace; }
-
-        @keyframes streamRow1 {
-            0% { transform: translateX(0px); }
-            100% { transform: translateX(-615.0px); }
-        }
-        @keyframes streamRow2 {
-            0% { transform: translateX(-675.5px); }
-            100% { transform: translateX(0px); }
-        }
-        @keyframes streamRow3 {
-            0% { transform: translateX(0px); }
-            100% { transform: translateX(-624.0px); }
-        }
-
-        .row-stream-1 {
-            animation: streamRow1 30s linear infinite;
-        }
-        .row-stream-2 {
-            animation: streamRow2 34s linear infinite;
-        }
-        .row-stream-3 {
-            animation: streamRow3 32s linear infinite;
-        }
-
-        .stream-viewport:hover .row-stream-1,
-        .stream-viewport:hover .row-stream-2,
-        .stream-viewport:hover .row-stream-3 {
-            animation-play-state: paused;
-        }
-    </style>
 
     <!-- Background card -->
-    <rect width="440" height="340" rx="14" fill="url(#stack-bg)" />
-    <rect width="440" height="340" rx="14" fill="url(#stack-ambient)" />
-    <rect width="440" height="340" rx="14" fill="none" stroke="#18202f" stroke-width="1" />
+    <rect width="440" height="320" rx="14" fill="url(#stack-bg)" stroke="url(#stack-border)" stroke-width="1.2"/>
 
     <!-- Corner brackets -->
-    <path d="M 18 36 L 18 18 L 36 18" fill="none" stroke="#38bdf8" stroke-width="2" />
-    <path d="M 18 304 L 18 322 L 36 322" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <path d="M 18 34 L 18 18 L 34 18" fill="none" stroke="#38BDF8" stroke-width="2" />
+    <path d="M 18 286 L 18 302 L 34 302" fill="none" stroke="#38BDF8" stroke-width="2" />
 
     <!-- Header bar -->
-    <text x="40" y="27" fill="#38bdf8" font-size="13" font-weight="700" class="font-mono">STACK.STREAM</text>
-    <circle cx="165" cy="22" r="3.5" fill="#22c55e" />
-    <text x="176" y="26" fill="#64748b" font-size="11" class="font-mono">LIVE MATRIX</text>
+    <text x="38" y="27" fill="#38BDF8" font-size="12" font-weight="700" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace">STACK.STREAM</text>
+    <circle cx="160" cy="22" r="3.5" fill="#10B981" />
+    <text x="172" y="26" fill="#94A3B8" font-size="10.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace">VERIFIED SKILLS</text>
     
     <!-- Divider -->
-    <line x1="18" y1="52" x2="422" y2="52" stroke="#18202f" stroke-width="1" />
+    <line x1="18" y1="50" x2="422" y2="50" stroke="#1E293B" stroke-width="1" />
 
-    <!-- Streaming viewport -->
-    <g class="stream-viewport" clip-path="url(#inner-stream-clip)">
-        <!-- Row 1 -->
-        <g transform="translate(0, 72)">
-            <g class="row-stream-1">
-                
-    <g transform="translate(0, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0284c7" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Next.js
-        </text>
-    </g>
+    <!-- Grid of Technology Pills (Aligned, Zero Clipping) -->
     
-    <g transform="translate(105.5, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0d9488" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            FastAPI
-        </text>
-    </g>
-    
-    <g transform="translate(211.0, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#d97706" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Python
-        </text>
-    </g>
-    
-    <g transform="translate(308.0, 0)">
-        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#60a5fa" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#2563eb" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            C++
-        </text>
-    </g>
-    
-    <g transform="translate(396.0, 0)">
-        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0284c7" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            TypeScript
-        </text>
-    </g>
-    
-    <g transform="translate(527.0, 0)">
-        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0d9488" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            SQL
-        </text>
-    </g>
-    
-    <g transform="translate(615.0, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0284c7" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Next.js
-        </text>
-    </g>
-    
-    <g transform="translate(720.5, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0d9488" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            FastAPI
-        </text>
-    </g>
-    
-    <g transform="translate(826.0, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#d97706" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Python
-        </text>
-    </g>
-    
-    <g transform="translate(923.0, 0)">
-        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#60a5fa" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#2563eb" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            C++
-        </text>
-    </g>
-    
-    <g transform="translate(1011.0, 0)">
-        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0284c7" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            TypeScript
-        </text>
-    </g>
-    
-    <g transform="translate(1142.0, 0)">
-        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#2dd4bf" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0d9488" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            SQL
-        </text>
-    </g>
-    
+            <g transform="translate(20.5, 66)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#38BDF8"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    GenAI
+                </text>
             </g>
-        </g>
-
-        <!-- Row 2 -->
-        <g transform="translate(0, 150)">
-            <g class="row-stream-2">
-                
-    <g transform="translate(0, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fb923c" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#ea580c" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            PyTorch
-        </text>
-    </g>
-    
-    <g transform="translate(105.5, 0)">
-        <rect width="110.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#9333ea" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            LangChain
-        </text>
-    </g>
-    
-    <g transform="translate(228.0, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#4ade80" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#16a34a" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            OpenCV
-        </text>
-    </g>
-    
-    <g transform="translate(325.0, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0284c7" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Docker
-        </text>
-    </g>
-    
-    <g transform="translate(422.0, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#a855f7" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#7e22ce" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Llama-3
-        </text>
-    </g>
-    
-    <g transform="translate(527.5, 0)">
-        <rect width="136.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#d97706" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Hugging Face
-        </text>
-    </g>
-    
-    <g transform="translate(675.5, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fb923c" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#ea580c" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            PyTorch
-        </text>
-    </g>
-    
-    <g transform="translate(781.0, 0)">
-        <rect width="110.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#9333ea" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            LangChain
-        </text>
-    </g>
-    
-    <g transform="translate(903.5, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#4ade80" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#16a34a" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            OpenCV
-        </text>
-    </g>
-    
-    <g transform="translate(1000.5, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#0284c7" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Docker
-        </text>
-    </g>
-    
-    <g transform="translate(1097.5, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#a855f7" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#7e22ce" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Llama-3
-        </text>
-    </g>
-    
-    <g transform="translate(1203.0, 0)">
-        <rect width="136.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#d97706" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Hugging Face
-        </text>
-    </g>
-    
+            
+            <g transform="translate(122.5, 66)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#8B5CF6"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    LLMs
+                </text>
             </g>
-        </g>
-
-        <!-- Row 3 -->
-        <g transform="translate(0, 228)">
-            <g class="row-stream-3">
-                
-    <g transform="translate(0, 0)">
-        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#818cf8" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#4f46e5" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            PostgreSQL
-        </text>
-    </g>
-    
-    <g transform="translate(131.0, 0)">
-        <rect width="102.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#34d399" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#059669" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            pgvector
-        </text>
-    </g>
-    
-    <g transform="translate(245.0, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#9333ea" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Whisper
-        </text>
-    </g>
-    
-    <g transform="translate(350.5, 0)">
-        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f87171" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#dc2626" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Git
-        </text>
-    </g>
-    
-    <g transform="translate(438.5, 0)">
-        <rect width="76.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#d97706" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Linux
-        </text>
-    </g>
-    
-    <g transform="translate(527.0, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#e2e8f0" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#94a3b8" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Vercel
-        </text>
-    </g>
-    
-    <g transform="translate(624.0, 0)">
-        <rect width="119.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#818cf8" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#4f46e5" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            PostgreSQL
-        </text>
-    </g>
-    
-    <g transform="translate(755.0, 0)">
-        <rect width="102.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#34d399" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#059669" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            pgvector
-        </text>
-    </g>
-    
-    <g transform="translate(869.0, 0)">
-        <rect width="93.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#9333ea" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Whisper
-        </text>
-    </g>
-    
-    <g transform="translate(974.5, 0)">
-        <rect width="76" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#f87171" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#dc2626" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Git
-        </text>
-    </g>
-    
-    <g transform="translate(1062.5, 0)">
-        <rect width="76.5" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#fbbf24" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#d97706" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Linux
-        </text>
-    </g>
-    
-    <g transform="translate(1151.0, 0)">
-        <rect width="85.0" height="38" rx="19" fill="#0f172a" fill-opacity="0.9" stroke="#e2e8f0" stroke-width="1.3" />
-        <circle cx="16" cy="19" r="4" fill="#94a3b8" />
-        <text x="28" y="23.5" fill="#f1f5f9" font-size="12.5" font-weight="600" class="font-sans">
-            Vercel
-        </text>
-    </g>
-    
+            
+            <g transform="translate(224.5, 66)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#22D3EE"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    RAG
+                </text>
             </g>
-        </g>
-    </g>
-
-    <!-- Edge vignettes -->
-    <rect x="16" y="56" width="30" height="244" fill="url(#left-fade)" pointer-events="none" />
-    <rect x="394" y="56" width="30" height="244" fill="url(#right-fade)" pointer-events="none" />
-
-    <defs>
-        <linearGradient id="left-fade" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#080c16" stop-opacity="0.95" />
-            <stop offset="100%" stop-color="#080c16" stop-opacity="0" />
-        </linearGradient>
-        <linearGradient id="right-fade" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#080c16" stop-opacity="0" />
-            <stop offset="100%" stop-color="#080c16" stop-opacity="0.95" />
-        </linearGradient>
-    </defs>
+            
+            <g transform="translate(326.5, 66)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#8B5CF6"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    LangChain
+                </text>
+            </g>
+            
+            <g transform="translate(20.5, 110)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#10B981"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    FastAPI
+                </text>
+            </g>
+            
+            <g transform="translate(122.5, 110)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#F472B6"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    PyTorch
+                </text>
+            </g>
+            
+            <g transform="translate(224.5, 110)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#FBBF24"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    HF Models
+                </text>
+            </g>
+            
+            <g transform="translate(326.5, 110)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#8B5CF6"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    Llama-3
+                </text>
+            </g>
+            
+            <g transform="translate(20.5, 154)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#38BDF8"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    CV Pipeline
+                </text>
+            </g>
+            
+            <g transform="translate(122.5, 154)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#10B981"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    OpenCV
+                </text>
+            </g>
+            
+            <g transform="translate(224.5, 154)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#FB923C"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    YOLOv8
+                </text>
+            </g>
+            
+            <g transform="translate(326.5, 154)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#22D3EE"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    Whisper
+                </text>
+            </g>
+            
+            <g transform="translate(20.5, 198)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#FBBF24"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    Python
+                </text>
+            </g>
+            
+            <g transform="translate(122.5, 198)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#38BDF8"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    Next.js
+                </text>
+            </g>
+            
+            <g transform="translate(224.5, 198)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#10B981"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    pgvector
+                </text>
+            </g>
+            
+            <g transform="translate(326.5, 198)">
+                <rect width="93" height="32" rx="6" fill="#0B1120" stroke="#1E293B" stroke-width="1"/>
+                <circle cx="12" cy="16" r="3" fill="#38BDF8"/>
+                <text x="52.5" y="20" fill="#F1F5F9" font-size="11" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" text-anchor="middle">
+                    Docker
+                </text>
+            </g>
+            
 
     <!-- Footer caption -->
-    <text x="220.0" y="318" fill="#64748b" font-size="11" class="font-mono" text-anchor="middle">
-        CONTINUOUS PIPELINE • 18 TECHNOLOGIES
+    <text x="220.0" y="300" fill="#64748B" font-size="10.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">
+        16 VERIFIED PRODUCTION TECHNOLOGIES
     </text>
 </svg>

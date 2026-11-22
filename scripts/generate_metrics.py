@@ -56,29 +56,29 @@ def generate_metrics_svg():
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
     <defs>
         <linearGradient id="metrics-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#080c14" />
-            <stop offset="50%" stop-color="#0b101d" />
-            <stop offset="100%" stop-color="#070a12" />
+            <stop offset="0%" stop-color="#080D18" />
+            <stop offset="50%" stop-color="#0D1424" />
+            <stop offset="100%" stop-color="#080D18" />
         </linearGradient>
 
         <linearGradient id="card-inner-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0f172a" stop-opacity="0.9" />
-            <stop offset="100%" stop-color="#090d16" stop-opacity="0.9" />
+            <stop offset="0%" stop-color="#0B1120" stop-opacity="0.95" />
+            <stop offset="100%" stop-color="#0D1424" stop-opacity="0.95" />
         </linearGradient>
 
         <linearGradient id="metrics-border" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9"/>
+            <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9"/>
             <stop offset="50%" stop-color="#334155" stop-opacity="0.4"/>
-            <stop offset="100%" stop-color="#1e293b" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#1E293B" stop-opacity="0.9"/>
         </linearGradient>
     </defs>
 
     <style>
         .font-sans {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; }}
         .font-mono {{ font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, Menlo, monospace; }}
-        .text-white {{ fill: #f8fafc; }}
-        .text-muted {{ fill: #64748b; }}
-        .text-accent {{ fill: #2dd4bf; }}
+        .text-white {{ fill: #F1F5F9; }}
+        .text-muted {{ fill: #94A3B8; }}
+        .text-accent {{ fill: #38BDF8; }}
     </style>
 
     <!-- Background Frame -->

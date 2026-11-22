@@ -15,7 +15,7 @@
       <img src="./assets/yg-particle-map.gif" width="440" alt="VISUAL.MAP - Generative AI Particle Visualization">
     </td>
     <td align="center" valign="top">
-      <img src="./assets/stack_stream.svg" width="440" alt="STACK.STREAM - Live Technology Matrix">
+      <img src="./assets/stack_stream.svg" width="440" alt="STACK.STREAM - Verified Skills">
     </td>
   </tr>
 </table>
@@ -23,16 +23,18 @@
 <br><br>
 
 <!-- FEATURED SYSTEMS (PREMIUM DARK TECH DEPLOYMENTS) -->
-<img src="https://raw.githubusercontent.com/eng-yash007/eng-yash007/main/assets/projects.svg?v=3" width="900" alt="Featured Systems: Silent Gallery & Guardian Transit AI">
+<img src="./assets/projects.svg" width="900" alt="Featured Systems: Silent Gallery & Guardian Transit AI">
 
-<p align="center" style="margin-top: 14px;">
-  <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Silent%20Gallery-🚀%20Live%20Demo-0284c7?style=flat-square" alt="Silent Gallery Demo"/></a>
-  &nbsp;
-  <a href="https://github.com/eng-yash007/silent_gallery" target="_blank"><img src="https://img.shields.io/badge/Silent%20Gallery-💻%20GitHub-1e293b?style=flat-square&logo=github&logoColor=white" alt="Silent Gallery Code"/></a>
+<p align="center" style="margin-top: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px;">
+  <b>Silent Gallery:</b> &nbsp;
+  <a href="https://silent-galleryyy.vercel.app" target="_blank" style="color: #38bdf8; text-decoration: none;"><b>🚀 Live Demo ↗</b></a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://github.com/eng-yash007/silent_gallery" target="_blank" style="color: #94a3b8; text-decoration: none;"><b>💻 GitHub Repository ↗</b></a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Guardian%20Transit-🚀%20Live%20Demo-059669?style=flat-square" alt="Guardian Transit Demo"/></a>
-  &nbsp;
-  <a href="https://github.com/eng-yash007/guardian-transit" target="_blank"><img src="https://img.shields.io/badge/Guardian%20Transit-💻%20GitHub-1e293b?style=flat-square&logo=github&logoColor=white" alt="Guardian Transit Code"/></a>
+  <b>Guardian Transit AI:</b> &nbsp;
+  <a href="https://guardian-transit-zeta.vercel.app" target="_blank" style="color: #38bdf8; text-decoration: none;"><b>🚀 Live Demo ↗</b></a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://github.com/eng-yash007/guardian-transit" target="_blank" style="color: #94a3b8; text-decoration: none;"><b>💻 GitHub Repository ↗</b></a>
 </p>
 
 <br><br>

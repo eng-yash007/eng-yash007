@@ -1,32 +1,28 @@
 """
 Utility functions and configuration constants for generating high-aesthetic SVGs.
+Strictly following the Premium Dark Tech Design System.
 """
 
 from pathlib import Path
 import html
 
-# Modern Dark Cyberpunk / Linear Portfolio Palette
+# Premium Dark Tech Design System
 THEME = {
-    "bg": "#090d16",
-    "background": "#090d16",
-    "card_bg": "#0d131f",
-    "card_bg_glass": "rgba(13, 19, 31, 0.85)",
-    "border": "#1e293b",
+    "bg": "#080D18",
+    "background": "#080D18",
+    "surface": "#0D1424",
+    "card_bg": "#0B1120",
+    "border": "#1E293B",
+    "border_subtle": "#162032",
     "border_glow": "#334155",
-    "primary": "#e2e8f0",
-    "secondary": "#94a3b8",
-    "accent": "#2dd4bf",
-    "text_white": "#ffffff",
-    "text_primary": "#e2e8f0",
-    "text_secondary": "#94a3b8",
-    "text_muted": "#64748b",
-    "accent_cyan": "#2dd4bf",
-    "accent_indigo": "#818cf8",
-    "accent_purple": "#c084fc",
-    "accent_pink": "#f472b6",
-    "accent_green": "#34d399",
-    "accent_amber": "#fbbf24",
-    "accent_orange": "#fb923c"
+    "blue": "#38BDF8",
+    "cyan": "#22D3EE",
+    "violet": "#8B5CF6",
+    "text_main": "#F1F5F9",
+    "text_secondary": "#94A3B8",
+    "text_muted": "#64748B",
+    "success": "#10B981",
+    "accent_pink": "#F472B6"
 }
 
 # Backward compatibility alias
