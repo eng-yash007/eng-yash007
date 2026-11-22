@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero.svg" width="900" alt="Hi, I'm Yash - AI Engineer">
+<img src="./assets/hero.svg" width="900" alt="Hi, I'm Yash - Generative AI Engineer">
 
 <br><br>
 
@@ -22,21 +22,18 @@
 
 <br><br>
 
-<!-- FEATURED SYSTEMS (2 PRODUCTION PROJECTS) -->
-<table>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="https://raw.githubusercontent.com/eng-yash007/eng-yash007/main/assets/project_silent_gallery.svg" width="440" alt="Silent Gallery"></a>
-      <br>
-      <a href="https://silent-galleryyy.vercel.app" target="_blank"><b>🚀 Launch Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/silent_gallery" target="_blank"><b>💻 GitHub Repo</b></a>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="https://raw.githubusercontent.com/eng-yash007/eng-yash007/main/assets/project_guardian_transit.svg" width="440" alt="Guardian Transit AI"></a>
-      <br>
-      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><b>🚀 Launch Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/guardian-transit" target="_blank"><b>💻 GitHub Repo</b></a>
-    </td>
-  </tr>
-</table>
+<!-- FEATURED SYSTEMS (REBUILT CLEANLY, 100% RELIABLE) -->
+<img src="./assets/projects.svg" width="900" alt="Featured Systems: Silent Gallery & Guardian Transit AI">
+
+<p align="center" style="margin-top: 12px;">
+  <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Silent%20Gallery-🚀%20Live%20Demo-0284c7?style=for-the-badge&logoColor=white" alt="Silent Gallery Demo"/></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/eng-yash007/silent_gallery" target="_blank"><img src="https://img.shields.io/badge/Silent%20Gallery-💻%20GitHub%20Repo-1e293b?style=for-the-badge&logo=github&logoColor=white" alt="Silent Gallery Code"/></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Guardian%20Transit-🚀%20Live%20Demo-059669?style=for-the-badge&logoColor=white" alt="Guardian Transit Demo"/></a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/eng-yash007/guardian-transit" target="_blank"><img src="https://img.shields.io/badge/Guardian%20Transit-💻%20GitHub%20Repo-1e293b?style=for-the-badge&logo=github&logoColor=white" alt="Guardian Transit Code"/></a>
+</p>
 
 <br><br>
 

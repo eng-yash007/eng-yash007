@@ -5,19 +5,16 @@ def generate_hero():
     with open("data/profile.json", "r", encoding="utf-8") as f:
         profile = json.load(f)
 
-    name = profile.get("name", "Yash Gupta")
-    first_name = name.split()[0] if name else "Yash"
     batch = profile.get("batch", "Batch 2027")
     status_pill = f"Open to opportunities  ·  {batch}"
     
-    # Generic, high-impact AI & Software Engineer headline
-    typing_text = "Building intelligent Generative AI & Computer Vision systems"
+    # Generic GenAI Engineer headline (Computer Vision removed from heading)
+    subheading_text = "Generative AI Engineer · Eager to build intelligent systems"
     sub_text_1 = "Computer Science (Data Science) undergraduate engineer turning LLMs, RAG"
-    sub_text_2 = "and computer vision architectures into high-performance production systems."
+    sub_text_2 = "and intelligent agent architectures into high-performance production systems."
 
     width = 900
     height = 250
-    cursor_x = int(len(typing_text) * 10.0 + 8)
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
     <defs>
@@ -42,17 +39,19 @@ def generate_hero():
             <stop offset="100%" stop-color="#2dd4bf" />
         </linearGradient>
 
-        <linearGradient id="pill-border" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#334155" />
-            <stop offset="100%" stop-color="#1e293b" />
-        </linearGradient>
-
         <!-- Card Glow Border -->
         <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#334155" stop-opacity="0.7"/>
             <stop offset="50%" stop-color="#1e293b" stop-opacity="0.4"/>
             <stop offset="100%" stop-color="#0f172a" stop-opacity="0.8"/>
         </linearGradient>
+
+        <!-- 1-Shot Typing Clip Path for 'Hi, I'm Yash.' -->
+        <clipPath id="typing-clip">
+            <rect x="36" y="60" width="0" height="65">
+                <animate attributeName="width" from="0" to="340" dur="1.3s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" keyTimes="0;1"/>
+            </rect>
+        </clipPath>
     </defs>
 
     <style>
@@ -95,17 +94,23 @@ def generate_hero():
         </text>
     </g>
 
-    <!-- Big Heading: Hi, I'm Yash. -->
-    <text x="36" y="112" class="font-sans" font-size="44" font-weight="800" fill="#f8fafc" letter-spacing="-0.03em">
-        Hi, I'm <tspan fill="url(#name-grad)">{escape(first_name)}.</tspan>
-    </text>
+    <!-- Big Heading with 1-shot Typing Animation: Hi, I'm Yash. -->
+    <g clip-path="url(#typing-clip)">
+        <text x="36" y="112" class="font-sans" font-size="44" font-weight="800" fill="#f8fafc" letter-spacing="-0.03em">
+            Hi, I'm <tspan fill="url(#name-grad)">Yash.</tspan>
+        </text>
+    </g>
+    <!-- Traveling Typing Cursor -->
+    <line x1="36" y1="78" x2="36" y2="114" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" class="cursor">
+        <animate attributeName="x1" from="36" to="330" dur="1.3s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" keyTimes="0;1"/>
+        <animate attributeName="x2" from="36" to="330" dur="1.3s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" keyTimes="0;1"/>
+    </line>
 
-    <!-- Animated Subheading -->
+    <!-- Subheading: Generative AI Engineer -->
     <g transform="translate(36, 150)">
         <text x="0" y="0" class="font-sans" font-size="19" font-weight="600" fill="#f1f5f9">
-            {escape(typing_text)}
+            {escape(subheading_text)}
         </text>
-        <line x1="{cursor_x}" y1="-16" x2="{cursor_x}" y2="4" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round" class="cursor"/>
     </g>
 
     <!-- Description Paragraph -->

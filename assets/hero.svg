@@ -21,17 +21,19 @@
             <stop offset="100%" stop-color="#2dd4bf" />
         </linearGradient>
 
-        <linearGradient id="pill-border" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#334155" />
-            <stop offset="100%" stop-color="#1e293b" />
-        </linearGradient>
-
         <!-- Card Glow Border -->
         <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#334155" stop-opacity="0.7"/>
             <stop offset="50%" stop-color="#1e293b" stop-opacity="0.4"/>
             <stop offset="100%" stop-color="#0f172a" stop-opacity="0.8"/>
         </linearGradient>
+
+        <!-- 1-Shot Typing Clip Path for 'Hi, I'm Yash.' -->
+        <clipPath id="typing-clip">
+            <rect x="36" y="60" width="0" height="65">
+                <animate attributeName="width" from="0" to="340" dur="1.3s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" keyTimes="0;1"/>
+            </rect>
+        </clipPath>
     </defs>
 
     <style>
@@ -74,17 +76,23 @@
         </text>
     </g>
 
-    <!-- Big Heading: Hi, I'm Yash. -->
-    <text x="36" y="112" class="font-sans" font-size="44" font-weight="800" fill="#f8fafc" letter-spacing="-0.03em">
-        Hi, I'm <tspan fill="url(#name-grad)">Yash.</tspan>
-    </text>
+    <!-- Big Heading with 1-shot Typing Animation: Hi, I'm Yash. -->
+    <g clip-path="url(#typing-clip)">
+        <text x="36" y="112" class="font-sans" font-size="44" font-weight="800" fill="#f8fafc" letter-spacing="-0.03em">
+            Hi, I'm <tspan fill="url(#name-grad)">Yash.</tspan>
+        </text>
+    </g>
+    <!-- Traveling Typing Cursor -->
+    <line x1="36" y1="78" x2="36" y2="114" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" class="cursor">
+        <animate attributeName="x1" from="36" to="330" dur="1.3s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" keyTimes="0;1"/>
+        <animate attributeName="x2" from="36" to="330" dur="1.3s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" keyTimes="0;1"/>
+    </line>
 
-    <!-- Animated Subheading -->
+    <!-- Subheading: Generative AI Engineer -->
     <g transform="translate(36, 150)">
         <text x="0" y="0" class="font-sans" font-size="19" font-weight="600" fill="#f1f5f9">
-            Building intelligent Generative AI &amp; Computer Vision systems
+            Generative AI Engineer · Eager to build intelligent systems
         </text>
-        <line x1="608" y1="-16" x2="608" y2="4" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round" class="cursor"/>
     </g>
 
     <!-- Description Paragraph -->
@@ -92,6 +100,6 @@
         Computer Science (Data Science) undergraduate engineer turning LLMs, RAG
     </text>
     <text x="36" y="220" class="font-sans" font-size="14.5" fill="#94a3b8" letter-spacing="-0.01em">
-        and computer vision architectures into high-performance production systems.
+        and intelligent agent architectures into high-performance production systems.
     </text>
 </svg>

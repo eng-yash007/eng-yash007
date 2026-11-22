@@ -9,26 +9,30 @@ def generate_about():
     width = 900
     height = 340
 
-    # Skills aligned 100% with Yash's Resume
+    # Perfectly curated 8 core skills from Yash's Resume that fit with balanced margins
     pills = [
-        "Python", "C++", "FastAPI", "LangChain", "PyTorch", "Next.js", "OpenCV", "Docker", "SQL", "Git"
+        "Python", "C++", "FastAPI", "LangChain", "PyTorch", "Docker", "SQL", "Git"
     ]
 
-    # Calculate pill positions
+    # Calculate total width for perfect centering
+    pill_widths = [len(p) * 8.5 + 26 for p in pills]
+    gap = 12
+    total_pills_width = sum(pill_widths) + gap * (len(pills) - 1)
+    start_x = (width - total_pills_width) / 2
+    pill_y = 284
+
     pill_elements = []
-    curr_x = 36
-    pill_y = 282
-    for pill in pills:
-        pill_width = len(pill) * 8.5 + 24
+    curr_x = start_x
+    for pill, pw in zip(pills, pill_widths):
         pill_elements.append(f"""
-        <g transform="translate({curr_x}, {pill_y})">
-            <rect width="{pill_width}" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="{pill_width/2}" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+        <g transform="translate({curr_x:.1f}, {pill_y})">
+            <rect width="{pw:.1f}" height="28" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+            <text x="{pw/2:.1f}" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 {escape(pill)}
             </text>
         </g>
         """)
-        curr_x += pill_width + 10
+        curr_x += pw + gap
 
     pills_markup = "\n".join(pill_elements)
 
@@ -76,7 +80,7 @@ def generate_about():
         </text>
 
         <text x="0" y="52" class="font-sans" font-size="13" font-weight="600" fill="#2dd4bf">
-            AI &amp; Software Engineer | Generative AI &amp; Computer Vision
+            Generative AI Engineer | LLMs &amp; RAG Systems
         </text>
 
         <text x="0" y="74" class="font-sans" font-size="12.5" font-weight="500" fill="#94a3b8">
@@ -86,13 +90,13 @@ def generate_about():
         <!-- Concise, Resume-aligned Paragraph -->
         <text x="0" y="104" class="font-sans" font-size="13" fill="#94a3b8" line-height="1.5">
             <tspan x="0" dy="0">Computer Science (Data Science) undergraduate engineer</tspan>
-            <tspan x="0" dy="20">turning LLMs, RAG and CV into production applications.</tspan>
-            <tspan x="0" dy="20">Hands-on experience with computer vision workflows at Ragh</tspan>
-            <tspan x="0" dy="20">Vision and enterprise RAG &amp; AI analytics at Capri Global.</tspan>
+            <tspan x="0" dy="20">passionate about building production-grade GenAI pipelines.</tspan>
+            <tspan x="0" dy="20">Hands-on experience with real-time CV workflows at Ragh Vision</tspan>
+            <tspan x="0" dy="20">and enterprise RAG chatbots &amp; analytics at Capri Global.</tspan>
         </text>
     </g>
 
-    <!-- RIGHT COLUMN: Terminal Identity Card -->
+    <!-- RIGHT COLUMN: Terminal Identity Card (Zero Overflow Guaranteed) -->
     <g transform="translate(485, 32)">
         <rect width="380" height="228" rx="12" fill="url(#card-grad)" stroke="#1e293b" stroke-width="1.1"/>
 
@@ -109,33 +113,33 @@ def generate_about():
         <!-- Terminal Content -->
         <g transform="translate(18, 54)">
             <!-- identity -->
-            <text x="0" y="0" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">identity</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"AI &amp; Software Engineer"</tspan>
+            <text x="0" y="0" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">identity</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"Generative AI Engineer"</tspan>
             </text>
 
             <!-- focus -->
-            <text x="0" y="26" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">focus</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"GenAI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LLMs"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"RAG"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Computer Vision"</tspan><tspan fill="#64748b">]</tspan>
+            <text x="0" y="26" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">focus</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"GenAI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LLMs"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"RAG Systems"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
             <!-- experience -->
-            <text x="0" y="52" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">experience</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Ragh Vision"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Capri Global"</tspan><tspan fill="#64748b">]</tspan>
+            <text x="0" y="52" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">experience</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Capri Global"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Ragh Vision"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
-            <!-- core_stack -->
-            <text x="0" y="78" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">core_stack</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Python"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"FastAPI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LangChain"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Docker"</tspan><tspan fill="#64748b">]</tspan>
+            <!-- core_stack (clean, concise, zero overflow) -->
+            <text x="0" y="78" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">core_stack</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Python"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"FastAPI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LangChain"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
             <!-- status -->
-            <text x="0" y="104" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">status</tspan><tspan fill="#64748b">: </tspan><tspan fill="#34d399">"building production AI systems"</tspan>
+            <text x="0" y="104" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">status</tspan><tspan fill="#64748b">: </tspan><tspan fill="#34d399">"eager to build real-world AI systems"</tspan>
             </text>
         </g>
     </g>
 
-    <!-- BOTTOM ROW: Tech Badges -->
+    <!-- BOTTOM ROW: Centered Tech Badges -->
     {pills_markup}
 </svg>"""
 

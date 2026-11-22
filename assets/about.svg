@@ -42,7 +42,7 @@
         </text>
 
         <text x="0" y="52" class="font-sans" font-size="13" font-weight="600" fill="#2dd4bf">
-            AI &amp; Software Engineer | Generative AI &amp; Computer Vision
+            Generative AI Engineer | LLMs &amp; RAG Systems
         </text>
 
         <text x="0" y="74" class="font-sans" font-size="12.5" font-weight="500" fill="#94a3b8">
@@ -52,13 +52,13 @@
         <!-- Concise, Resume-aligned Paragraph -->
         <text x="0" y="104" class="font-sans" font-size="13" fill="#94a3b8" line-height="1.5">
             <tspan x="0" dy="0">Computer Science (Data Science) undergraduate engineer</tspan>
-            <tspan x="0" dy="20">turning LLMs, RAG and CV into production applications.</tspan>
-            <tspan x="0" dy="20">Hands-on experience with computer vision workflows at Ragh</tspan>
-            <tspan x="0" dy="20">Vision and enterprise RAG &amp; AI analytics at Capri Global.</tspan>
+            <tspan x="0" dy="20">passionate about building production-grade GenAI pipelines.</tspan>
+            <tspan x="0" dy="20">Hands-on experience with real-time CV workflows at Ragh Vision</tspan>
+            <tspan x="0" dy="20">and enterprise RAG chatbots &amp; analytics at Capri Global.</tspan>
         </text>
     </g>
 
-    <!-- RIGHT COLUMN: Terminal Identity Card -->
+    <!-- RIGHT COLUMN: Terminal Identity Card (Zero Overflow Guaranteed) -->
     <g transform="translate(485, 32)">
         <rect width="380" height="228" rx="12" fill="url(#card-grad)" stroke="#1e293b" stroke-width="1.1"/>
 
@@ -75,109 +75,93 @@
         <!-- Terminal Content -->
         <g transform="translate(18, 54)">
             <!-- identity -->
-            <text x="0" y="0" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">identity</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"AI &amp; Software Engineer"</tspan>
+            <text x="0" y="0" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">identity</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"Generative AI Engineer"</tspan>
             </text>
 
             <!-- focus -->
-            <text x="0" y="26" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">focus</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"GenAI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LLMs"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"RAG"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Computer Vision"</tspan><tspan fill="#64748b">]</tspan>
+            <text x="0" y="26" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">focus</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"GenAI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LLMs"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"RAG Systems"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
             <!-- experience -->
-            <text x="0" y="52" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">experience</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Ragh Vision"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Capri Global"</tspan><tspan fill="#64748b">]</tspan>
+            <text x="0" y="52" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">experience</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Capri Global"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Ragh Vision"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
-            <!-- core_stack -->
-            <text x="0" y="78" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">core_stack</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Python"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"FastAPI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LangChain"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Docker"</tspan><tspan fill="#64748b">]</tspan>
+            <!-- core_stack (clean, concise, zero overflow) -->
+            <text x="0" y="78" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">core_stack</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Python"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"FastAPI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"LangChain"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
             <!-- status -->
-            <text x="0" y="104" class="font-mono" font-size="12.5">
-                <tspan fill="#2dd4bf">status</tspan><tspan fill="#64748b">: </tspan><tspan fill="#34d399">"building production AI systems"</tspan>
+            <text x="0" y="104" class="font-mono" font-size="12">
+                <tspan fill="#2dd4bf">status</tspan><tspan fill="#64748b">: </tspan><tspan fill="#34d399">"eager to build real-world AI systems"</tspan>
             </text>
         </g>
     </g>
 
-    <!-- BOTTOM ROW: Tech Badges -->
+    <!-- BOTTOM ROW: Centered Tech Badges -->
     
-        <g transform="translate(36, 282)">
-            <rect width="75.0" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="37.5" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+        <g transform="translate(117.0, 284)">
+            <rect width="77.0" height="28" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+            <text x="38.5" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 Python
             </text>
         </g>
         
 
-        <g transform="translate(121.0, 282)">
-            <rect width="49.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="24.75" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+        <g transform="translate(206.0, 284)">
+            <rect width="51.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+            <text x="25.8" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 C++
             </text>
         </g>
         
 
-        <g transform="translate(180.5, 282)">
-            <rect width="83.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="41.75" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+        <g transform="translate(269.5, 284)">
+            <rect width="85.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+            <text x="42.8" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 FastAPI
             </text>
         </g>
         
 
-        <g transform="translate(274.0, 282)">
-            <rect width="100.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="50.25" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+        <g transform="translate(367.0, 284)">
+            <rect width="102.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+            <text x="51.2" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 LangChain
             </text>
         </g>
         
 
-        <g transform="translate(384.5, 282)">
-            <rect width="83.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="41.75" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+        <g transform="translate(481.5, 284)">
+            <rect width="85.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+            <text x="42.8" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 PyTorch
             </text>
         </g>
         
 
-        <g transform="translate(478.0, 282)">
-            <rect width="83.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="41.75" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
-                Next.js
-            </text>
-        </g>
-        
-
-        <g transform="translate(571.5, 282)">
-            <rect width="75.0" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="37.5" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
-                OpenCV
-            </text>
-        </g>
-        
-
-        <g transform="translate(656.5, 282)">
-            <rect width="75.0" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="37.5" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+        <g transform="translate(579.0, 284)">
+            <rect width="77.0" height="28" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+            <text x="38.5" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 Docker
             </text>
         </g>
         
 
-        <g transform="translate(741.5, 282)">
-            <rect width="49.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="24.75" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+        <g transform="translate(668.0, 284)">
+            <rect width="51.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+            <text x="25.8" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 SQL
             </text>
         </g>
         
 
-        <g transform="translate(801.0, 282)">
-            <rect width="49.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="24.75" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
+        <g transform="translate(731.5, 284)">
+            <rect width="51.5" height="28" rx="14" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+            <text x="25.8" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 Git
             </text>
         </g>
