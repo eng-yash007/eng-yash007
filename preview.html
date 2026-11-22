@@ -2,17 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yash Gupta | GitHub Profile Dashboard Preview</title>
+  <title>Yash Gupta | Premium Dark Tech Developer Dashboard</title>
   <style>
+    :root {
+      --bg: #080D18;
+      --surface: #0D1424;
+      --accent-blue: #3b82f6;
+      --accent-violet: #818cf8;
+      --accent-cyan: #38bdf8;
+      --border: #1e293b;
+      --text-white: #f8fafc;
+      --text-muted: #94a3b8;
+    }
     body {
-      background-color: #030712;
-      color: #f8fafc;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
       margin: 0;
       padding: 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
     }
     .container {
       max-width: 900px;
@@ -34,11 +45,12 @@
       border: none;
     }
     a {
-      color: #38bdf8;
+      color: var(--accent-cyan);
       text-decoration: none;
+      transition: opacity 0.2s;
     }
     a:hover {
-      text-decoration: underline;
+      opacity: 0.85;
     }
     .spacer {
       height: 32px;
@@ -68,14 +80,14 @@
 
     <!-- Featured Systems -->
     <img src="./assets/projects.svg" width="900" alt="Featured Systems">
-    <p align="center" style="margin-top: 12px;">
-      <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Silent%20Gallery-🚀%20Live%20Demo-0284c7?style=for-the-badge&logoColor=white" alt="Silent Gallery Demo"/></a>
-      &nbsp;&nbsp;
-      <a href="https://github.com/eng-yash007/silent_gallery" target="_blank"><img src="https://img.shields.io/badge/Silent%20Gallery-💻%20GitHub%20Repo-1e293b?style=for-the-badge&logo=github&logoColor=white" alt="Silent Gallery Code"/></a>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Guardian%20Transit-🚀%20Live%20Demo-059669?style=for-the-badge&logoColor=white" alt="Guardian Transit Demo"/></a>
-      &nbsp;&nbsp;
-      <a href="https://github.com/eng-yash007/guardian-transit" target="_blank"><img src="https://img.shields.io/badge/Guardian%20Transit-💻%20GitHub%20Repo-1e293b?style=for-the-badge&logo=github&logoColor=white" alt="Guardian Transit Code"/></a>
+    <p align="center" style="margin-top: 14px;">
+      <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Silent%20Gallery-🚀%20Live%20Demo-0284c7?style=flat-square" alt="Silent Gallery Demo"/></a>
+      &nbsp;
+      <a href="https://github.com/eng-yash007/silent_gallery" target="_blank"><img src="https://img.shields.io/badge/Silent%20Gallery-💻%20GitHub-1e293b?style=flat-square&logo=github&logoColor=white" alt="Silent Gallery Code"/></a>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Guardian%20Transit-🚀%20Live%20Demo-059669?style=flat-square" alt="Guardian Transit Demo"/></a>
+      &nbsp;
+      <a href="https://github.com/eng-yash007/guardian-transit" target="_blank"><img src="https://img.shields.io/badge/Guardian%20Transit-💻%20GitHub-1e293b?style=flat-square&logo=github&logoColor=white" alt="Guardian Transit Code"/></a>
     </p>
     <div class="spacer"></div>
 
