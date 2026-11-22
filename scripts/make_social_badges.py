@@ -2,45 +2,35 @@ from pathlib import Path
 from utils import FONTS, escape, save_svg
 
 def create_badge(name, handle, icon_path, brand_color, glow_color, filename):
-    width = 175
-    height = 42
+    # Compact width 132x34 to guarantee 100% single-row non-wrapping on all screens
+    width = 132
+    height = 34
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
     <defs>
-        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0b101c" />
-            <stop offset="100%" stop-color="#050811" />
+        <linearGradient id="bg-grad-{name.lower()}" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0d1322" />
+            <stop offset="100%" stop-color="#060912" />
         </linearGradient>
 
-        <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient id="border-grad-{name.lower()}" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="{brand_color}" stop-opacity="0.8" />
-            <stop offset="50%" stop-color="{glow_color}" stop-opacity="0.3" />
-            <stop offset="100%" stop-color="{brand_color}" stop-opacity="0.7" />
+            <stop offset="50%" stop-color="{glow_color}" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="{brand_color}" stop-opacity="0.6" />
         </linearGradient>
-
-        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-        </filter>
     </defs>
 
     <style>
-        .font-sans {{ font-family: {FONTS['sans']}; }}
-        .font-mono {{ font-family: {FONTS['mono']}; }}
+        .font-sans {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }}
+        .font-mono {{ font-family: 'JetBrains Mono', 'Fira Code', monospace; }}
 
         @keyframes badgePulse {{
-            0%, 100% {{
-                stroke-opacity: 0.6;
-            }}
-            50% {{
-                stroke-opacity: 1;
-                filter: drop-shadow(0 0 4px {glow_color});
-            }}
+            0%, 100% {{ stroke-opacity: 0.5; }}
+            50% {{ stroke-opacity: 0.95; }}
         }}
-
         @keyframes dotGlow {{
-            0%, 100% {{ r: 3px; opacity: 0.8; }}
-            50% {{ r: 4.5px; opacity: 1; }}
+            0%, 100% {{ r: 2.2px; opacity: 0.6; }}
+            50% {{ r: 3.2px; opacity: 1; }}
         }}
 
         .card-border {{
@@ -52,49 +42,45 @@ def create_badge(name, handle, icon_path, brand_color, glow_color, filename):
     </style>
 
     <!-- Pill Container -->
-    <rect width="{width}" height="{height}" rx="21" fill="url(#bg-grad)" />
-    <rect width="{width}" height="{height}" rx="21" fill="none" stroke="url(#border-grad)" stroke-width="1.3" class="card-border" />
+    <rect width="{width}" height="{height}" rx="17" fill="url(#bg-grad-{name.lower()})" />
+    <rect width="{width}" height="{height}" rx="17" fill="none" stroke="url(#border-grad-{name.lower()})" stroke-width="1.1" class="card-border" />
 
     <!-- Icon on Left -->
-    <g transform="translate(14, 11)">
+    <g transform="translate(10, 8.5) scale(0.85)">
         {icon_path}
     </g>
 
     <!-- Text details -->
-    <text x="44" y="19" class="font-sans" font-size="11.5" font-weight="700" fill="#f8fafc">
+    <text x="32" y="15" class="font-sans" font-size="10.5" font-weight="700" fill="#f8fafc">
         {escape(name)}
     </text>
-    <text x="44" y="32" class="font-mono" font-size="10" font-weight="500" fill="#94a3b8">
+    <text x="32" y="26" class="font-mono" font-size="8" font-weight="500" fill="#94a3b8">
         {escape(handle)}
     </text>
 
-    <!-- Right Live Dot -->
-    <circle cx="{width - 16}" cy="21" r="3.5" fill="{brand_color}" class="live-dot" />
+    <!-- Live indicator on Right -->
+    <circle cx="{width - 12}" cy="17" r="2.5" fill="{brand_color}" class="live-dot" />
 </svg>"""
 
     save_svg(filename, svg)
 
 def generate_all_badges():
-    # 1. GitHub
-    github_icon = """<path fill="#e2e8f0" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"/>"""
-    create_badge("GitHub", "eng-yash007", github_icon, "#818cf8", "#c084fc", "badge_github.svg")
+    # Icons
+    github_icon = """<path fill="#f8fafc" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>"""
 
-    # 2. LinkedIn
-    linkedin_icon = """<path fill="#0ea5e9" d="M19 0h-18c-.55 0-1 .45-1 1v18c0 .55.45 1 1 1h18c.55 0 1-.45 1-1v-18c0-.55-.45-1-1-1zm-11 17h-3v-9h3v9zm-1.5-10.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm11.5 10.27h-3v-4.6c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.78 1.2-1.78 2.44v4.68h-3v-9h2.88v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v4.73z"/>"""
-    create_badge("LinkedIn", "engyash", linkedin_icon, "#0ea5e9", "#38bdf8", "badge_linkedin.svg")
+    linkedin_icon = """<path fill="#0a66c2" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>"""
 
-    # 3. LeetCode
-    leetcode_icon = """<path fill="#fbbf24" d="M13.483 0a1.374 1.374 0 00-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 00-1.209 2.104 5.35 5.35 0 00-.125.513 5.527 5.527 0 00.271 4.735 5.32 5.32 0 004.126 2.671 5.362 5.362 0 004.604-1.583l4.558-4.882a1.376 1.376 0 00-.02-1.921 1.376 1.376 0 00-1.921.02L9.127 16.9a2.604 2.604 0 01-2.24 1.042 2.604 2.604 0 01-2.01-1.302 2.698 2.698 0 01-.135-2.312c.135-.375.354-.708.646-.979l4.558-4.882 4.412-4.72a1.376 1.376 0 00-.875-2.747z"/><path fill="#f59e0b" d="M9.833 10.979h8.334a1.375 1.375 0 000-2.75H9.833a1.375 1.375 0 000 2.75z"/>"""
-    create_badge("LeetCode", "eng-yash007", leetcode_icon, "#f59e0b", "#fbbf24", "badge_leetcode.svg")
+    leetcode_icon = """<path fill="#ffa116" d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-2.42-1.955-5.918-1.632-7.811.458z"/>"""
 
-    # 4. CodeChef
-    codechef_icon = """<path fill="#f97316" d="M10 2a8 8 0 108 8 8.009 8.009 0 00-8-8zm0 14a6 6 0 116-6 6.007 6.007 0 01-6 6zm1-9H9v4h2zm0 6H9v2h2z"/>"""
-    create_badge("CodeChef", "yashgupta9171", codechef_icon, "#f97316", "#fb923c", "badge_codechef.svg")
+    codechef_icon = """<path fill="#ea580c" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>"""
 
-    # 5. Email
-    email_icon = """<path fill="#f43f5e" d="M1.5 4.5A2.5 2.5 0 014 2h12a2.5 2.5 0 012.5 2.5v11a2.5 2.5 0 01-2.5 2.5H4a2.5 2.5 0 01-2.5-2.5v-11zm2.75.5L10 9.75 15.75 5H4.25zM17 6.35l-6.53 5.37a.75.75 0 01-.94 0L3 6.35V15.5c0 .414.336.75.75.75h12.5a.75.75 0 00.75-.75V6.35z"/>"""
-    create_badge("Email", "Direct Connect", email_icon, "#f43f5e", "#fb7185", "badge_email.svg")
+    email_icon = """<path fill="#ec4899" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>"""
+
+    create_badge("GitHub", "eng-yash007", github_icon, "#818cf8", "#38bdf8", "assets/badge_github.svg")
+    create_badge("LinkedIn", "engyash", linkedin_icon, "#0a66c2", "#38bdf8", "assets/badge_linkedin.svg")
+    create_badge("LeetCode", "eng-yash007", leetcode_icon, "#ffa116", "#fbbf24", "assets/badge_leetcode.svg")
+    create_badge("CodeChef", "yashgupta9171", codechef_icon, "#ea580c", "#f97316", "assets/badge_codechef.svg")
+    create_badge("Email", "Direct Connect", email_icon, "#ec4899", "#f472b6", "assets/badge_email.svg")
 
 if __name__ == "__main__":
     generate_all_badges()
-

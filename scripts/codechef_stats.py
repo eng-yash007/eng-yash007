@@ -7,8 +7,12 @@ import urllib.request
 import re
 import json
 import logging
-from bs4 import BeautifulSoup
 from pathlib import Path
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    BeautifulSoup = None
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -28,51 +32,63 @@ def fetch_codechef_data(username="yashgupta9171"):
         with urllib.request.urlopen(req, timeout=12) as response:
             if response.status == 200:
                 html = response.read().decode("utf-8")
-                soup = BeautifulSoup(html, "html.parser")
-                
-                # Rating number
-                rating_elem = soup.find("div", class_="rating-number")
                 rating_val = "Unavailable"
-                if rating_elem:
-                    nums = re.findall(r"\d+", rating_elem.text.strip())
-                    if nums:
-                        rating_val = int(nums[0])
-                        
-                # Stars
-                star_elem = soup.find("span", class_="rating")
                 stars_val = "Unavailable"
-                if star_elem:
-                    stars_val = star_elem.text.strip()
-                elif rating_val != "Unavailable":
-                    # Derive stars from rating threshold if badge text omitted
-                    r = int(rating_val)
-                    if r < 1400: stars_val = "1★"
-                    elif r < 1600: stars_val = "2★"
-                    elif r < 1800: stars_val = "3★"
-                    elif r < 2000: stars_val = "4★"
-                    elif r < 2200: stars_val = "5★"
-                    elif r < 2500: stars_val = "6★"
-                    else: stars_val = "7★"
-                    
-                # Ranks
                 global_rank = "Unavailable"
                 country_rank = "Unavailable"
-                ranks_div = soup.find("div", class_="rating-ranks")
-                if ranks_div:
-                    m_g = re.search(r"Global Rank\s*(\d+)", ranks_div.text)
+                highest_rating = "Unavailable"
+
+                if BeautifulSoup:
+                    soup = BeautifulSoup(html, "html.parser")
+                    rating_elem = soup.find("div", class_="rating-number")
+                    if rating_elem:
+                        nums = re.findall(r"\d+", rating_elem.text.strip())
+                        if nums:
+                            rating_val = int(nums[0])
+                            
+                    star_elem = soup.find("span", class_="rating")
+                    if star_elem:
+                        stars_val = star_elem.text.strip()
+                    elif rating_val != "Unavailable":
+                        r = int(rating_val)
+                        if r < 1400: stars_val = "1★"
+                        elif r < 1600: stars_val = "2★"
+                        elif r < 1800: stars_val = "3★"
+                        elif r < 2000: stars_val = "4★"
+                        elif r < 2200: stars_val = "5★"
+                        elif r < 2500: stars_val = "6★"
+                        else: stars_val = "7★"
+                        
+                    ranks_div = soup.find("div", class_="rating-ranks")
+                    if ranks_div:
+                        m_g = re.search(r"Global Rank\s*(\d+)", ranks_div.text)
+                        if m_g:
+                            global_rank = int(m_g.group(1))
+                        m_c = re.search(r"Country Rank\s*(\d+)", ranks_div.text)
+                        if m_c:
+                            country_rank = int(m_c.group(1))
+                            
+                    for small in soup.find_all("small"):
+                        if "Highest Rating" in small.text:
+                            m_h = re.search(r"Highest Rating\s*(\d+)", small.text)
+                            if m_h:
+                                highest_rating = int(m_h.group(1))
+                else:
+                    m_r = re.search(r'class="rating-number"[^>]*>(\d+)', html)
+                    if m_r:
+                        rating_val = int(m_r.group(1))
+                        r = rating_val
+                        if r < 1400: stars_val = "1★"
+                        elif r < 1600: stars_val = "2★"
+                        elif r < 1800: stars_val = "3★"
+                        elif r < 2000: stars_val = "4★"
+                        else: stars_val = "5★"
+                    m_g = re.search(r'Global Rank[^\d]*(\d+)', html)
                     if m_g:
                         global_rank = int(m_g.group(1))
-                    m_c = re.search(r"Country Rank\s*(\d+)", ranks_div.text)
-                    if m_c:
-                        country_rank = int(m_c.group(1))
-                        
-                # Highest rating
-                highest_rating = "Unavailable"
-                for small in soup.find_all("small"):
-                    if "Highest Rating" in small.text:
-                        m_h = re.search(r"Highest Rating\s*(\d+)", small.text)
-                        if m_h:
-                            highest_rating = int(m_h.group(1))
+                    m_h = re.search(r'Highest Rating[^\d]*(\d+)', html)
+                    if m_h:
+                        highest_rating = int(m_h.group(1))
                             
                 stats = {
                     "status": "success",
@@ -119,3 +135,4 @@ def fetch_codechef_data(username="yashgupta9171"):
 if __name__ == "__main__":
     data = fetch_codechef_data()
     print(json.dumps(data, indent=2))
+

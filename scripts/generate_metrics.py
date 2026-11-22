@@ -192,3 +192,4 @@ def generate_metrics_svg():
 
 if __name__ == "__main__":
     generate_metrics_svg()
+

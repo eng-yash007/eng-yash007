@@ -124,3 +124,4 @@ def fetch_leetcode_data(username="eng-yash007"):
 if __name__ == "__main__":
     data = fetch_leetcode_data()
     print(json.dumps(data, indent=2))
+

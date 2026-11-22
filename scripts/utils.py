@@ -45,9 +45,10 @@ def escape(text: str) -> str:
 
 def save_svg(filename: str, content: str):
     """Saves SVG content to the assets directory."""
-    out_dir = Path("assets")
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / filename
-    with open(out_path, "w", encoding="utf-8") as f:
+    path = Path(filename)
+    if not path.parts or path.parts[0] != "assets":
+        path = Path("assets") / path
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
         f.write(content.strip())
-    print(f"Generated {out_path}")
+    print(f"Generated {path}")

@@ -2,146 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitHub Profile Preview - Yash Gupta (eng-yash007)</title>
+  <title>Yash Gupta | GitHub Profile Dashboard Preview</title>
   <style>
     body {
-      background-color: #0d1117;
-      color: #c9d1d9;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background-color: #030712;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
-      padding: 40px 16px;
+      padding: 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .preview-header {
-      margin-bottom: 24px;
-      text-align: center;
-    }
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 20px;
-      color: #2dd4bf;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
     .container {
-      max-width: 940px;
-      width: 100%;
-      border: 1px solid #30363d;
-      border-radius: 8px;
-      padding: 32px 20px;
-      background-color: #0d1117;
-      box-shadow: 0 12px 36px rgba(0,0,0,0.6);
-      box-sizing: border-box;
-    }
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-      margin: 0 auto;
-      width: 100%;
       max-width: 900px;
-    }
-    td {
-      padding: 6px;
-      vertical-align: top;
+      width: 100%;
       text-align: center;
     }
     img {
       max-width: 100%;
       height: auto;
-      border-radius: 8px;
+      display: inline-block;
     }
-    .badge-links img {
-      border-radius: 4px;
-      margin: 2px 4px;
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      border: none;
     }
-    .footer-text {
-      color: #64748b;
-      font-size: 12px;
-      margin-top: 24px;
-      text-align: center;
+    td {
+      padding: 8px;
+      border: none;
     }
-    .footer-text a {
-      color: #2dd4bf;
+    a {
+      color: #38bdf8;
       text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .spacer {
+      height: 32px;
     }
   </style>
 </head>
 <body>
-  <div class="preview-header">
-    <span class="badge">VERIFIED DEVELOPER DASHBOARD PREVIEW</span>
-  </div>
-
   <div class="container">
-    <div align="center">
-      <!-- HERO BANNER -->
-      <img src="./assets/hero.svg" width="900" alt="Hi, I'm Yash.">
+    <img src="./assets/hero.svg" width="900" alt="Hero">
+    <div class="spacer"></div>
 
-      <br><br>
+    <img src="./assets/about.svg" width="900" alt="About">
+    <div class="spacer"></div>
 
-      <!-- ABOUT & CONFIG -->
-      <img src="./assets/about.svg" width="900" alt="About Yash Gupta & yash.config">
+    <!-- Visual Map & Stack Stream -->
+    <table>
+      <tr>
+        <td align="center" valign="top">
+          <img src="./assets/yg-particle-map.gif" width="440" alt="VISUAL.MAP">
+        </td>
+        <td align="center" valign="top">
+          <img src="./assets/stack_stream.svg" width="440" alt="STACK.STREAM">
+        </td>
+      </tr>
+    </table>
+    <div class="spacer"></div>
 
-      <br><br>
+    <!-- Featured Systems -->
+    <table>
+      <tr>
+        <td width="33%" align="center" valign="top">
+          <a href="https://silent-galleryyy.vercel.app" target="_blank"><img src="./assets/project_silent_gallery.svg" width="280" alt="Silent Gallery"></a>
+          <br>
+          <a href="https://silent-galleryyy.vercel.app" target="_blank"><b>🚀 Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/silent_gallery" target="_blank"><b>💻 GitHub</b></a>
+        </td>
+        <td width="33%" align="center" valign="top">
+          <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><img src="./assets/project_guardian_transit.svg" width="280" alt="Guardian Transit AI"></a>
+          <br>
+          <a href="https://guardian-transit-zeta.vercel.app" target="_blank"><b>🚀 Live Demo</b></a> &nbsp;|&nbsp; <a href="https://github.com/eng-yash007/guardian-transit" target="_blank"><b>💻 GitHub</b></a>
+        </td>
+        <td width="33%" align="center" valign="top">
+          <a href="https://github.com/eng-yash007" target="_blank"><img src="./assets/project_docudost.svg" width="280" alt="DocuDost"></a>
+          <br>
+          <a href="https://github.com/eng-yash007" target="_blank"><b>💻 GitHub Repository</b></a>
+        </td>
+      </tr>
+    </table>
+    <div class="spacer"></div>
 
-      <!-- VISUAL.MAP & STACK.STREAM SIDE BY SIDE -->
-      <table>
-        <tr>
-          <td align="center" width="50%">
-            <img src="./assets/yg-particle-map.gif" width="440" alt="VISUAL.MAP">
-          </td>
-          <td align="center" width="50%">
-            <img src="./assets/stack_stream.svg" width="440" alt="STACK.STREAM">
-          </td>
-        </tr>
-      </table>
+    <!-- Verified Metrics -->
+    <img src="./assets/metrics.svg" width="900" alt="Metrics">
+    <div class="spacer"></div>
 
-      <br><br>
+    <!-- Social Profiles Dock (Single Row) -->
+    <table>
+      <tr>
+        <td align="center" valign="middle"><a href="https://github.com/eng-yash007" target="_blank"><img src="./assets/badge_github.svg" width="132" height="34" alt="GitHub"></a></td>
+        <td align="center" valign="middle"><a href="https://linkedin.com/in/engyash" target="_blank"><img src="./assets/badge_linkedin.svg" width="132" height="34" alt="LinkedIn"></a></td>
+        <td align="center" valign="middle"><a href="https://leetcode.com/eng-yash007/" target="_blank"><img src="./assets/badge_leetcode.svg" width="132" height="34" alt="LeetCode"></a></td>
+        <td align="center" valign="middle"><a href="https://www.codechef.com/users/yashgupta9171" target="_blank"><img src="./assets/badge_codechef.svg" width="132" height="34" alt="CodeChef"></a></td>
+        <td align="center" valign="middle"><a href="mailto:yashgupta9171@gmail.com"><img src="./assets/badge_email.svg" width="132" height="34" alt="Email"></a></td>
+      </tr>
+    </table>
 
-      <!-- FEATURED SYSTEMS / PROJECTS -->
-      <img src="./assets/projects.svg" width="900" alt="Featured Systems">
-
-      <br><br>
-
-      <!-- SYSTEM METRICS & PROBLEM SOLVING -->
-      <img src="./assets/metrics.svg" width="900" alt="System Metrics">
-
-      <br><br>
-
-      <!-- HEATMAP -->
-      <img src="./assets/github-heatmap.svg" width="900" alt="Activity Heatmap">
-
-      <br><br>
-
-      <!-- ANIMATED SOCIAL BADGES -->
-      <div style="margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
-        <a href="https://github.com/eng-yash007" target="_blank">
-          <img src="./assets/badge_github.svg" width="170" alt="GitHub" />
-        </a>
-        <a href="https://linkedin.com/in/engyash" target="_blank">
-          <img src="./assets/badge_linkedin.svg" width="170" alt="LinkedIn" />
-        </a>
-        <a href="https://leetcode.com/eng-yash007/" target="_blank">
-          <img src="./assets/badge_leetcode.svg" width="170" alt="LeetCode" />
-        </a>
-        <a href="https://www.codechef.com/users/yashgupta9171" target="_blank">
-          <img src="./assets/badge_codechef.svg" width="170" alt="CodeChef" />
-        </a>
-        <a href="mailto:yashgupta9171@gmail.com">
-          <img src="./assets/badge_email.svg" width="170" alt="Email" />
-        </a>
-      </div>
-
-      <p class="footer-text">
-        Automated via GitHub Actions • Data verified in real-time for <a href="https://github.com/eng-yash007">eng-yash007</a>
-      </p>
-    </div>
+    <p style="color: #64748b; font-size: 12px; margin-top: 18px;">
+      Automated via GitHub Actions • Data verified in real-time for <a href="https://github.com/eng-yash007" style="color: #2dd4bf;">eng-yash007</a>
+    </p>
   </div>
 </body>
 </html>

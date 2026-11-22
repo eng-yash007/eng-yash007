@@ -1,39 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="175" height="42" viewBox="0 0 175 42">
+<svg xmlns="http://www.w3.org/2000/svg" width="132" height="34" viewBox="0 0 132 34">
     <defs>
-        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0b101c" />
-            <stop offset="100%" stop-color="#050811" />
+        <linearGradient id="bg-grad-linkedin" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0d1322" />
+            <stop offset="100%" stop-color="#060912" />
         </linearGradient>
 
-        <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.8" />
-            <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.3" />
-            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.7" />
+        <linearGradient id="border-grad-linkedin" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0a66c2" stop-opacity="0.8" />
+            <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#0a66c2" stop-opacity="0.6" />
         </linearGradient>
-
-        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-        </filter>
     </defs>
 
     <style>
-        .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace; }
+        .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
 
         @keyframes badgePulse {
-            0%, 100% {
-                stroke-opacity: 0.6;
-            }
-            50% {
-                stroke-opacity: 1;
-                filter: drop-shadow(0 0 4px #38bdf8);
-            }
+            0%, 100% { stroke-opacity: 0.5; }
+            50% { stroke-opacity: 0.95; }
         }
-
         @keyframes dotGlow {
-            0%, 100% { r: 3px; opacity: 0.8; }
-            50% { r: 4.5px; opacity: 1; }
+            0%, 100% { r: 2.2px; opacity: 0.6; }
+            50% { r: 3.2px; opacity: 1; }
         }
 
         .card-border {
@@ -45,22 +34,22 @@
     </style>
 
     <!-- Pill Container -->
-    <rect width="175" height="42" rx="21" fill="url(#bg-grad)" />
-    <rect width="175" height="42" rx="21" fill="none" stroke="url(#border-grad)" stroke-width="1.3" class="card-border" />
+    <rect width="132" height="34" rx="17" fill="url(#bg-grad-linkedin)" />
+    <rect width="132" height="34" rx="17" fill="none" stroke="url(#border-grad-linkedin)" stroke-width="1.1" class="card-border" />
 
     <!-- Icon on Left -->
-    <g transform="translate(14, 11)">
-        <path fill="#0ea5e9" d="M19 0h-18c-.55 0-1 .45-1 1v18c0 .55.45 1 1 1h18c.55 0 1-.45 1-1v-18c0-.55-.45-1-1-1zm-11 17h-3v-9h3v9zm-1.5-10.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm11.5 10.27h-3v-4.6c0-1.1-.02-2.52-1.54-2.52-1.54 0-1.78 1.2-1.78 2.44v4.68h-3v-9h2.88v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v4.73z"/>
+    <g transform="translate(10, 8.5) scale(0.85)">
+        <path fill="#0a66c2" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
     </g>
 
     <!-- Text details -->
-    <text x="44" y="19" class="font-sans" font-size="11.5" font-weight="700" fill="#f8fafc">
+    <text x="32" y="15" class="font-sans" font-size="10.5" font-weight="700" fill="#f8fafc">
         LinkedIn
     </text>
-    <text x="44" y="32" class="font-mono" font-size="10" font-weight="500" fill="#94a3b8">
+    <text x="32" y="26" class="font-mono" font-size="8" font-weight="500" fill="#94a3b8">
         engyash
     </text>
 
-    <!-- Right Live Dot -->
-    <circle cx="159" cy="21" r="3.5" fill="#0ea5e9" class="live-dot" />
+    <!-- Live indicator on Right -->
+    <circle cx="120" cy="17" r="2.5" fill="#0a66c2" class="live-dot" />
 </svg>

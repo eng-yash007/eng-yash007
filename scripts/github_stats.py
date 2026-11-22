@@ -3,11 +3,16 @@ GitHub Data Adapter: Fetches verified statistics and contributionsCollection usi
 """
 
 import os
+import re
 import json
 import urllib.request
 import logging
-from bs4 import BeautifulSoup
 from datetime import datetime
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    BeautifulSoup = None
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -99,40 +104,49 @@ def fetch_github_data(username="eng-yash007"):
             req = urllib.request.Request(f"https://github.com/users/{username}/contributions", headers=headers)
             with urllib.request.urlopen(req, timeout=10) as r:
                 html = r.read().decode("utf-8")
-                soup = BeautifulSoup(html, "html.parser")
-                
-                # Extract total count from heading
-                h2 = soup.find("h2")
-                total_contribs = 0
-                if h2:
-                    nums = [int(s) for s in h2.text.split() if s.isdigit()]
-                    if nums:
-                        total_contribs = nums[0]
-
-                # Extract days
                 days = []
-                for td in soup.find_all("td", class_="ContributionCalendar-day"):
-                    date = td.get("data-date")
-                    if not date:
-                        continue
-                    level_str = td.get("data-level", "0")
-                    level = int(level_str) if level_str.isdigit() else 0
-                    
-                    tid = td.get("id")
-                    count = 0
-                    if tid:
-                        tt = soup.find("tool-tip", attrs={"for": tid})
-                        if tt and not tt.text.strip().lower().startswith("no"):
-                            parts = tt.text.strip().split()
-                            if parts and parts[0].isdigit():
-                                count = int(parts[0])
-                            else:
-                                count = level * 2 if level > 0 else 0
-                    days.append({
-                        "date": date,
-                        "contributionCount": count,
-                        "contributionLevel": level
-                    })
+                total_contribs = 0
+                if BeautifulSoup:
+                    soup = BeautifulSoup(html, "html.parser")
+                    h2 = soup.find("h2")
+                    if h2:
+                        nums = [int(s) for s in h2.text.split() if s.isdigit()]
+                        if nums:
+                            total_contribs = nums[0]
+
+                    for td in soup.find_all("td", class_="ContributionCalendar-day"):
+                        date = td.get("data-date")
+                        if not date:
+                            continue
+                        level_str = td.get("data-level", "0")
+                        level = int(level_str) if level_str.isdigit() else 0
+                        
+                        tid = td.get("id")
+                        count = 0
+                        if tid:
+                            tt = soup.find("tool-tip", attrs={"for": tid})
+                            if tt and not tt.text.strip().lower().startswith("no"):
+                                parts = tt.text.strip().split()
+                                if parts and parts[0].isdigit():
+                                    count = int(parts[0])
+                                else:
+                                    count = level * 2 if level > 0 else 0
+                        days.append({
+                            "date": date,
+                            "contributionCount": count,
+                            "contributionLevel": level
+                        })
+                else:
+                    # Regex fallback if beautifulsoup not installed
+                    m_h2 = re.search(r'<h2[^>]*>(.*?)</h2>', html, re.DOTALL)
+                    if m_h2:
+                        nums = [int(s) for s in m_h2.group(1).split() if s.isdigit()]
+                        if nums:
+                            total_contribs = nums[0]
+                    for m in re.finditer(r'<td[^>]*data-date="([^"]+)"[^>]*data-level="([^"]+)"', html):
+                        dt = m.group(1)
+                        lvl = int(m.group(2)) if m.group(2).isdigit() else 0
+                        days.append({"date": dt, "contributionCount": lvl * 2 if lvl > 0 else 0, "contributionLevel": lvl})
 
                 # Reconstruct weeks (7 days per week)
                 weeks = []
@@ -164,3 +178,4 @@ def fetch_github_data(username="eng-yash007"):
 if __name__ == "__main__":
     res = fetch_github_data()
     print("GitHub Result Summary:", {k: v for k, v in res.items() if k != "contributions"})
+

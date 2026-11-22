@@ -51,3 +51,4 @@ jobs:
             git commit -m "chore(dashboard): automated live profile telemetry update [skip ci]"
             git push
           fi
+

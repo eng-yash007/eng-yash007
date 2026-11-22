@@ -18,7 +18,7 @@ def generate_heatmap_svg():
         data = json.load(f)
 
     gh = data.get("github", {})
-    contribs_obj = gh.get("contributions", {})
+    contribs_obj = gh.get("contributions") or {}
     total_contribs = contribs_obj.get("totalContributions", 540)
     weeks = contribs_obj.get("weeks", [])
 
@@ -161,3 +161,4 @@ def generate_heatmap_svg():
 
 if __name__ == "__main__":
     generate_heatmap_svg()
+

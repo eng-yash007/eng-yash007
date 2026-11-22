@@ -51,3 +51,4 @@ def update_all_profile_stats():
 
 if __name__ == "__main__":
     update_all_profile_stats()
+

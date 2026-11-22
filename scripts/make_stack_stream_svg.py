@@ -18,7 +18,6 @@ def build_pill(x, item):
     return markup, pill_w
 
 def build_row_elements(items):
-    # Place items once
     x = 0
     elements = []
     for item in items:
@@ -27,7 +26,6 @@ def build_row_elements(items):
         x += w + 12
     total_single_width = x
     
-    # Place duplicate items immediately after for seamless loop
     for item in items:
         markup, w = build_pill(x, item)
         elements.append(markup)
@@ -36,8 +34,9 @@ def build_row_elements(items):
     return "".join(elements), total_single_width
 
 def generate_stack_stream():
+    # Matched with VISUAL.MAP: 440x480
     width = 440
-    height = 360
+    height = 480
 
     row1_items = [
         {"name": "Next.js", "color": "#38bdf8", "dot": "#0284c7"},
@@ -66,9 +65,19 @@ def generate_stack_stream():
         {"name": "Vercel", "color": "#e2e8f0", "dot": "#94a3b8"}
     ]
 
+    row4_items = [
+        {"name": "FAISS", "color": "#34d399", "dot": "#059669"},
+        {"name": "Whisper", "color": "#c084fc", "dot": "#9333ea"},
+        {"name": "Supabase", "color": "#2dd4bf", "dot": "#0d9488"},
+        {"name": "YOLOv8", "color": "#fb923c", "dot": "#ea580c"},
+        {"name": "ArcFace", "color": "#60a5fa", "dot": "#2563eb"},
+        {"name": "Groq API", "color": "#f472b6", "dot": "#db2777"}
+    ]
+
     row1_markup, r1_width = build_row_elements(row1_items)
     row2_markup, r2_width = build_row_elements(row2_items)
     row3_markup, r3_width = build_row_elements(row3_items)
+    row4_markup, r4_width = build_row_elements(row4_items)
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
     <defs>
@@ -92,7 +101,7 @@ def generate_stack_stream():
 
         <!-- Clip Path to keep streaming pills strictly within container borders -->
         <clipPath id="inner-stream-clip">
-            <rect x="16" y="60" width="{width - 32}" height="{height - 76}" rx="10" />
+            <rect x="16" y="60" width="{width - 32}" height="{height - 110}" rx="10" />
         </clipPath>
     </defs>
 
@@ -100,105 +109,114 @@ def generate_stack_stream():
         .font-sans {{ font-family: {FONTS['sans']}; }}
         .font-mono {{ font-family: {FONTS['mono']}; }}
 
-        /* Row 1 Stream Animation (Leftwards) */
         @keyframes streamRow1 {{
-            0% {{
-                transform: translateX(0px);
-            }}
-            100% {{
-                transform: translateX(-{r1_width}px);
-            }}
+            0% {{ transform: translateX(0px); }}
+            100% {{ transform: translateX(-{r1_width}px); }}
         }}
-
-        /* Row 2 Stream Animation (Rightwards) */
         @keyframes streamRow2 {{
-            0% {{
-                transform: translateX(-{r2_width}px);
-            }}
-            100% {{
-                transform: translateX(0px);
-            }}
+            0% {{ transform: translateX(-{r2_width}px); }}
+            100% {{ transform: translateX(0px); }}
         }}
-
-        /* Row 3 Stream Animation (Leftwards, slightly different tempo) */
         @keyframes streamRow3 {{
-            0% {{
-                transform: translateX(0px);
-            }}
-            100% {{
-                transform: translateX(-{r3_width}px);
-            }}
+            0% {{ transform: translateX(0px); }}
+            100% {{ transform: translateX(-{r3_width}px); }}
+        }}
+        @keyframes streamRow4 {{
+            0% {{ transform: translateX(-{r4_width}px); }}
+            100% {{ transform: translateX(0px); }}
         }}
 
-        .row1 {{
-            animation: streamRow1 16s linear infinite;
+        .row-stream-1 {{
+            animation: streamRow1 30s linear infinite;
         }}
-        .row2 {{
-            animation: streamRow2 18s linear infinite;
+        .row-stream-2 {{
+            animation: streamRow2 34s linear infinite;
         }}
-        .row3 {{
-            animation: streamRow3 15s linear infinite;
+        .row-stream-3 {{
+            animation: streamRow3 32s linear infinite;
+        }}
+        .row-stream-4 {{
+            animation: streamRow4 36s linear infinite;
         }}
 
-        /* Live Indicator Blink */
-        @keyframes streamDotPulse {{
-            0%, 100% {{ opacity: 1; }}
-            50% {{ opacity: 0.3; }}
-        }}
-        .stream-live {{
-            animation: streamDotPulse 1.4s infinite ease-in-out;
+        .stream-viewport:hover .row-stream-1,
+        .stream-viewport:hover .row-stream-2,
+        .stream-viewport:hover .row-stream-3,
+        .stream-viewport:hover .row-stream-4 {{
+            animation-play-state: paused;
         }}
     </style>
 
-    <!-- Card Base -->
+    <!-- Background card with neon border matching VISUAL.MAP -->
     <rect width="{width}" height="{height}" rx="14" fill="url(#stack-bg)" />
     <rect width="{width}" height="{height}" rx="14" fill="url(#stack-ambient)" />
+    <rect width="{width}" height="{height}" rx="14" fill="none" stroke="#18202f" stroke-width="1" />
+
+    <!-- Corner brackets matching VISUAL.MAP -->
+    <path d="M 18 36 L 18 18 L 36 18" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <path d="M 18 {height - 36} L 18 {height - 18} L 36 {height - 18}" fill="none" stroke="#38bdf8" stroke-width="2" />
+
+    <!-- Header bar -->
+    <text x="40" y="27" fill="#38bdf8" font-size="13" font-weight="700" class="font-mono">STACK.STREAM</text>
+    <circle cx="165" cy="22" r="3.5" fill="#22c55e" />
+    <text x="176" y="26" fill="#64748b" font-size="11" class="font-mono">LIVE MATRIX</text>
     
-    <!-- Outer Neon Glow Border -->
-    <rect x="12" y="12" width="{width - 24}" height="{height - 24}" rx="12" fill="none" stroke="url(#neon-border)" stroke-width="1.4" />
+    <!-- Thin divider matching VISUAL.MAP -->
+    <line x1="18" y1="52" x2="{width - 18}" y2="52" stroke="#18202f" stroke-width="1" />
 
-    <!-- Top Label Bar -->
-    <g transform="translate(26, 38)">
-        <text x="0" y="0" class="font-mono" font-size="12.5" font-weight="700" fill="#38bdf8" letter-spacing="0.18em">
-            STACK.STREAM
-        </text>
-
-        <!-- Live Streaming Pill Tag -->
-        <g transform="translate(136, -14)">
-            <rect width="96" height="20" rx="5" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <circle cx="12" cy="10" r="3.5" fill="#2dd4bf" class="stream-live"/>
-            <text x="22" y="14" fill="#94a3b8" font-size="11" font-weight="600" class="font-mono">
-                LIVE FLOW
-            </text>
-        </g>
-    </g>
-
-    <!-- Clipped Stream Rows -->
-    <g clip-path="url(#inner-stream-clip)">
-        <!-- Row 1 -->
-        <g transform="translate(0, 80)">
-            <g class="row1">
+    <!-- Streaming viewport clipped inside bounds -->
+    <g class="stream-viewport" clip-path="url(#inner-stream-clip)">
+        <!-- Row 1: Leftward stream -->
+        <g transform="translate(0, 78)">
+            <g class="row-stream-1">
                 {row1_markup}
             </g>
         </g>
 
-        <!-- Row 2 -->
-        <g transform="translate(0, 155)">
-            <g class="row2">
+        <!-- Row 2: Rightward stream -->
+        <g transform="translate(0, 162)">
+            <g class="row-stream-2">
                 {row2_markup}
             </g>
         </g>
 
-        <!-- Row 3 -->
-        <g transform="translate(0, 230)">
-            <g class="row3">
+        <!-- Row 3: Leftward stream -->
+        <g transform="translate(0, 246)">
+            <g class="row-stream-3">
                 {row3_markup}
             </g>
         </g>
+
+        <!-- Row 4: Rightward stream -->
+        <g transform="translate(0, 330)">
+            <g class="row-stream-4">
+                {row4_markup}
+            </g>
+        </g>
     </g>
+
+    <!-- Side edge fade vignettes to prevent clipping visual jumps -->
+    <rect x="16" y="60" width="30" height="{height - 110}" fill="url(#left-fade)" pointer-events="none" />
+    <rect x="{width - 46}" y="60" width="30" height="{height - 110}" fill="url(#right-fade)" pointer-events="none" />
+
+    <defs>
+        <linearGradient id="left-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#080c16" stop-opacity="0.95" />
+            <stop offset="100%" stop-color="#080c16" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient id="right-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#080c16" stop-opacity="0" />
+            <stop offset="100%" stop-color="#080c16" stop-opacity="0.95" />
+        </linearGradient>
+    </defs>
+
+    <!-- Footer caption matching VISUAL.MAP film.cut() alignment -->
+    <text x="{width / 2}" y="{height - 24}" fill="#64748b" font-size="11" class="font-mono" text-anchor="middle">
+        CONTINUOUS PIPELINE • 24 TECHNOLOGIES
+    </text>
 </svg>"""
 
-    save_svg("stack_stream.svg", svg)
+    save_svg("assets/stack_stream.svg", svg)
 
 if __name__ == "__main__":
     generate_stack_stream()
