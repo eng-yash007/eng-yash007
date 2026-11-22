@@ -7,120 +7,134 @@ def generate_about():
 
     college = profile.get("college", "ABES Engineering College, Ghaziabad")
     width = 900
-    height = 360
+    height = 340
 
     pills = [
-        "Python", "SQL", "Java", "C++", "LaTeX", "Computer Vision", "GenAI", "Blockchain"
+        "Python", "C++", "FastAPI", "Next.js", "LangChain", "PyTorch", "OpenCV", "PostgreSQL", "Docker", "SQL"
     ]
 
     # Calculate pill positions
     pill_elements = []
     curr_x = 36
-    pill_y = 300
+    pill_y = 282
     for pill in pills:
-        pill_width = len(pill) * 9 + 26
+        pill_width = len(pill) * 8.5 + 24
         pill_elements.append(f"""
         <g transform="translate({curr_x}, {pill_y})">
-            <rect width="{pill_width}" height="32" rx="16" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-            <text x="{pill_width/2}" y="20.5" fill="#f1f5f9" font-size="13" font-weight="500" class="font-sans" text-anchor="middle">
+            <rect width="{pill_width}" height="28" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
+            <text x="{pill_width/2}" y="18" fill="#e2e8f0" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
                 {escape(pill)}
             </text>
         </g>
         """)
-        curr_x += pill_width + 12
+        curr_x += pill_width + 10
 
     pills_markup = "\n".join(pill_elements)
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
     <defs>
         <linearGradient id="about-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#080b12" />
-            <stop offset="60%" stop-color="#0b101b" />
-            <stop offset="100%" stop-color="#07090f" />
+            <stop offset="0%" stop-color="#080c14" />
+            <stop offset="60%" stop-color="#0b101d" />
+            <stop offset="100%" stop-color="#070a12" />
         </linearGradient>
 
         <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#0f172a" stop-opacity="0.9" />
-            <stop offset="100%" stop-color="#020617" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="#060911" stop-opacity="0.9" />
         </linearGradient>
 
-        <linearGradient id="border-glow" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#334155" stop-opacity="0.8"/>
-            <stop offset="50%" stop-color="#1e293b" stop-opacity="0.5"/>
-            <stop offset="100%" stop-color="#334155" stop-opacity="0.7"/>
+        <linearGradient id="about-border" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9"/>
+            <stop offset="50%" stop-color="#334155" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#1e293b" stop-opacity="0.9"/>
         </linearGradient>
     </defs>
 
     <style>
-        .font-sans {{ font-family: {FONTS['sans']}; }}
-        .font-mono {{ font-family: {FONTS['mono']}; }}
+        .font-sans {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; }}
+        .font-mono {{ font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, Menlo, monospace; }}
     </style>
 
     <!-- Background Container -->
-    <rect width="{width}" height="{height}" rx="16" fill="url(#about-bg)" />
-    <rect width="{width}" height="{height}" rx="16" fill="none" stroke="url(#border-glow)" stroke-width="1.2" />
+    <rect width="{width}" height="{height}" rx="14" fill="url(#about-bg)" />
+    <rect width="{width}" height="{height}" rx="14" fill="none" stroke="url(#about-border)" stroke-width="1.2" />
 
-    <!-- Top Tag: Yash — Portfolio -->
+    <!-- Top Tag: Yash Gupta — Identity -->
     <g transform="translate(36, 26)">
-        <rect width="130" height="24" rx="6" fill="#1e293b" fill-opacity="0.6"/>
-        <text x="65" y="16" fill="#94a3b8" font-size="12" font-weight="500" class="font-sans" text-anchor="middle">
-            Yash — Portfolio
+        <rect width="180" height="22" rx="4" fill="#1e293b" fill-opacity="0.6"/>
+        <text x="90" y="15" fill="#818cf8" font-size="11" font-weight="600" class="font-mono" text-anchor="middle">
+            PROFILE // SPECIFICATION
         </text>
     </g>
 
-    <!-- LEFT COLUMN: About & Narrative -->
-    <g transform="translate(36, 75)">
-        <text x="0" y="36" class="font-sans" font-size="34" font-weight="800" fill="#f8fafc">
-            About
+    <!-- LEFT COLUMN: Introduction -->
+    <g transform="translate(36, 68)">
+        <text x="0" y="28" class="font-sans" font-size="28" font-weight="800" fill="#f8fafc">
+            Yash Gupta
         </text>
 
-        <text x="0" y="66" class="font-sans" font-size="14.5" font-weight="500" fill="#94a3b8">
-            {escape(college)}
+        <text x="0" y="52" class="font-sans" font-size="13" font-weight="600" fill="#2dd4bf">
+            AI Engineer | Computer Vision | Generative AI
         </text>
 
-        <!-- Paragraph -->
-        <text x="0" y="104" class="font-sans" font-size="14.5" fill="#94a3b8" line-height="1.6">
-            <tspan x="0" dy="0">I'm a Computer Vision intern at Ragh Vision, working on real-</tspan>
-            <tspan x="0" dy="24">time traffic monitoring. Outside work I solve problems in</tspan>
-            <tspan x="0" dy="24">competitive programming and explore GenAI, blockchain and</tspan>
-            <tspan x="0" dy="24">full-stack development.</tspan>
+        <text x="0" y="74" class="font-sans" font-size="12.5" font-weight="500" fill="#94a3b8">
+            {escape(college)} · CGPA 8.0
+        </text>
+
+        <!-- Concise, Verified Paragraph -->
+        <text x="0" y="104" class="font-sans" font-size="13" fill="#94a3b8" line-height="1.5">
+            <tspan x="0" dy="0">Computer Science (Data Science) undergraduate engineer</tspan>
+            <tspan x="0" dy="20">turning CV and GenAI into production systems. Hands-on</tspan>
+            <tspan x="0" dy="20">experience with real-time video workflows at Ragh Vision</tspan>
+            <tspan x="0" dy="20">and enterprise RAG pipelines at Capri Global.</tspan>
         </text>
     </g>
 
-    <!-- RIGHT COLUMN: # yash.config Terminal Card -->
-    <g transform="translate(485, 36)">
-        <!-- Code Window Box -->
-        <rect width="375" height="225" rx="16" fill="url(#card-grad)" stroke="#1e293b" stroke-width="1.2"/>
+    <!-- RIGHT COLUMN: Compact Terminal-Style Identity Card -->
+    <g transform="translate(485, 32)">
+        <rect width="380" height="228" rx="12" fill="url(#card-grad)" stroke="#1e293b" stroke-width="1.1"/>
 
-        <g transform="translate(24, 32)">
-            <!-- Header comment -->
-            <text x="0" y="0" class="font-mono" font-size="13.5" fill="#64748b" font-weight="600">
+        <!-- Terminal Title Bar -->
+        <g transform="translate(16, 18)">
+            <circle cx="0" cy="0" r="4.5" fill="#ff5f56"/>
+            <circle cx="14" cy="0" r="4.5" fill="#ffbd2e"/>
+            <circle cx="28" cy="0" r="4.5" fill="#27c93f"/>
+            <text x="44" y="4" class="font-mono" font-size="11" fill="#64748b" font-weight="600">
                 # yash.config
             </text>
+        </g>
 
-            <!-- role: "CV Intern" -->
-            <text x="0" y="32" class="font-mono" font-size="13.5">
-                <tspan fill="#2dd4bf">role</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"CV Intern"</tspan>
+        <!-- Terminal Content -->
+        <g transform="translate(18, 54)">
+            <!-- identity -->
+            <text x="0" y="0" class="font-mono" font-size="12.5">
+                <tspan fill="#2dd4bf">identity</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"AI &amp; CV Engineer"</tspan>
             </text>
 
-            <!-- focus: ["Computer Vision", "GenAI"] -->
-            <text x="0" y="62" class="font-mono" font-size="13.5">
-                <tspan fill="#2dd4bf">focus</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Computer Vision"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"GenAI"</tspan><tspan fill="#64748b">]</tspan>
+            <!-- focus -->
+            <text x="0" y="26" class="font-mono" font-size="12.5">
+                <tspan fill="#2dd4bf">focus</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Computer Vision"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"GenAI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"RAG"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
-            <!-- also: ["Blockchain", "Full-stack", "CP"] -->
-            <text x="0" y="92" class="font-mono" font-size="13.5">
-                <tspan fill="#2dd4bf">also</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Blockchain"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Full-stack"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"CP"</tspan><tspan fill="#64748b">]</tspan>
+            <!-- experience -->
+            <text x="0" y="52" class="font-mono" font-size="12.5">
+                <tspan fill="#2dd4bf">experience</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"Ragh Vision"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Capri Global"</tspan><tspan fill="#64748b">]</tspan>
             </text>
 
-            <!-- status: "building" -->
-            <text x="0" y="122" class="font-mono" font-size="13.5">
-                <tspan fill="#2dd4bf">status</tspan><tspan fill="#64748b">: </tspan><tspan fill="#f1f5f9">"building"</tspan>
+            <!-- core_stack -->
+            <text x="0" y="78" class="font-mono" font-size="12.5">
+                <tspan fill="#2dd4bf">core_stack</tspan><tspan fill="#64748b">: [</tspan><tspan fill="#f1f5f9">"FastAPI"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Next.js"</tspan><tspan fill="#64748b">, </tspan><tspan fill="#f1f5f9">"Docker"</tspan><tspan fill="#64748b">]</tspan>
+            </text>
+
+            <!-- status -->
+            <text x="0" y="104" class="font-mono" font-size="12.5">
+                <tspan fill="#2dd4bf">status</tspan><tspan fill="#64748b">: </tspan><tspan fill="#34d399">"building real-world AI systems"</tspan>
             </text>
         </g>
     </g>
 
-    <!-- BOTTOM ROW: Tech Pills -->
+    <!-- BOTTOM ROW: Tech Badges -->
     {pills_markup}
 </svg>"""
 
@@ -128,4 +142,3 @@ def generate_about():
 
 if __name__ == "__main__":
     generate_about()
-

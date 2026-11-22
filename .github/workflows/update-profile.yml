@@ -1,0 +1,53 @@
+name: Update Profile Dashboard
+
+on:
+  schedule:
+    # Runs automatically every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+concurrency:
+  group: profile-update
+  cancel-in-progress: true
+
+jobs:
+  refresh-dashboard:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Fetch Real Profile Data and Rebuild Assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/build.py
+
+      - name: Commit and Push Verified Updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Stage updated assets, data, and readme
+          git add assets/ data/ README.md
+          
+          if git diff --staged --quiet; then
+            echo "No changes detected. Dashboard is up to date."
+          else
+            git commit -m "chore(dashboard): automated live profile telemetry update [skip ci]"
+            git push
+          fi

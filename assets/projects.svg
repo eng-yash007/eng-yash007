@@ -1,118 +1,145 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250">
     <defs>
         <linearGradient id="proj-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#080b12" />
-            <stop offset="50%" stop-color="#0c111e" />
-            <stop offset="100%" stop-color="#070a11" />
+            <stop offset="0%" stop-color="#080c14" />
+            <stop offset="50%" stop-color="#0b101d" />
+            <stop offset="100%" stop-color="#070a12" />
         </linearGradient>
 
-        <linearGradient id="card-inner-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0f172a" stop-opacity="0.9" />
-            <stop offset="100%" stop-color="#090d16" stop-opacity="0.9" />
-        </linearGradient>
-
-        <linearGradient id="proj-glow" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#334155" stop-opacity="0.8"/>
-            <stop offset="50%" stop-color="#1e293b" stop-opacity="0.4"/>
-            <stop offset="100%" stop-color="#334155" stop-opacity="0.8"/>
+        <linearGradient id="proj-border" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9"/>
+            <stop offset="50%" stop-color="#334155" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#1e293b" stop-opacity="0.9"/>
         </linearGradient>
     </defs>
 
     <style>
-        .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace; }
+        .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, Menlo, monospace; }
     </style>
 
     <!-- Background Frame -->
-    <rect width="900" height="300" rx="16" fill="url(#proj-bg)" />
-    <rect width="900" height="300" rx="16" fill="none" stroke="url(#proj-glow)" stroke-width="1.2" />
+    <rect width="900" height="250" rx="14" fill="url(#proj-bg)" />
+    <rect width="900" height="250" rx="14" fill="none" stroke="url(#proj-border)" stroke-width="1.2" />
 
-    <!-- Header Section -->
-    <g transform="translate(36, 36)">
-        <text x="0" y="0" class="font-mono" font-size="12" font-weight="700" fill="#2dd4bf" letter-spacing="0.18em">
-            FEATURED.SYSTEMS // PRODUCTION &amp; RESEARCH
+    <!-- Top Header -->
+    <g transform="translate(36, 32)">
+        <text x="0" y="0" class="font-mono" font-size="11.5" font-weight="700" fill="#2dd4bf" letter-spacing="0.16em">
+            FEATURED.SYSTEMS // PRODUCTION ARCHITECTURE
+        </text>
+        <text x="828" y="0" class="font-mono" font-size="10.5" fill="#64748b" text-anchor="end">
+            Verified Repositories
         </text>
     </g>
 
-    <!-- LEFT PROJECT: Silent Gallery -->
-    <g transform="translate(36, 60)">
-        <rect width="404" height="210" rx="14" fill="url(#card-inner-bg)" stroke="#1e293b" stroke-width="1.2" />
-
-        <!-- Top Badge -->
-        <g transform="translate(20, 20)">
-            <rect width="70" height="22" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
-            <text x="35" y="15" fill="#34d399" font-size="11" font-weight="700" class="font-mono" text-anchor="middle">LIVE DEMO</text>
+    <!-- Project Cards -->
+    
+        <g transform="translate(36, 56)">
+            <rect width="265" height="166" rx="10" fill="#0f172a" fill-opacity="0.9" stroke="#1e293b" stroke-width="1.1"/>
+            
+            <!-- Badge -->
+            <g transform="translate(16, 14)">
+                <rect width="78" height="18" rx="4" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
+                <text x="39" y="12.5" fill="#34d399" font-size="9" font-weight="700" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">LIVE DEMO</text>
+            </g>
+            
+            <!-- Title -->
+            <text x="16" y="52" fill="#f8fafc" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif">Silent Gallery</text>
+            <text x="16" y="68" fill="#818cf8" font-size="11" font-weight="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif">Voice AI Workspace</text>
+            
+            <!-- Description -->
+            <text x="16" y="86" fill="#94a3b8" font-size="11" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif">
+                <tspan x="16" dy="0">Voice productivity hub with Whisper</tspan>
+                <tspan x="16" dy="15">& Groq/Llama-3 for natural tasks,</tspan>
+                <tspan x="16" dy="15">and real-time Google Calendar sync.</tspan>
+            </text>
+            
+            <!-- Tech Stack Pills -->
+            
+            <rect x="16" y="128" width="64.4" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="48.2" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">Next.js</text>
+            
+            <rect x="86.4" y="128" width="64.4" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="118.60000000000001" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">Llama-3</text>
+            
+            <rect x="156.8" y="128" width="64.4" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="189.0" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">Whisper</text>
+            
+            <rect x="227.20000000000002" y="128" width="71.6" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="263.0" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">Supabase</text>
+            
         </g>
-
-        <!-- Project Title -->
-        <text x="20" y="74" class="font-sans" font-size="20" font-weight="700" fill="#f8fafc">
-            Silent Gallery
-        </text>
-        <text x="20" y="96" class="font-sans" font-size="13" font-weight="500" fill="#818cf8">
-            Voice-Enabled Smart Workspace
-        </text>
-
-        <!-- Description -->
-        <text x="20" y="126" class="font-sans" font-size="12.5" fill="#94a3b8">
-            <tspan x="20" dy="0">Voice assistant powered by Whisper &amp; Llama-3 (Groq API)</tspan>
-            <tspan x="20" dy="19">to parse natural voice commands, automate task creation</tspan>
-            <tspan x="20" dy="19">and sync with Google Workspace &amp; Meet pipelines.</tspan>
-        </text>
-
-        <!-- Tech Pills -->
-        <g transform="translate(20, 172)">
-            <rect width="58" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
-            <text x="29" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">Next.js</text>
-
-            <rect x="66" width="65" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
-            <text x="98" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">Llama-3</text>
-
-            <rect x="139" width="65" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
-            <text x="171" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">Whisper</text>
-
-            <rect x="212" width="75" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
-            <text x="249" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">PostgreSQL</text>
+        
+        <g transform="translate(317, 56)">
+            <rect width="265" height="166" rx="10" fill="#0f172a" fill-opacity="0.9" stroke="#1e293b" stroke-width="1.1"/>
+            
+            <!-- Badge -->
+            <g transform="translate(16, 14)">
+                <rect width="78" height="18" rx="4" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1"/>
+                <text x="39" y="12.5" fill="#60a5fa" font-size="9" font-weight="700" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">LIVE DEMO</text>
+            </g>
+            
+            <!-- Title -->
+            <text x="16" y="52" fill="#f8fafc" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif">Guardian Transit AI</text>
+            <text x="16" y="68" fill="#818cf8" font-size="11" font-weight="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif">Biometric Transit Safety</text>
+            
+            <!-- Description -->
+            <text x="16" y="86" fill="#94a3b8" font-size="11" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif">
+                <tspan x="16" dy="0">Real-time CV pipeline using YOLOv8</tspan>
+                <tspan x="16" dy="15">& ArcFace for 512-d embeddings,</tspan>
+                <tspan x="16" dy="15">pgvector search & live telemetry.</tspan>
+            </text>
+            
+            <!-- Tech Stack Pills -->
+            
+            <rect x="16" y="128" width="64.4" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="48.2" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">FastAPI</text>
+            
+            <rect x="86.4" y="128" width="57.2" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="115.0" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">YOLOv8</text>
+            
+            <rect x="149.60000000000002" y="128" width="64.4" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="181.8" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">ArcFace</text>
+            
+            <rect x="220.00000000000003" y="128" width="71.6" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="255.8" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">pgvector</text>
+            
         </g>
-    </g>
-
-    <!-- RIGHT PROJECT: Guardian Transit -->
-    <g transform="translate(460, 60)">
-        <rect width="404" height="210" rx="14" fill="url(#card-inner-bg)" stroke="#1e293b" stroke-width="1.2" />
-
-        <!-- Top Badge -->
-        <g transform="translate(20, 20)">
-            <rect width="92" height="22" rx="6" fill="#818cf8" fill-opacity="0.15" stroke="#818cf8" stroke-width="1"/>
-            <text x="46" y="15" fill="#a5b4fc" font-size="11" font-weight="700" class="font-mono" text-anchor="middle">OPEN SOURCE</text>
+        
+        <g transform="translate(598, 56)">
+            <rect width="265" height="166" rx="10" fill="#0f172a" fill-opacity="0.9" stroke="#1e293b" stroke-width="1.1"/>
+            
+            <!-- Badge -->
+            <g transform="translate(16, 14)">
+                <rect width="78" height="18" rx="4" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
+                <text x="39" y="12.5" fill="#c084fc" font-size="9" font-weight="700" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">ARCHITECTURE</text>
+            </g>
+            
+            <!-- Title -->
+            <text x="16" y="52" fill="#f8fafc" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif">DocuDost</text>
+            <text x="16" y="68" fill="#818cf8" font-size="11" font-weight="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif">Document RAG Intelligence</text>
+            
+            <!-- Description -->
+            <text x="16" y="86" fill="#94a3b8" font-size="11" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif">
+                <tspan x="16" dy="0">Enterprise document intelligence</tspan>
+                <tspan x="16" dy="15">platform powered by LangChain RAG,</tspan>
+                <tspan x="16" dy="15">FAISS vector store, and Hugging Face.</tspan>
+            </text>
+            
+            <!-- Tech Stack Pills -->
+            
+            <rect x="16" y="128" width="57.2" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="44.6" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">Python</text>
+            
+            <rect x="79.2" y="128" width="78.8" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="118.6" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">LangChain</text>
+            
+            <rect x="164.0" y="128" width="35.6" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="181.8" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">RAG</text>
+            
+            <rect x="205.6" y="128" width="50.0" height="18" rx="4" fill="#1e293b" fill-opacity="0.8"/>
+            <text x="230.6" y="140.5" fill="#94a3b8" font-size="9.5" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">FAISS</text>
+            
         </g>
-
-        <!-- Project Title -->
-        <text x="20" y="74" class="font-sans" font-size="20" font-weight="700" fill="#f8fafc">
-            Guardian Transit
-        </text>
-        <text x="20" y="96" class="font-sans" font-size="13" font-weight="500" fill="#2dd4bf">
-            AI School Bus Safety &amp; Telemetry
-        </text>
-
-        <!-- Description -->
-        <text x="20" y="126" class="font-sans" font-size="12.5" fill="#94a3b8">
-            <tspan x="20" dy="0">Real-time CV pipeline using YOLOv8-Face &amp; ArcFace</tspan>
-            <tspan x="20" dy="19">for 512-d facial embeddings, pgvector biometric search,</tspan>
-            <tspan x="20" dy="19">context-aware geofencing, and WebSocket alerts.</tspan>
-        </text>
-
-        <!-- Tech Pills -->
-        <g transform="translate(20, 172)">
-            <rect width="60" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
-            <text x="30" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">FastAPI</text>
-
-            <rect x="68" width="70" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
-            <text x="103" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">YOLOv8</text>
-
-            <rect x="146" width="75" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
-            <text x="183" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">InsightFace</text>
-
-            <rect x="229" width="65" height="22" rx="5" fill="#1e293b" fill-opacity="0.8"/>
-            <text x="261" y="15" fill="#cbd5e1" font-size="11" class="font-mono" text-anchor="middle">pgvector</text>
-        </g>
-    </g>
+        
 </svg>

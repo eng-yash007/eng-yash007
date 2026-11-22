@@ -1,3 +1,7 @@
+"""
+Master Build Script: Orchestrates live data fetching and SVG/GIF asset generation.
+"""
+
 import subprocess
 import sys
 import os
@@ -7,7 +11,6 @@ import logging
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 def get_python_runner():
-    # If sys.executable has PIL, use it; otherwise fallback to /usr/bin/python3
     try:
         import PIL
         return sys.executable
@@ -21,35 +24,34 @@ def run_script(script_name: str):
     if not script_path.exists():
         logging.warning(f"Script {script_path} not found. Skipping.")
         return
-    logging.info(f"Running {script_name}...")
+    logging.info(f"Executing {script_name}...")
     runner = sys.executable
     if script_name == "make_particle_map_gif.py":
         runner = get_python_runner()
     try:
         subprocess.run([runner, str(script_path)], check=True)
     except subprocess.CalledProcessError as e:
-        logging.error(f"Failed to run {script_name}: {e}")
+        logging.error(f"Error executing {script_name}: {e}")
 
 def main():
-    logging.info("Starting build process for modern profile...")
+    logging.info("Starting master profile generation pipeline...")
     
-    scripts = [
-        "fetch_stats.py",
-        "fetch_leetcode.py",
+    pipeline_scripts = [
+        "fetch_all_data.py",
+        "generate_metrics.py",
+        "generate_heatmap.py",
         "make_hero_svg.py",
         "make_about_svg.py",
-        "make_particle_map_gif.py",
-        "make_stack_stream_svg.py",
         "make_projects_svg.py",
-        "make_stats_svg.py",
+        "make_stack_stream_svg.py",
         "make_social_badges.py",
-        "render_heatmap.py"
+        "make_particle_map_gif.py"
     ]
     
-    for script in scripts:
+    for script in pipeline_scripts:
         run_script(script)
         
-    logging.info("Build complete. All modern assets generated successfully.")
+    logging.info("Master profile build pipeline complete. All assets updated.")
 
 if __name__ == "__main__":
     main()
