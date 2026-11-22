@@ -8,37 +8,22 @@
 
 <br>
 
-<!-- GENERATIVE VISUAL.MAP & LIVE STACK STREAM -->
+<!-- GENERATIVE VISUAL.MAP & CORE STACK.STREAM -->
 <table>
   <tr>
     <td align="center" valign="top">
       <img src="./assets/yg-particle-map.gif" width="440" alt="VISUAL.MAP - Generative AI Particle Visualization">
     </td>
     <td align="center" valign="top">
-      <img src="./assets/stack_stream.svg" width="440" alt="STACK.STREAM - Live Technology Matrix">
+      <img src="./assets/stack_stream.svg" width="440" alt="STACK.STREAM - Core Technology Matrix">
     </td>
   </tr>
 </table>
 
 <br>
 
-<!-- FEATURED SYSTEMS (PREMIUM DARK TECH DEPLOYMENTS) -->
+<!-- FEATURED SYSTEMS (MINIMAL PRODUCTION CARDS WITH EMBEDDED ACTIONS) -->
 <img src="./assets/projects.svg" width="900" alt="Featured Systems: Silent Gallery & Guardian Transit AI">
-
-<table>
-  <tr>
-    <td width="440" align="center">
-      <a href="https://silent-galleryyy.vercel.app" target="_blank">🚀 <b>Live Demo</b></a>
-      &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://github.com/eng-yash007/silent_gallery" target="_blank">💻 <b>GitHub Repository</b></a>
-    </td>
-    <td width="440" align="center">
-      <a href="https://guardian-transit-zeta.vercel.app" target="_blank">🚀 <b>Live Demo</b></a>
-      &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://github.com/eng-yash007/guardian-transit" target="_blank">💻 <b>GitHub Repository</b></a>
-    </td>
-  </tr>
-</table>
 
 <br>
 
