@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-11-23 06:44 UTC",
+  "last_updated": "2026-11-23 23:38 UTC",
   "github": {
     "status": "success",
     "username": "eng-yash007",
     "public_repos": 12,
     "followers": 1,
     "following": 0,
-    "total_stars": 3,
+    "total_stars": 16,
     "total_forks": 1,
     "contributions": {
       "totalContributions": 540,
@@ -2509,14 +2509,14 @@
     "easy_solved": 108,
     "medium_solved": 87,
     "hard_solved": 10,
-    "ranking": 859050,
+    "ranking": 859394,
     "contest_rating": 1348.310946398709,
     "is_cached": false
   },
   "codechef": {
     "status": "success",
     "username": "yashgupta9171",
-    "problems_solved": 593,
+    "problems_solved": 594,
     "rating": 1311,
     "stars": "1\u2605",
     "highest_rating": 0,
