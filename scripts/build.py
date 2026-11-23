@@ -11,13 +11,14 @@ import logging
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 def get_python_runner():
-    try:
-        import PIL
-        return sys.executable
-    except ImportError:
-        if os.path.exists("/usr/bin/python3"):
-            return "/usr/bin/python3"
-        return sys.executable
+    for candidate in [sys.executable, "/usr/bin/python3", "/opt/homebrew/bin/python3", "python3"]:
+        try:
+            res = subprocess.run([candidate, "-c", "import PIL, numpy"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            if res.returncode == 0:
+                return candidate
+        except Exception:
+            pass
+    return sys.executable
 
 def run_script(script_name: str):
     script_path = Path("scripts") / script_name

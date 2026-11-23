@@ -4,6 +4,45 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
 
+def get_font(size: int, bold: bool = False, mono: bool = False):
+    candidates = []
+    if mono:
+        candidates = [
+            "/System/Library/Fonts/Menlo.ttc",
+            "/System/Library/Fonts/Monaco.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf",
+            "/usr/share/fonts/truetype/freefont/FreeMono.ttf"
+        ]
+    elif bold:
+        candidates = [
+            "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+            "/System/Library/Fonts/Helvetica.ttc",
+            "/Library/Fonts/Arial.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+            "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf"
+        ]
+    else:
+        candidates = [
+            "/System/Library/Fonts/Helvetica.ttc",
+            "/Library/Fonts/Arial.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"
+        ]
+    
+    for path in candidates:
+        if Path(path).exists():
+            try:
+                return ImageFont.truetype(path, size)
+            except Exception:
+                continue
+
+    try:
+        return ImageFont.load_default(size=size)
+    except Exception:
+        return ImageFont.load_default()
+
 def sample_keyword_particles(word: str, font, n_particles: int, width: int = 440, height: int = 320):
     img = Image.new("L", (width, height), 0)
     draw = ImageDraw.Draw(img)
@@ -11,11 +50,12 @@ def sample_keyword_particles(word: str, font, n_particles: int, width: int = 440
     # Letter spacing expansion for short words so they occupy balanced horizontal scale
     display_word = word
     if len(word) == 2:
-        display_word = f"{word[0]}  {word[1]}"
+        display_word = f"{word[0]}   {word[1]}"
     elif len(word) == 3:
         display_word = f"{word[0]} {word[1]} {word[2]}"
         
-    draw.text((width // 2, 165), display_word, font=font, fill=255, anchor="mm")
+    # Vertical center between header (y=48) and footer (y=296) is ~172
+    draw.text((width // 2, 172), display_word, font=font, fill=255, anchor="mm")
     
     arr = np.array(img)
     y_idx, x_idx = np.where(arr > 120)
@@ -24,8 +64,8 @@ def sample_keyword_particles(word: str, font, n_particles: int, width: int = 440
     chosen_idx = rng.choice(len(x_idx), size=n_particles, replace=(len(x_idx) < n_particles))
     
     # Controlled Gaussian jitter for a luminous stippled constellation
-    pts_x = x_idx[chosen_idx].astype(np.float32) + rng.normal(0, 1.3, n_particles)
-    pts_y = y_idx[chosen_idx].astype(np.float32) + rng.normal(0, 1.3, n_particles)
+    pts_x = x_idx[chosen_idx].astype(np.float32) + rng.normal(0, 1.2, n_particles)
+    pts_y = y_idx[chosen_idx].astype(np.float32) + rng.normal(0, 1.2, n_particles)
     
     pts = np.stack([pts_x, pts_y], axis=1)
     
@@ -34,7 +74,7 @@ def sample_keyword_particles(word: str, font, n_particles: int, width: int = 440
     return pts[order]
 
 def generate_particle_map_gif():
-    # Harmonious frame proportions: 440x320
+    # Harmonious frame proportions: 440x320 (perfect symmetry with STACK.STREAM)
     width = 440
     height = 320
     
@@ -49,21 +89,10 @@ def generate_particle_map_gif():
     keywords = ["GenAI", "CV", "RAG", "LLM"]
     total_frames = len(keywords) * frames_per_word
 
-    # Font setup: size 82 fills the viewport with clear readability
-    try:
-        font_word = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Bold.ttf", 82)
-    except Exception:
-        try:
-            font_word = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 82)
-        except Exception:
-            font_word = ImageFont.load_default()
-
-    try:
-        font_mono = ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", 12)
-        font_caption = ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", 12)
-    except Exception:
-        font_mono = ImageFont.load_default()
-        font_caption = ImageFont.load_default()
+    # Cross-platform fonts with robust fallbacks
+    font_word = get_font(82, bold=True)
+    font_mono = get_font(12, mono=True)
+    font_mono_small = get_font(10, mono=True)
 
     word_targets = [sample_keyword_particles(w, font_word, n_keyword_particles, width, height) for w in keywords]
 
@@ -176,21 +205,27 @@ def generate_particle_map_gif():
             if i < n_keyword_particles:
                 draw.point((int(px), int(py)), fill=(255, 255, 255))
 
-        # UI Frame
+        # UI Outer Frame (matches STACK.STREAM)
         draw.rounded_rectangle([0, 0, width - 1, height - 1], radius=14, outline=(30, 41, 59), width=1)
 
         # Top-left corner bracket
         draw.line([(18, 34), (18, 18), (34, 18)], fill=(56, 189, 248), width=2)
-        draw.text((38, 25), "VISUAL.MAP", font=font_mono, fill=(56, 189, 248))
         
+        # Header text
+        draw.text((38, 25), "VISUAL.MAP", font=font_mono, fill=(56, 189, 248), anchor="lm")
+        
+        # Live status indicator (symmetrically matched with STACK.STREAM's LIVE MATRIX)
+        draw.ellipse([146, 21, 153, 28], fill=(34, 197, 94))
+        draw.text((158, 25), "LATENT FIELD", font=font_mono_small, fill=(100, 116, 139), anchor="lm")
+
         # Horizontal divider line
         draw.line([(18, 48), (width - 18, 48)], fill=(30, 41, 59), width=1)
 
         # Bottom-left corner bracket
         draw.line([(18, height - 34), (18, height - 18), (34, height - 18)], fill=(56, 189, 248), width=2)
 
-        # Bottom caption
-        draw.text((width // 2, height - 20), "film.cut()", font=font_caption, fill=(244, 114, 182), anchor="mm")
+        # Bottom caption (symmetrically matched with STACK.STREAM's footer)
+        draw.text((width // 2, height - 20), "GENERATIVE NODES • DYNAMIC MORPHING", font=font_mono_small, fill=(100, 116, 139), anchor="mm")
 
         paletted = frame_img.quantize(colors=64, method=Image.Quantize.MEDIANCUT)
         frames.append(paletted)
