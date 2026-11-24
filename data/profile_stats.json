@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-24 09:11 UTC",
+  "last_updated": "2026-11-24 22:08 UTC",
   "github": {
     "status": "success",
     "username": "eng-yash007",
@@ -2511,18 +2511,18 @@
   "leetcode": {
     "status": "success",
     "username": "eng-yash007",
-    "total_solved": 205,
-    "easy_solved": 108,
+    "total_solved": 206,
+    "easy_solved": 109,
     "medium_solved": 87,
     "hard_solved": 10,
-    "ranking": 859394,
+    "ranking": 859701,
     "contest_rating": 1348.310946398709,
     "is_cached": false
   },
   "codechef": {
     "status": "success",
     "username": "yashgupta9171",
-    "problems_solved": 594,
+    "problems_solved": 595,
     "rating": 1311,
     "stars": "1\u2605",
     "highest_rating": 0,
